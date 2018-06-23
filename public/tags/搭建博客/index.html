@@ -6,11 +6,11 @@
   <meta name="renderer" content="webkit">
   <meta http-equiv="X-UA-Compatible" content="IE=edge" >
   <link rel="dns-prefetch" href="http://yoursite.com">
-  <title>MinBud的博客</title>
+  <title>Tag: 搭建博客 | MinBud的博客</title>
   <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
   <meta property="og:type" content="website">
 <meta property="og:title" content="MinBud的博客">
-<meta property="og:url" content="http://yoursite.com/index.html">
+<meta property="og:url" content="http://yoursite.com/tags/搭建博客/index.html">
 <meta property="og:site_name" content="MinBud的博客">
 <meta property="og:locale" content="default">
 <meta name="twitter:card" content="summary">
@@ -144,113 +144,34 @@
           <div id="js-content" class="content-ll">
             
   
-    <article id="post-ethernet" class="article article-type-post  article-index" itemscope itemprop="blogPost">
-  <div class="article-inner">
-    
-      <header class="article-header">
-        
   
-    <h1 itemprop="name">
-      <a class="article-title" href="/2018/06/23/ethernet/">ethernet</a>
-    </h1>
-  
-
-        
-        <a href="/2018/06/23/ethernet/" class="archive-article-date">
-  	<time datetime="2018-06-23T12:56:39.000Z" itemprop="datePublished"><i class="icon-calendar icon"></i>2018-06-23</time>
-</a>
-        
-      </header>
     
-    <div class="article-entry" itemprop="articleBody">
-      
-        <h2 id="1-以太网最小帧长"><a href="#1-以太网最小帧长" class="headerlink" title="1. 以太网最小帧长"></a>1. 以太网最小帧长</h2><p>　　以太网中的最小帧长为64字节（包括以太网帧的前后部分：14+4字节）。亦即数据段为46字节。<br>　　64字节的计算过程涉及以太网的载波监听冲突检测机制。基本原理是一个发送端需要在发送完数据前能够监听到在此信道上在它之前已经开始发送数据的发送冲突。在最极端的情况下，两个发送端距离最远，第一个发送端A在开始发送数据后，数据在经过t时间后会到达发送端B，在到达之前B监听不到数据因此也开始发送数据，B开始发送后随机监听到A的数据，因此发出阻塞信号。经过时间t后阻塞信号到达A，要求此时A数据还没有发送完毕，才能检测到数据发送出错。也就是发送数据的时间要大于2t。<br>　　标准规定，10Mbps以太网采用中继器时，连接最大长度为2500米，最多经过4个中继器，信号在介质中传输速度小于光速c，一般范围为0.6~0.8c，取0.7c，则最大传输时延为（2500*4）/0.7c,因此规定对于10Mbps以太网规定一帧的最小发送时间必须为51.2μs。<br>　　51.2 μs为512bit即64字节数据在10Mbps以太网下的发送时间。  </p>
-        
-          <a class="article-more-a" href="/2018/06/23/ethernet/#more">more >></a>
-        
-      
-
-      
-    </div>
-    <div class="article-info article-info-index">
+    
       
       
-	<div class="article-tag tagcloud">
-		<i class="icon-price-tags icon"></i>
-		<ul class="article-tag-list">
-			 
-        		<li class="article-tag-list-item">
-        			<a href="javascript:void(0)" class="js-tag article-tag-list-link color1">计算机网络</a>
-        		</li>
-      		
-		</ul>
-	</div>
-
-      
-
-      
-        <p class="article-more-link">
-          <a class="article-more-a" href="/2018/06/23/ethernet/">展开全文 >></a>
-        </p>
-      
-
-      
-      <div class="clearfix"></div>
-    </div>
-  </div>
-</article>
-
-<aside class="wrap-side-operation">
-    <div class="mod-side-operation">
-        
-        <div class="jump-container" id="js-jump-container" style="display:none;">
-            <a href="javascript:void(0)" class="mod-side-operation__jump-to-top">
-                <i class="icon-font icon-back"></i>
-            </a>
-            <div id="js-jump-plan-container" class="jump-plan-container" style="top: -11px;">
-                <i class="icon-font icon-plane jump-plane"></i>
-            </div>
+      <section class="archives-wrap">
+        <div class="archive-year-wrap">
+          <a href="/archives/2018" class="archive-year">2018</a>
         </div>
-        
-        
-    </div>
-</aside>
-
-
-
-
-  
-    <article id="post-Github-Pages-hexo" class="article article-type-post  article-index" itemscope itemprop="blogPost">
-  <div class="article-inner">
+        <div class="archives">
     
-      <header class="article-header">
-        
-  
-    <h1 itemprop="name">
-      <a class="article-title" href="/2018/06/10/Github-Pages-hexo/">Github-Pages&amp;hexo</a>
-    </h1>
-  
-
-        
-        <a href="/2018/06/10/Github-Pages-hexo/" class="archive-article-date">
+    <article class="archive-article archive-type-post">
+  <div class="archive-article-inner">
+    <header class="archive-article-header">
+      	<div class="article-meta">
+	      	<a href="/2018/06/10/Github-Pages-hexo/" class="archive-article-date">
   	<time datetime="2018-06-10T10:18:24.000Z" itemprop="datePublished"><i class="icon-calendar icon"></i>2018-06-10</time>
 </a>
-        
-      </header>
-    
-    <div class="article-entry" itemprop="articleBody">
-      
-        <h1 id="使用-github-pages-hexo-搭建个人博客-Mac环境"><a href="#使用-github-pages-hexo-搭建个人博客-Mac环境" class="headerlink" title="使用 github-pages+ hexo 搭建个人博客-Mac环境"></a>使用 <em>github-pages+ hexo</em> 搭建个人博客-Mac环境</h1><h2 id="–搭建-amp-主题更换-amp-博客备份"><a href="#–搭建-amp-主题更换-amp-博客备份" class="headerlink" title="–搭建&amp;主题更换&amp;博客备份"></a><p align="right">–搭建&amp;主题更换&amp;博客备份</p></h2><h2 id="1-准备工作-github仓库"><a href="#1-准备工作-github仓库" class="headerlink" title="1. 准备工作-github仓库"></a>1. 准备工作-github仓库</h2><p>　　首先到github的官网注册账号（…）。然后，新建仓库，在仓库Setting页面：<br>　　<img src="/2018/06/10/Github-Pages-hexo/1.png" alt="img"><br></p>
-        
-          <a class="article-more-a" href="/2018/06/10/Github-Pages-hexo/#more">more >></a>
-        
-      
+        </div>
+    	 
+  
+    <h1 itemprop="name">
+      <a class="archive-article-title" href="/2018/06/10/Github-Pages-hexo/">Github-Pages&amp;hexo</a>
+    </h1>
+  
 
-      
-    </div>
-    <div class="article-info article-info-index">
-      
-      
+        <div class="article-info info-on-right">
+          
 	<div class="article-tag tagcloud">
 		<i class="icon-price-tags icon"></i>
 		<ul class="article-tag-list">
@@ -262,41 +183,19 @@
 		</ul>
 	</div>
 
-      
+          
 
-      
-        <p class="article-more-link">
-          <a class="article-more-a" href="/2018/06/10/Github-Pages-hexo/">展开全文 >></a>
-        </p>
-      
-
-      
-      <div class="clearfix"></div>
-    </div>
+        </div>
+        <div class="clearfix"></div>
+    </header>
   </div>
 </article>
-
-<aside class="wrap-side-operation">
-    <div class="mod-side-operation">
-        
-        <div class="jump-container" id="js-jump-container" style="display:none;">
-            <a href="javascript:void(0)" class="mod-side-operation__jump-to-top">
-                <i class="icon-font icon-back"></i>
-            </a>
-            <div id="js-jump-plan-container" class="jump-plan-container" style="top: -11px;">
-                <i class="icon-font icon-plane jump-plane"></i>
-            </div>
-        </div>
-        
-        
-    </div>
-</aside>
-
-
-
-
   
   
+    </div></section>
+  
+
+    
 
 
           </div>
@@ -316,10 +215,10 @@
     <script>
 	var yiliaConfig = {
 		mathjax: false,
-		isHome: true,
+		isHome: false,
 		isPost: false,
 		isArchive: false,
-		isTag: false,
+		isTag: true,
 		isCategory: false,
 		open_in_new: false,
 		toc_hide_index: false,

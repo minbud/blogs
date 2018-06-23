@@ -9,6 +9,7 @@
   <title>Github-Pages&amp;hexo | MinBud的博客</title>
   <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
   <meta name="description" content="使用 github-pages+ hexo 搭建个人博客-Mac环境–搭建&amp;amp;主题更换&amp;amp;博客备份1. 准备工作-github仓库　　首先到github的官网注册账号（…）。然后，新建仓库，在仓库Setting页面：">
+<meta name="keywords" content="搭建博客">
 <meta property="og:type" content="article">
 <meta property="og:title" content="Github-Pages&amp;hexo">
 <meta property="og:url" content="http://yoursite.com/2018/06/10/Github-Pages-hexo/index.html">
@@ -18,7 +19,7 @@
 <meta property="og:image" content="http://yoursite.com/2018/06/10/Github-Pages-hexo/1.png">
 <meta property="og:image" content="http://yoursite.com/2018/06/10/Github-Pages-hexo/2.png">
 <meta property="og:image" content="http://yoursite.com/2018/06/10/Github-Pages-hexo/3.png">
-<meta property="og:updated_time" content="2018-06-10T10:40:52.000Z">
+<meta property="og:updated_time" content="2018-06-23T13:06:07.000Z">
 <meta name="twitter:card" content="summary">
 <meta name="twitter:title" content="Github-Pages&amp;hexo">
 <meta name="twitter:description" content="使用 github-pages+ hexo 搭建个人博客-Mac环境–搭建&amp;amp;主题更换&amp;amp;博客备份1. 准备工作-github仓库　　首先到github的官网注册账号（…）。然后，新建仓库，在仓库Setting页面：">
@@ -212,7 +213,7 @@
 <p>　  由于生成的网页文件在hexo文件夹根目录下，可以将图片放在hexo/img/路径下，并如上设置<br>　  另外主题右下角有作者Litten的标签，有人可能不喜欢（比如我）,可以修改脚本文件将其去掉。index.html是生成的静态文件，直接修改只能生效一次或以后每次都得改。可以修改hexo/themes/yilia/layout/_partial/footer.ejs文件，将footer-right相关项删除就好了</p>
 <p>　  在首页不显示博客的全部内容，需要在文章中需要截断的地方加入</p>
 <blockquote>
-<!-- more -->
+<p>&lt;!-- more --></p>
 </blockquote>
 <p>　  </p>
 <h2 id="4-备份博客"><a href="#4-备份博客" class="headerlink" title="4. 备份博客"></a>4. 备份博客</h2><p>　  在本地文件夹中存有你的各种博客文件（.md），但是部署到github上的时候实际上只是将生成的静态博客网页和各种使用到的资源文件push上去了，万一本地文件丢失了，靠github上的文件难以恢复原来的博客文件。<br>　  可以在原仓库中创建分支，作为备份分支来解决这个问题<br>　<br>　  在github网页上创建新分支，可以命名为hexo，在setting选项卡上找到branch，将默认分支设为hexo<br>　  新建文件夹，将博客仓库clone到里面，并将之前文件夹中的_config.yml，themes/，source，scffolds/，package.json，复制进来<br>　  将themes/yilia/.git/ 文件夹删除，否则无法push该文件夹<br>　  执行</p>
@@ -239,6 +240,17 @@
     <div class="article-info article-info-index">
       
       
+	<div class="article-tag tagcloud">
+		<i class="icon-price-tags icon"></i>
+		<ul class="article-tag-list">
+			 
+        		<li class="article-tag-list-item">
+        			<a href="javascript:void(0)" class="js-tag article-tag-list-link color5">搭建博客</a>
+        		</li>
+      		
+		</ul>
+	</div>
+
       
 
       
@@ -301,6 +313,20 @@
 </article>
 
   
+<nav id="article-nav">
+  
+    <a href="/2018/06/23/ethernet/" id="article-nav-newer" class="article-nav-link-wrap">
+      <i class="icon-circle-left"></i>
+      <div class="article-nav-title">
+        
+          ethernet
+        
+      </div>
+    </a>
+  
+  
+</nav>
+
 
 <aside class="wrap-side-operation">
     <div class="mod-side-operation">
@@ -411,7 +437,11 @@ return o(i(t),arguments.length<2?void 0:u(arguments[1]))}})},function(t,n,r){var
           <ul class="article-tag-list" q-show="showTags">
              
               <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color5">test</a>
+                <a href="javascript:void(0)" class="js-tag color5">搭建博客</a>
+              </li>
+             
+              <li class="article-tag-list-item">
+                <a href="javascript:void(0)" class="js-tag color1">计算机网络</a>
               </li>
             
             <div class="clearfix"></div>

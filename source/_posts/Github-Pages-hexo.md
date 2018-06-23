@@ -1,7 +1,7 @@
 ---
 title: Github-Pages&hexo
 date: 2018-06-10 18:18:24
-tags:
+tags: 搭建博客
 ---
 
 使用 *github-pages+ hexo* 搭建个人博客-Mac环境
@@ -78,7 +78,7 @@ tags:
 　  另外主题右下角有作者Litten的标签，有人可能不喜欢（比如我）,可以修改脚本文件将其去掉。index.html是生成的静态文件，直接修改只能生效一次或以后每次都得改。可以修改hexo/themes/yilia/layout/_partial/footer.ejs文件，将footer-right相关项删除就好了
 
 　  在首页不显示博客的全部内容，需要在文章中需要截断的地方加入
-> <!-- more -->
+> <\!\-\- more \-\-\>
 
 　  
 ## 4. 备份博客
