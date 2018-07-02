@@ -79,7 +79,7 @@ theme: yilia
 ## Docs: https://hexo.io/docs/deployment.html
 deploy:
   type: git
-  repo: http://github.com/minbud/minbud.github.io.git
+  repo: https://github.com/minbud/minbud.github.io.git
   branch: master
 
 jsonContent:

@@ -60,7 +60,7 @@ tags: 搭建博客
 
 > hexo clean
 > hexo generate　  　  -生成博客网页的各种静态文件-
-> hexo server　  　  -在本地启动服务器，在浏览器访问http://localhost:4000/预览-
+> hexo server　  　  -在本地启动服务器，在浏览器访问http://localhost:4000/ 预览-
 > hexo deploy 　  -将博客网页推送到服务器-
 
 ## 3. 更换主题
@@ -110,4 +110,7 @@ tags: 搭建博客
 　  
 > \!\[img\](blogname/1.png)
 
-　  图片正常显示
+　  图片正常显示  
+　  
+　  可能遇到需要设置图片大小和居中的情况，此时需要使用html代码：  
+　  &lt; div align=center &gt; &lt; img src="./p/p.png" /&gt; &lt;/div &gt;
