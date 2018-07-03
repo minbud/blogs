@@ -1,7 +1,7 @@
 ---
 title: New to C6678 & CSS
 date: 2018-07-01 18:35:02
-tags: evmc6678
+tags: evmc6678l
 ---
 
 ## 1. C6678开发板上手

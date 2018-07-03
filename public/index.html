@@ -144,6 +144,82 @@
           <div id="js-content" class="content-ll">
             
   
+    <article id="post-Boot-Singlecore" class="article article-type-post  article-index" itemscope itemprop="blogPost">
+  <div class="article-inner">
+    
+      <header class="article-header">
+        
+  
+    <h1 itemprop="name">
+      <a class="article-title" href="/2018/07/03/Boot-Singlecore/">Boot_Singlecore</a>
+    </h1>
+  
+
+        
+        <a href="/2018/07/03/Boot-Singlecore/" class="archive-article-date">
+  	<time datetime="2018-07-03T14:51:09.000Z" itemprop="datePublished"><i class="icon-calendar icon"></i>2018-07-03</time>
+</a>
+        
+      </header>
+    
+    <div class="article-entry" itemprop="articleBody">
+      
+        <h2 id="1-EEPROM-BOOT-amp-POST-Power-On-Self-Test"><a href="#1-EEPROM-BOOT-amp-POST-Power-On-Self-Test" class="headerlink" title="1. EEPROM BOOT &amp; POST(Power On Self Test)"></a>1. EEPROM BOOT &amp; POST(Power On Self Test)</h2><p>　　evmc6678评估板上有一块128KB的EEPROM，这块内存主要用于烧写IBL（Intermediate BootLoader）即二次引导的程序，或者烧写POST上电自检程序。其中在烧写程序时有两个总线地址，一个是0x50，一个是0x51，两个地址分别代表寻址128kB的其中64KB，前者默认用来烧写POST程序，后者一般用来烧写IBL。两种方式通过SW5的PIN4来区分（on：0x50，off：0x51），可以同时存在，不互相影响，启动时根据开关设置从相应位置读取程序。</p>
+        
+          <a class="article-more-a" href="/2018/07/03/Boot-Singlecore/#more">more >></a>
+        
+      
+
+      
+    </div>
+    <div class="article-info article-info-index">
+      
+      
+	<div class="article-tag tagcloud">
+		<i class="icon-price-tags icon"></i>
+		<ul class="article-tag-list">
+			 
+        		<li class="article-tag-list-item">
+        			<a href="javascript:void(0)" class="js-tag article-tag-list-link color5">evmc6678l</a>
+        		</li>
+      		
+		</ul>
+	</div>
+
+      
+
+      
+        <p class="article-more-link">
+          <a class="article-more-a" href="/2018/07/03/Boot-Singlecore/">展开全文 >></a>
+        </p>
+      
+
+      
+      <div class="clearfix"></div>
+    </div>
+  </div>
+</article>
+
+<aside class="wrap-side-operation">
+    <div class="mod-side-operation">
+        
+        <div class="jump-container" id="js-jump-container" style="display:none;">
+            <a href="javascript:void(0)" class="mod-side-operation__jump-to-top">
+                <i class="icon-font icon-back"></i>
+            </a>
+            <div id="js-jump-plan-container" class="jump-plan-container" style="top: -11px;">
+                <i class="icon-font icon-plane jump-plane"></i>
+            </div>
+        </div>
+        
+        
+    </div>
+</aside>
+
+
+
+
+  
     <article id="post-New-to-C6678-CSS" class="article article-type-post  article-index" itemscope itemprop="blogPost">
   <div class="article-inner">
     
@@ -180,7 +256,7 @@
 		<ul class="article-tag-list">
 			 
         		<li class="article-tag-list-item">
-        			<a href="javascript:void(0)" class="js-tag article-tag-list-link color4">evmc6678</a>
+        			<a href="javascript:void(0)" class="js-tag article-tag-list-link color5">evmc6678l</a>
         		</li>
       		
 		</ul>
@@ -459,7 +535,7 @@ return o(i(t),arguments.length<2?void 0:u(arguments[1]))}})},function(t,n,r){var
               </li>
              
               <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color4">evmc6678</a>
+                <a href="javascript:void(0)" class="js-tag color5">evmc6678l</a>
               </li>
              
               <li class="article-tag-list-item">

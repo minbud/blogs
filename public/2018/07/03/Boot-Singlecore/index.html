@@ -6,24 +6,23 @@
   <meta name="renderer" content="webkit">
   <meta http-equiv="X-UA-Compatible" content="IE=edge" >
   <link rel="dns-prefetch" href="http://yoursite.com">
-  <title>Github-Pages&amp;hexo | MinBud的博客</title>
+  <title>Boot_Singlecore | MinBud的博客</title>
   <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
-  <meta name="description" content="使用 github-pages+ hexo 搭建个人博客-Mac环境–搭建&amp;amp;主题更换&amp;amp;博客备份1. 准备工作-github仓库　　首先到github的官网注册账号（…）。然后，新建仓库，在仓库Setting页面：">
-<meta name="keywords" content="搭建博客">
+  <meta name="description" content="1. EEPROM BOOT &amp;amp; POST(Power On Self Test)　　evmc6678评估板上有一块128KB的EEPROM，这块内存主要用于烧写IBL（Intermediate BootLoader）即二次引导的程序，或者烧写POST上电自检程序。其中在烧写程序时有两个总线地址，一个是0x50，一个是0x51，两个地址分别代表寻址128kB的其中64KB，前者默认用来烧写">
+<meta name="keywords" content="evmc6678l">
 <meta property="og:type" content="article">
-<meta property="og:title" content="Github-Pages&amp;hexo">
-<meta property="og:url" content="http://yoursite.com/2018/06/10/Github-Pages-hexo/index.html">
+<meta property="og:title" content="Boot_Singlecore">
+<meta property="og:url" content="http://yoursite.com/2018/07/03/Boot-Singlecore/index.html">
 <meta property="og:site_name" content="MinBud的博客">
-<meta property="og:description" content="使用 github-pages+ hexo 搭建个人博客-Mac环境–搭建&amp;amp;主题更换&amp;amp;博客备份1. 准备工作-github仓库　　首先到github的官网注册账号（…）。然后，新建仓库，在仓库Setting页面：">
+<meta property="og:description" content="1. EEPROM BOOT &amp;amp; POST(Power On Self Test)　　evmc6678评估板上有一块128KB的EEPROM，这块内存主要用于烧写IBL（Intermediate BootLoader）即二次引导的程序，或者烧写POST上电自检程序。其中在烧写程序时有两个总线地址，一个是0x50，一个是0x51，两个地址分别代表寻址128kB的其中64KB，前者默认用来烧写">
 <meta property="og:locale" content="default">
-<meta property="og:image" content="http://yoursite.com/2018/06/10/Github-Pages-hexo/1.png">
-<meta property="og:image" content="http://yoursite.com/2018/06/10/Github-Pages-hexo/2.png">
-<meta property="og:image" content="http://yoursite.com/2018/06/10/Github-Pages-hexo/3.png">
-<meta property="og:updated_time" content="2018-07-01T11:13:13.000Z">
+<meta property="og:image" content="http://yoursite.com/2018/07/03/Boot-Singlecore/post_result.png">
+<meta property="og:image" content="http://yoursite.com/2018/07/03/Boot-Singlecore/boot_table_format.png">
+<meta property="og:updated_time" content="2018-07-03T15:52:02.000Z">
 <meta name="twitter:card" content="summary">
-<meta name="twitter:title" content="Github-Pages&amp;hexo">
-<meta name="twitter:description" content="使用 github-pages+ hexo 搭建个人博客-Mac环境–搭建&amp;amp;主题更换&amp;amp;博客备份1. 准备工作-github仓库　　首先到github的官网注册账号（…）。然后，新建仓库，在仓库Setting页面：">
-<meta name="twitter:image" content="http://yoursite.com/2018/06/10/Github-Pages-hexo/1.png">
+<meta name="twitter:title" content="Boot_Singlecore">
+<meta name="twitter:description" content="1. EEPROM BOOT &amp;amp; POST(Power On Self Test)　　evmc6678评估板上有一块128KB的EEPROM，这块内存主要用于烧写IBL（Intermediate BootLoader）即二次引导的程序，或者烧写POST上电自检程序。其中在烧写程序时有两个总线地址，一个是0x50，一个是0x51，两个地址分别代表寻址128kB的其中64KB，前者默认用来烧写">
+<meta name="twitter:image" content="http://yoursite.com/2018/07/03/Boot-Singlecore/post_result.png">
   
     <link rel="alternative" href="/atom.xml" title="MinBud的博客" type="application/atom+xml">
   
@@ -151,87 +150,93 @@
             <canvas data-colors="#eaeaea" data-sectionHeight="100" data-contentId="js-content" id="myCanvas1" class="anm-canvas"></canvas>
           </div>
           <div id="js-content" class="content-ll">
-            <article id="post-Github-Pages-hexo" class="article article-type-post " itemscope itemprop="blogPost">
+            <article id="post-Boot-Singlecore" class="article article-type-post " itemscope itemprop="blogPost">
   <div class="article-inner">
     
       <header class="article-header">
         
   
     <h1 class="article-title" itemprop="name">
-      Github-Pages&amp;hexo
+      Boot_Singlecore
     </h1>
   
 
         
-        <a href="/2018/06/10/Github-Pages-hexo/" class="archive-article-date">
-  	<time datetime="2018-06-10T10:18:24.000Z" itemprop="datePublished"><i class="icon-calendar icon"></i>2018-06-10</time>
+        <a href="/2018/07/03/Boot-Singlecore/" class="archive-article-date">
+  	<time datetime="2018-07-03T14:51:09.000Z" itemprop="datePublished"><i class="icon-calendar icon"></i>2018-07-03</time>
 </a>
         
       </header>
     
     <div class="article-entry" itemprop="articleBody">
       
-        <h1 id="使用-github-pages-hexo-搭建个人博客-Mac环境"><a href="#使用-github-pages-hexo-搭建个人博客-Mac环境" class="headerlink" title="使用 github-pages+ hexo 搭建个人博客-Mac环境"></a>使用 <em>github-pages+ hexo</em> 搭建个人博客-Mac环境</h1><h2 id="–搭建-amp-主题更换-amp-博客备份"><a href="#–搭建-amp-主题更换-amp-博客备份" class="headerlink" title="–搭建&amp;主题更换&amp;博客备份"></a><p align="right">–搭建&amp;主题更换&amp;博客备份</p></h2><h2 id="1-准备工作-github仓库"><a href="#1-准备工作-github仓库" class="headerlink" title="1. 准备工作-github仓库"></a>1. 准备工作-github仓库</h2><p>　　首先到github的官网注册账号（…）。然后，新建仓库，在仓库Setting页面：<br>　　<img src="/2018/06/10/Github-Pages-hexo/1.png" alt="img"><br>　　<a id="more"></a><br>　　在setting页面下修改自己仓库的名字，注意格式要是 <em>yourusername</em> .github.io,比如我的就是minbud.github.io, 这样之后才能启用Pages并用 <em>yourusername</em> .github.io访问自己的博客，当然也可以绑定自己已有的域名<br>　　<img src="/2018/06/10/Github-Pages-hexo/2.png" alt="img"><br>　  找到Github Pages页面，选择publish，完成后就是这样：<br>　  <img src="/2018/06/10/Github-Pages-hexo/3.png" alt="img"></p>
-<h2 id="2-安装hexo"><a href="#2-安装hexo" class="headerlink" title="2. 安装hexo"></a>2. 安装hexo</h2><p>　  由于hexo基于node.js，需要先从<a href="https://nodejs.org/" target="_blank" rel="noopener">官网</a>下载nodejs安装包。<br>　<br>　  安装好后，用下面的命令可以查看版本（npm是nodejs的安装包管理器）</p>
+        <h2 id="1-EEPROM-BOOT-amp-POST-Power-On-Self-Test"><a href="#1-EEPROM-BOOT-amp-POST-Power-On-Self-Test" class="headerlink" title="1. EEPROM BOOT &amp; POST(Power On Self Test)"></a>1. EEPROM BOOT &amp; POST(Power On Self Test)</h2><p>　　evmc6678评估板上有一块128KB的EEPROM，这块内存主要用于烧写IBL（Intermediate BootLoader）即二次引导的程序，或者烧写POST上电自检程序。其中在烧写程序时有两个总线地址，一个是0x50，一个是0x51，两个地址分别代表寻址128kB的其中64KB，前者默认用来烧写POST程序，后者一般用来烧写IBL。两种方式通过SW5的PIN4来区分（on：0x50，off：0x51），可以同时存在，不互相影响，启动时根据开关设置从相应位置读取程序。</p>
+<a id="more"></a>
+<h3 id="POST"><a href="#POST" class="headerlink" title="POST"></a>POST</h3><p>　　POST例程位于MCSDK安装目录下，从 mcsdk &gt;tools &gt;post &gt;docs &gt;readme.txt中查看到具体的将POST程序烧写到EEPROM中的步骤。下面简单说明一下步骤：</p>
 <blockquote>
-<p>npm -v</p>
+<p>tips: ti文档中的txt文件直接用windows的记事本打开会有格式问题，可以用vscode或者notepad++打开。  </p>
+<ol>
+<li>重新编译生成POST工程文件。即clean project &gt;&gt; build project。(不是必要的)  </li>
+<li>由于POST需要利用EEPROM烧写工具进行烧写，将 tools &gt;post &gt;evmc6678l &gt;bin &gt;post_i2crom.bin 拷贝到 tools　&gt;writer &gt;eeprom &gt;evmc6678l &gt;bin下。  </li>
+<li>修改该目录下的eepromwriter_input.txt文件，设置file_name为post_i2crom.bin，bus_addr为0x50，其它为0.  </li>
+<li>将tools &gt;writer &gt;eeprom &gt;evmc6678l 工程impot到CCS中，重新生成.out文件。  </li>
+<li>连接开发板，launch目标文件，连接core0，使用evmc6678.gel初始化内存,将生成的.out文件load到core0。  </li>
+<li>view &gt;memory browser,在打开的窗口中输入0x0C000000，找到该内存，在该处右击鼠标，load memory,选择post_i2crom.bin文件，type选择ti raw data，点击next，确认地址是0x0C000000，为32bit，swap没有勾选，点击finish。  </li>
+<li>console窗口输出successfully时，terminate debug。确保bootmode管脚为I2C post boot,按下REST_FULL按钮,可以在串口中看到如下数据：<br><div align="center"><img src="/2018/07/03/Boot-Singlecore/post_result.png" height="400px" width="600px" alt="img"></div><br>说明一下烧写程序的工作（包括EEPROM，NAND，NOR烧写程序），我们在CCS中的Memory Browser窗口将程序烧写到DDR内存中，另外烧写程序读取硬盘bin目录下（*input.txt中指定的文件）的程序文件，并解析该文件是否符合要求。若符合则直接将在DDR内存中文件烧写到指定内存（EEPROM，NAND，NOR）中。</li>
+</ol>
 </blockquote>
-<p>　  然后，使用npm命令安装hexo</p>
+<h3 id="RBL直接读取EEPROM程序"><a href="#RBL直接读取EEPROM程序" class="headerlink" title="RBL直接读取EEPROM程序"></a>RBL直接读取EEPROM程序</h3><p>　　根据实验结果以及<a href="https://e2e.ti.com/support/dsp/c6000_multi-core_dsps/f/639/t/388490?Can-c6678-be-booted-from-directly-i2c-eeprom-" target="_blank" rel="noopener">搜索结果</a>，程序文件只能烧到0x50对应的64KB中并且启动执行，而0x51对应的EEPROM只是保留给IBL启动程序的。 RBL对读取的程序文件格式有一定的要求，生成的.out文件需要经过工具链的处理。相应的处理流程和SPI nor flash boot 一样，这个留在后面叙述。<br>　　由于程序是烧在0x50处，因而流程和POST是一致的，启动时开关设置也一致。我烧写的是Led_play例程，能够成功运行。  </p>
+<h2 id="2-IBL-NAND-NOR-FLASH-BOOT"><a href="#2-IBL-NAND-NOR-FLASH-BOOT" class="headerlink" title="2. IBL NAND|NOR FLASH BOOT"></a>2. IBL NAND|NOR FLASH BOOT</h2><p>　　由于EPPROM大小只有128kB（64kB可用于用户程序），当用户程序文件较大时，就需要将文件放在FLASH中，此时一种可选的方法就是通过二级引导程序（IBL）来将FLASH中的文件搬运到RAM中运行，而IBL文件就是放在EEPROM中的。另外由于NAND FLASH的特点（不支持随机读取，读取时是一块一块的），因而不能直接在NAND FLASH上运行代码。因此RBL也不支持直接的NAND FLASH BOOT。<br>　　将IBL烧写到EEPROM中的操作和上面类似，但是需要将bus_addr设置为0x51，烧写文件为i2crom_0x51_c6678_le.bin，同时在烧写完成后需要配置boot param table。具体操作如下：</p>
 <blockquote>
-<p>sudo npm install -g hexo-cli 　  　  <em>-安装(-g表示全局安装)-</em><br>sudo npm uninstall -g hexo-cli 　  　  <em>-卸载-</em></p>
+<ol>
+<li>打开 mcsdk &gt;tools &gt;boot_loader &gt;ibl &gt;src &gt;make &gt;bin &gt;i2cConfig.gel,找到setConfig_c6678_main函数，将<br>ibl.bootModes[0].u.norBoot.bootFormat    = ibl_BOOT_FORMAT_BBLOB;　　　　　改写为<br>ibl.bootModes[0].u.norBoot.bootFormat    = ibl_BOOT_FORMAT_ELF;<br>其中BBLOB表示二进制文件即.bin，而ELF文件指生成的.out文件，这样修改后烧写时load memory操作就可以使用生成的.out文件，更加方便，不用利用工具链转换成.bin。缺点就是.out文件中包含比较多无用的数据，文件较大。  </li>
+<li>接着连接开发板，将mcsdk &gt;tools &gt;boot_loader &gt;ibl &gt;src &gt;make &gt;bin &gt;i2cparam_0x51_c6678_le_0x500.out load 到core0，并执行。同时执行load gel操作，将上面修改的gel文件load进来。注意前面evmc6678.gel还是要load。然后 scripts &gt;EVM c6678 IBL &gt;setConfig_c6678_main。等待几秒钟，在console窗口中按回车健，看到I2c table write complete 表示写启动参数表成功了。<br>tips：在第二步中，需要先resume即先执行程序，然后执行gel文件的setConfig_c6678_main，不然会显示出错。  </li>
+<li>这样IBL就烧写好了，以后如果没有需要修改boot param的话，就不用在执行这个过程了。  </li>
+<li>接着需要将自己的程序烧写到NOR FLASH中，具体步骤可以查看mcsdk &gt;tools &gt;writer &gt;nor &gt;docs &gt;readme.txt。与烧写EEPROM类似，主要差别就是memory browser处地址为0x80000000。</li>
+<li>按照IBL NOR BOOT设置开关，重启，可以发现程序跑起来了~_~。  </li>
+</ol>
 </blockquote>
-<p>　  可以用hexo -v命令查看是否安装成功</p>
-<p>　  新建一个文件夹，并在该文件夹下执行接下来的操作(以我的为例)</p>
+<h2 id="3-SPI-NOR-FLASH-BOOT"><a href="#3-SPI-NOR-FLASH-BOOT" class="headerlink" title="3. SPI NOR FLASH BOOT"></a>3. SPI NOR FLASH BOOT</h2><p>　　evmc6678l也可直由RBL引导，从NOR FLASH处启动。RBL只能识别boot table format，而且只能使用大端模式。因此我们主要的工作是将生成的.out文件经过工具链进行处理，转换为能够被RBL识别的文件格式。此处的资料来源主要是<a href="https://e2e.ti.com/support/dsp/c6000_multi-core_dsps/f/639/t/447109?C6678-multicore-booting-from-SPI-Nor-flash" target="_blank" rel="noopener">TI论坛</a>。文档为<em>Booting from the SPI NOR on C6670/C6678 EVM</em>。  </p>
+<h4 id="hex6x-exe"><a href="#hex6x-exe" class="headerlink" title="hex6x.exe"></a>hex6x.exe</h4><p>　　这个工具的主要作用是将.out转换为Boot table format,使得RBL能够读取到程序二进制文件的各个段。该工具的输入是一个.rmd文件。包括以下部分：</p>
 <blockquote>
-<p>sudo mkdir ~/Documents/hexo<br>cd ~/Documents/hexo<br>hexo init　  　  -进行hexo的初始化工作，会在该文件夹下生成一系列必要文件-<br>npm install<br>npm install hexo-deployer-git -save        -安装部署工具-</p>
+<p>C:\Users\DarkLing\Desktop\KeystoneI_bootloader_workshop\boot_image\SPI_Bootloader\led_play.out<br>-a<br>-boot<br>-e _c_int00  </p>
+<p>ROMS<br>{<br>   ROM1:  org = 0x0C000000, length = 0x100000, memwidth = 32, romwidth = 32<br>   files = { C:\Users\DarkLing\Desktop\led_test\led_play.btbl&gt;}<br>}  </p>
 </blockquote>
-<p>　  配置hexo，修改更目录下的_config.yml文件</p>
+<p>　　创建.rmd文件后执行命令:  </p>
 <blockquote>
-<p>#Site<br>title: MinBud的博客<br>subtitle: Walk Slow &amp; Think Deep<br>description:<br>keywords:<br>author: Minbud<br>language:<br>timezone:</p>
+<p>.\hex6x.exe .\led_play.rmd  </p>
 </blockquote>
-<p>　  最主要的是下面的配置项，在最末尾添加如下配置，可以设置部署时的push地址</p>
+<p>　　生成了led_play.btbl文件。boot table format如下所示：</p>
+<div align="center"><img src="/2018/07/03/Boot-Singlecore/boot_table_format.png" height="400px" width="600px" alt="img"></div>
+
+<h4 id="b2i2c-exe"><a href="#b2i2c-exe" class="headerlink" title="b2i2c.exe"></a>b2i2c.exe</h4><p>　　将.btbl文件以0x80字节分块，并附加长度和校验和信息，以符合RBL的需要。  </p>
 <blockquote>
-<p>deploy:<br>type: git<br>repo: <a href="http://github.com/minbud/minbud.github.io.git" target="_blank" rel="noopener">http://github.com/minbud/minbud.github.io.git</a><br>branch: master</p>
+<p>.\b2i2c.exe .\led_play.btbl .\led_play.i2c</p>
 </blockquote>
-<p>　  博客文件使用markdown格式，放在./source/_post文件夹中，可以在终端新建博客文件</p>
+<p>　　生成led_play.i2c</p>
+<h4 id="b2ccs-exe"><a href="#b2ccs-exe" class="headerlink" title="b2ccs.exe"></a>b2ccs.exe</h4><p>　　将.i2c转为CCS能够接收的格式。</p>
 <blockquote>
-<p>hexo new “myFirstBlog”</p>
+<p>.\b2ccs .\led_play.i2c .\led_play.ccs  </p>
 </blockquote>
-<p>　  编写完博客后，使用以下命令可以生成静态网页并部署到github中</p>
+<p>　　生成led_play.ccs  </p>
+<h4 id="romparse-exe"><a href="#romparse-exe" class="headerlink" title="romparse.exe"></a>romparse.exe</h4><p>　　将boot table 和boot parameter table 结合，需要有.map文件作为输入:</p>
 <blockquote>
-<p>hexo clean<br>hexo generate　  　  -生成博客网页的各种静态文件-<br>hexo server　  　  -在本地启动服务器，在浏览器访问<a href="http://localhost:4000/" target="_blank" rel="noopener">http://localhost:4000/</a> 预览-<br>hexo deploy 　  -将博客网页推送到服务器-</p>
+<p>section {<br>boot_mode = 50<br>param_index = 0<br>options = 1<br>core_freq_mhz = 1000<br>exe_file = “led_play.ccs”<br>next_dev_addr_ext = 0x0<br>sw_pll_prediv = 5<br>sw_pll_mult = 32<br>sw_pll_postdiv = 2<br>sw_pll_flags = 1<br>addr_width = 24<br>n_pins = 4<br>csel = 0<br>mode = 0<br>c2t_delay = 0<br>bus_freq_mhz = 0<br>bus_freq_khz = 500<br>}</p>
 </blockquote>
-<h2 id="3-更换主题"><a href="#3-更换主题" class="headerlink" title="3. 更换主题"></a>3. 更换主题</h2><p>　  经过上面步骤后可以得到一个拥有默认主题的hexo博客，另外还有许多第三方制作的精美的主题可以供我们使用，我用的是Litten的yilia
-　  </p>
 <blockquote>
-<p>cd ~/Documents/hexo<br>git clone <a href="https://github.com/litten/hexo-theme-yilia.git" target="_blank" rel="noopener">https://github.com/litten/hexo-theme-yilia.git</a> themes/yilia</p>
+<p>.\romparse.exe .\nysh.spi.map</p>
 </blockquote>
-<p>　  会在./themes目录下拷贝yilia主题，需要在_config.yml中修改主题名称从而应用主题<br>　  另外需要对主题进行一定的修改，实现一定程度的定制，可以修改yilia文件夹下的_congfig.yml文件</p>
+<p>　　生成i2crom.ccs.修改生成的i2crom.ccs将第九行的51改为00。这个是I2c的地址,需要改为00，<a href="https://e2echina.ti.com/question_answer/dsp_arm/c6000_multicore/f/53/p/136365/382193#382193" target="_blank" rel="noopener">原因未知</a>。个人理解是，由于是使用SPI连接flash启动，不需要I2c，而0x51则是使用EEPROM作二级引导使用的，因而需要设置为0，表示不使用。  </p>
+<h4 id="byteswapccs-exe"><a href="#byteswapccs-exe" class="headerlink" title="byteswapccs.exe"></a>byteswapccs.exe</h4><p>　　将小端文件转为大端。</p>
 <blockquote>
-<p>favicon: img/favicon.png　  　  -修改头像-<br>avatar: img/minbud.png　  　  -修改网页标签栏图标-</p>
+<p>.\byteswapccs.exe .\i2crom.ccs .\app.dat</p>
 </blockquote>
-<p>　  由于生成的网页文件在hexo文件夹根目录下，可以将图片放在hexo/img/路径下，并如上设置<br>　  另外主题右下角有作者Litten的标签，有人可能不喜欢（比如我）,可以修改脚本文件将其去掉。index.html是生成的静态文件，直接修改只能生效一次或以后每次都得改。可以修改hexo/themes/yilia/layout/_partial/footer.ejs文件，将footer-right相关项删除就好了</p>
-<p>　  在首页不显示博客的全部内容，需要在文章中需要截断的地方加入</p>
+<p>　　生成的app.dat文件可以通过nor writer烧写到nor flash中。<br>tips：<br>　　注意到此时生成的是app.dat文件，也可以通过ccs2bin.exe将i2crom.ccs转为.bin文件：</p>
 <blockquote>
-<p>&lt;!-- more --></p>
+<p>.\ccs2bin.exe  -swap .\i2rom.ccs .\app.bin  </p>
 </blockquote>
-<p>　  </p>
-<h2 id="4-备份博客"><a href="#4-备份博客" class="headerlink" title="4. 备份博客"></a>4. 备份博客</h2><p>　  在本地文件夹中存有你的各种博客文件（.md），但是部署到github上的时候实际上只是将生成的静态博客网页和各种使用到的资源文件push上去了，万一本地文件丢失了，靠github上的文件难以恢复原来的博客文件。<br>　  可以在原仓库中创建分支，作为备份分支来解决这个问题<br>　<br>　  在github网页上创建新分支，可以命名为hexo，在setting选项卡上找到branch，将默认分支设为hexo<br>　  新建文件夹，将博客仓库clone到里面，并将之前文件夹中的_config.yml，themes/，source，scffolds/，package.json，复制进来<br>　  将themes/yilia/.git/ 文件夹删除，否则无法push该文件夹<br>　  执行</p>
-<blockquote>
-<p>npm install<br>npm install hexo-deployer-git -save<br>git checkout hexo<br>git remote add origin <a href="https://github.com/minbud/minbud.github.io.git" target="_blank" rel="noopener">https://github.com/minbud/minbud.github.io.git</a><br>git add .<br>git commit -m “备份博客”<br>git push origin hexo</p>
-</blockquote>
-<p>　  成功后，在github网页上切换到hexo分支，可以看到文件夹下的文件都被传上来了，以后需要备份的时候使用git命令就可以了
-　  </p>
-<h2 id="5-在博客中添加图片"><a href="#5-在博客中添加图片" class="headerlink" title="5. 在博客中添加图片"></a>5. 在博客中添加图片</h2><p>　  编辑_config.yml文件，确认 <em>post_asset_folder:true</em><br>　  在根目录下安装</p>
-<blockquote>
-<p>npm install <a href="https://github.com/CodeFalling/hexo-asset-image" target="_blank" rel="noopener">https://github.com/CodeFalling/hexo-asset-image</a> –save</p>
-</blockquote>
-<p>　  之后使用hexo new命令时，source/_post/文件夹中会增加一个与博客同名的文件夹<br>　  将使用到的图片放在这个文件夹中，并在引用图片时，按如下：
-　  </p>
-<blockquote>
-<p>![img](blogname/1.png)</p>
-</blockquote>
-<p>　  图片正常显示<br>　<br>　  可能遇到需要设置图片大小和居中的情况，此时需要使用html代码：<br>　  &lt; div align=center &gt; &lt; img src=”./p/p.png” /&gt; &lt;/div &gt;</p>
+<p>　　ccs2bin.exe可以使用-swap参数表示大小端转换。 </p>
+<p>但是操作文档中说到:<br>The EVM uses 24 bit NOR connected on CHIP select 0. While flashing using the NOR writer use the .dat as is and don’t convert the .dat into a bin file.<br>实际操作时，发现app.bin文件烧写时如果开关不是no boot mode 烧写后无法启动。而app.dat文件则不存在这个问题。</p>
 
       
 
@@ -245,7 +250,7 @@
 		<ul class="article-tag-list">
 			 
         		<li class="article-tag-list-item">
-        			<a href="javascript:void(0)" class="js-tag article-tag-list-link color5">搭建博客</a>
+        			<a href="javascript:void(0)" class="js-tag article-tag-list-link color5">evmc6678l</a>
         		</li>
       		
 		</ul>
@@ -301,7 +306,7 @@
     <a class="close js-modal-close" href="javascript:;"><i class="icon icon-close"></i></a>
     <p>扫一扫，分享到微信</p>
     <div class="wx-qrcode">
-      <img src="//pan.baidu.com/share/qrcode?url=http://yoursite.com/2018/06/10/Github-Pages-hexo/" alt="微信分享二维码">
+      <img src="//pan.baidu.com/share/qrcode?url=http://yoursite.com/2018/07/03/Boot-Singlecore/" alt="微信分享二维码">
     </div>
 </div>
 
@@ -315,15 +320,11 @@
   
 <nav id="article-nav">
   
-    <a href="/2018/06/23/ethernet/" id="article-nav-newer" class="article-nav-link-wrap">
-      <i class="icon-circle-left"></i>
-      <div class="article-nav-title">
-        
-          ethernet
-        
-      </div>
-    </a>
   
+    <a href="/2018/07/01/New-to-C6678-CSS/" id="article-nav-older" class="article-nav-link-wrap">
+      <div class="article-nav-title">New to C6678 &amp; CSS</div>
+      <i class="icon-circle-right"></i>
+    </a>
   
 </nav>
 
