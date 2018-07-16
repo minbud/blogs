@@ -6,15 +6,27 @@
   <meta name="renderer" content="webkit">
   <meta http-equiv="X-UA-Compatible" content="IE=edge" >
   <link rel="dns-prefetch" href="http://yoursite.com">
-  <title>Archives | MinBud的博客</title>
+  <title>boot_multicore | MinBud的博客</title>
   <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
-  <meta property="og:type" content="website">
-<meta property="og:title" content="MinBud的博客">
-<meta property="og:url" content="http://yoursite.com/archives/index.html">
+  <meta name="description" content="利用MAD工具实现多核启动　　先总体地说一下MAD工具的作用：对于多个DSP核心，可能我们有对应的多个project，生成了多个.out文件，我们想把不同的projecct放在不同的core上运行。调试的时候我们可以通过仿真器手动把代码文件load到对应core上让它运行，但是怎么让板子在启动的时候自动加载代码到各个core上，这就是MAD工具解决的问题。除此之外，这个工具还能通过共享一部分代码文">
+<meta name="keywords" content="evmc6678l">
+<meta property="og:type" content="article">
+<meta property="og:title" content="boot_multicore">
+<meta property="og:url" content="http://yoursite.com/2018/07/09/boot-multicore/index.html">
 <meta property="og:site_name" content="MinBud的博客">
+<meta property="og:description" content="利用MAD工具实现多核启动　　先总体地说一下MAD工具的作用：对于多个DSP核心，可能我们有对应的多个project，生成了多个.out文件，我们想把不同的projecct放在不同的core上运行。调试的时候我们可以通过仿真器手动把代码文件load到对应core上让它运行，但是怎么让板子在启动的时候自动加载代码到各个core上，这就是MAD工具解决的问题。除此之外，这个工具还能通过共享一部分代码文">
 <meta property="og:locale" content="default">
+<meta property="og:image" content="http://yoursite.com/2018/07/09/boot-multicore/boot_multicore_madprocedure.png">
+<meta property="og:image" content="http://yoursite.com/2018/07/09/boot-multicore/multi_image_html.png">
+<meta property="og:image" content="http://yoursite.com/2018/07/09/boot-multicore/boot_multicore_image_com4.png">
+<meta property="og:image" content="http://yoursite.com/2018/07/09/boot-multicore/boot_multicore_image_result.png">
+<meta property="og:image" content="http://yoursite.com/2018/07/09/boot-multicore/multi_image_8cores.png">
+<meta property="og:image" content="http://yoursite.com/2018/07/09/boot-multicore/multi_image_1core.png">
+<meta property="og:updated_time" content="2018-07-08T16:28:19.000Z">
 <meta name="twitter:card" content="summary">
-<meta name="twitter:title" content="MinBud的博客">
+<meta name="twitter:title" content="boot_multicore">
+<meta name="twitter:description" content="利用MAD工具实现多核启动　　先总体地说一下MAD工具的作用：对于多个DSP核心，可能我们有对应的多个project，生成了多个.out文件，我们想把不同的projecct放在不同的core上运行。调试的时候我们可以通过仿真器手动把代码文件load到对应core上让它运行，但是怎么让板子在启动的时候自动加载代码到各个core上，这就是MAD工具解决的问题。除此之外，这个工具还能通过共享一部分代码文">
+<meta name="twitter:image" content="http://yoursite.com/2018/07/09/boot-multicore/boot_multicore_madprocedure.png">
   
     <link rel="alternative" href="/atom.xml" title="MinBud的博客" type="application/atom+xml">
   
@@ -142,36 +154,102 @@
             <canvas data-colors="#eaeaea" data-sectionHeight="100" data-contentId="js-content" id="myCanvas1" class="anm-canvas"></canvas>
           </div>
           <div id="js-content" class="content-ll">
-            
+            <article id="post-boot-multicore" class="article article-type-post " itemscope itemprop="blogPost">
+  <div class="article-inner">
+    
+      <header class="article-header">
+        
   
+    <h1 class="article-title" itemprop="name">
+      boot_multicore
+    </h1>
   
-    
-    
-      
-      
-      <section class="archives-wrap">
-        <div class="archive-year-wrap">
-          <a href="/archives/2018" class="archive-year">2018</a>
-        </div>
-        <div class="archives">
-    
-    <article class="archive-article archive-type-post">
-  <div class="archive-article-inner">
-    <header class="archive-article-header">
-      	<div class="article-meta">
-	      	<a href="/2018/07/09/boot-multicore/" class="archive-article-date">
+
+        
+        <a href="/2018/07/09/boot-multicore/" class="archive-article-date">
   	<time datetime="2018-07-08T16:15:40.000Z" itemprop="datePublished"><i class="icon-calendar icon"></i>2018-07-09</time>
 </a>
-        </div>
-    	 
-  
-    <h1 itemprop="name">
-      <a class="archive-article-title" href="/2018/07/09/boot-multicore/">boot_multicore</a>
-    </h1>
-  
+        
+      </header>
+    
+    <div class="article-entry" itemprop="articleBody">
+      
+        <h2 id="利用MAD工具实现多核启动"><a href="#利用MAD工具实现多核启动" class="headerlink" title="利用MAD工具实现多核启动"></a>利用MAD工具实现多核启动</h2><p>　　先总体地说一下MAD工具的作用：对于多个DSP核心，可能我们有对应的多个project，生成了多个.out文件，我们想把不同的projecct放在不同的core上运行。调试的时候我们可以通过仿真器手动把代码文件load到对应core上让它运行，但是怎么让板子在启动的时候自动加载代码到各个core上，这就是MAD工具解决的问题。除此之外，这个工具还能通过共享一部分代码文件达到节约内存的目的。<br><a id="more"></a></p>
+<h3 id="MAD（Multicore-Application-Deployment）-工具"><a href="#MAD（Multicore-Application-Deployment）-工具" class="headerlink" title="MAD（Multicore Application Deployment） 工具"></a>MAD（Multicore Application Deployment） 工具</h3><p>　　MAD工具主要包括两个部分：MAP Tools，MAD Loader。其中MAP Tools主要是在构建镜像文件时使用（.bin，Build Time Utility），MAD Loader主要是在板子上电启动之后，负责将镜像文件搬到各个core的内存上，并让各个core从起始代码段开始执行。<br>　　同时，MAD工具还有两种使用模式：Prelinker-bypass， Prelinker。Prelinker-bypass模式下，MAP Tools不会为应用程序的各个段分配内存，也不会进行地址绑定（调用prelinker），这同时也就要求我们已经提前将这些工作做好了。Prelinker模式下，则相反，会通过deploy.json配置文件进行相关的配置。</p>
+  <div align="center"><img src="/2018/07/09/boot-multicore/boot_multicore_madprocedure.png" height="400px" width="600px" alt="img"></div>  
 
-        <div class="article-info info-on-right">
-          
+<p>　　<a href="http://processors.wiki.ti.com/index.php/MAD_Utils_User_Guide" target="_blank" rel="noopener">具体介绍</a>。
+　　</p>
+<h3 id="image-processing-例程"><a href="#image-processing-例程" class="headerlink" title="image_processing 例程"></a>image_processing 例程</h3><p>　　该例程位于mcsdk &gt;demos &gt;image_processing &gt;utils &gt;mad &gt;evmc6678l下。默认在images目录下，已经有生成好的mcip-plbp-c6678-le.bin文件了，可以直接使用该文件，将其烧写到nor flash上，并进行一定的配置（后述），便可以在板子上跑起来该多核例程。效果如下：</p>
+<div align="center"><img src="/2018/07/09/boot-multicore/multi_image_html.png" height="400px" width="600px" alt="img"></div><br>　　由于该例程使用网线完成图片的传输，因而需要像之前的HUA例程一样进行配置，之前我使用的是静态IP方式，这次使用DHCP方式，该方式需要将板子的网线接到路由器，由路由器的DHCP server来给板子分配IP，板子启动时com4的界面如下：<br><div align="center"><img src="/2018/07/09/boot-multicore/boot_multicore_image_com4.png" height="400px" width="350px" alt="img"></div><br>　　上图中的IP地址即为板子的IP，可以在浏览器中通过该IP访问到第一个图的网页。<br>　　这个例程的功能就是，对图片（只支持bmp图片，可以将图片在画图中打开，另存为bmp图片）进行边缘检测处理,可以选择使用几个dsp核心对图片进行处理，可以看到使用的core越多，速度越快，处理结果（效果似乎一般）及对比如下：<br><div align="center"><img src="/2018/07/09/boot-multicore/boot_multicore_image_result.png" height="450px" width="600px" alt="img"></div><br><div align="center"><img src="/2018/07/09/boot-multicore/multi_image_8cores.png" height="350px" width="450px" alt="img"></div><br><div align="center"><img src="/2018/07/09/boot-multicore/multi_image_1core.png" height="350px" width="450px" alt="img"></div>  
+
+<p>　　下面说一下利用该目录下，config-files目录下的配置文件，使用MAP Tools工具重新生成mcip-plbp-c6678-le.bin的流程.  </p>
+<blockquote>
+<p>windows环境中需要安装mingw、python和Msys（模拟GNU环境）这个步骤另开blog记录吧。<br>修改build_mad_image.bat自动生成脚本,如下根据自己的编译器地址修改目录  </p>
+</blockquote>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><span class="line">@set PATH=&quot;C:\ti\ccsv8\tools\compiler\c6000_7.4.23\bin&quot;;%PATH%</span><br><span class="line"></span><br><span class="line">@rd /s /q tmp</span><br><span class="line"></span><br><span class="line">python2 ..\..\..\..\..\tools\boot_loader\mad-utils\map-tool\maptool.py config-files\maptoolCfg_evmc6678l.json</span><br></pre></td></tr></table></figure>
+<blockquote>
+<p>修改maptoolCfg_evmc6678l.json配置文件  </p>
+</blockquote>
+<figure class="highlight javascript"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br></pre></td><td class="code"><pre><span class="line">&#123;</span><br><span class="line">    <span class="string">"deploymentCfgFile"</span>     : <span class="string">"config-files/deployment_template_evmc6678l.json"</span>,</span><br><span class="line">    <span class="string">"LoadImageName"</span>         : <span class="string">"mcip-c6678-le.bin"</span>,</span><br><span class="line">    <span class="string">"prelinkExe"</span>            : <span class="string">"prelink6x"</span>,</span><br><span class="line">    <span class="string">"stripExe"</span>              : <span class="string">"strip6x"</span>,</span><br><span class="line">    <span class="string">"ofdTool"</span>               : <span class="string">"ofd6x"</span>,</span><br><span class="line">    <span class="string">"malApp"</span>                : <span class="string">"../../../../../tools/boot_loader/mad-utils/mad-loader/bin/C6678/le/mal_app.exe"</span>,</span><br><span class="line">    <span class="string">"nmlLoader"</span>             : <span class="string">"../../../../../tools/boot_loader/mad-utils/mad-loader/bin/C6678/le/nml.exe"</span></span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+<blockquote>
+<p>修改deployment_template_evmc6678l.json文件,注意原文件中，L2SRAM段中的secnamepat中缺少了”nimu_eth_ll2”，不加上会报错。</p>
+</blockquote>
+<figure class="highlight javascript"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br><span class="line">33</span><br><span class="line">34</span><br><span class="line">35</span><br><span class="line">36</span><br><span class="line">37</span><br><span class="line">38</span><br><span class="line">39</span><br><span class="line">40</span><br><span class="line">41</span><br><span class="line">42</span><br><span class="line">43</span><br><span class="line">44</span><br><span class="line">45</span><br><span class="line">46</span><br><span class="line">47</span><br><span class="line">48</span><br><span class="line">49</span><br><span class="line">50</span><br><span class="line">51</span><br><span class="line">52</span><br><span class="line">53</span><br><span class="line">54</span><br><span class="line">55</span><br><span class="line">56</span><br><span class="line">57</span><br><span class="line">58</span><br><span class="line">59</span><br><span class="line">60</span><br><span class="line">61</span><br><span class="line">62</span><br><span class="line">63</span><br><span class="line">64</span><br><span class="line">65</span><br><span class="line">66</span><br><span class="line">67</span><br><span class="line">68</span><br><span class="line">69</span><br><span class="line">70</span><br><span class="line">71</span><br><span class="line">72</span><br><span class="line">73</span><br><span class="line">74</span><br><span class="line">75</span><br><span class="line">76</span><br><span class="line">77</span><br><span class="line">78</span><br><span class="line">79</span><br><span class="line">80</span><br><span class="line">81</span><br><span class="line">82</span><br><span class="line">83</span><br><span class="line">84</span><br><span class="line">85</span><br><span class="line">86</span><br><span class="line">87</span><br><span class="line">88</span><br><span class="line">89</span><br><span class="line">90</span><br><span class="line">91</span><br><span class="line">92</span><br><span class="line">93</span><br><span class="line">94</span><br><span class="line">95</span><br><span class="line">96</span><br><span class="line">97</span><br><span class="line">98</span><br></pre></td><td class="code"><pre><span class="line">&#123;</span><br><span class="line">	<span class="string">"deviceName"</span> : <span class="string">"C6678"</span>,</span><br><span class="line">	</span><br><span class="line">	<span class="string">"partitions"</span> : [</span><br><span class="line">		&#123;</span><br><span class="line">			<span class="string">"name"</span>		: <span class="string">"DDR3-ROMFS"</span>,</span><br><span class="line">			<span class="string">"vaddr"</span>		:  <span class="string">"0x9e000000"</span>,</span><br><span class="line">			<span class="string">"paddr"</span>		: [ <span class="string">"0x81e000000"</span>, <span class="string">"0x81e000000"</span>, <span class="string">"0x81e000000"</span>, <span class="string">"0x81e000000"</span>, <span class="string">"0x81e000000"</span>, <span class="string">"0x81e000000"</span>, <span class="string">"0x81e000000"</span>, <span class="string">"0x81e000000"</span>] ,</span><br><span class="line">			<span class="string">"size"</span>		: <span class="string">"0x1000000"</span>,</span><br><span class="line">			<span class="string">"secNamePat"</span>  	: [<span class="string">"text"</span>, <span class="string">"const"</span>],</span><br><span class="line">			<span class="string">"cores"</span>		: [<span class="number">0</span>,<span class="number">1</span>,<span class="number">2</span>,<span class="number">3</span>,<span class="number">4</span>,<span class="number">5</span>,<span class="number">6</span>,<span class="number">7</span>],</span><br><span class="line">			<span class="string">"permissions"</span>	: [<span class="string">"UR"</span>, <span class="string">"UX"</span>, <span class="string">"SR"</span>, <span class="string">"SX"</span>],  </span><br><span class="line">			<span class="string">"cacheEnable"</span>	: <span class="literal">true</span>,</span><br><span class="line">			<span class="string">"prefetch"</span>      : <span class="literal">true</span>,</span><br><span class="line">			<span class="string">"priority"</span>	: <span class="number">0</span>,</span><br><span class="line">			<span class="string">"shared"</span>	: <span class="literal">true</span>,</span><br><span class="line">			<span class="string">"loadPartition"</span> : <span class="literal">true</span> </span><br><span class="line">		&#125;,</span><br><span class="line">		&#123;</span><br><span class="line">			<span class="string">"name"</span>		: <span class="string">"DDR3-HEAP"</span>,</span><br><span class="line">			<span class="string">"vaddr"</span>		:  <span class="string">"0x88000000"</span>,</span><br><span class="line">			<span class="string">"paddr"</span>		: [<span class="string">"0x808000000"</span>] ,</span><br><span class="line">			<span class="string">"size"</span>		: <span class="string">"0x8000000"</span>,</span><br><span class="line">			<span class="string">"secNamePat"</span>  	: [<span class="string">"systemHeapMaster"</span>],</span><br><span class="line">			<span class="string">"cores"</span>		: [<span class="number">0</span>],</span><br><span class="line">			<span class="string">"permissions"</span>	: [<span class="string">"UR"</span>, <span class="string">"UW"</span>, <span class="string">"SR"</span>, <span class="string">"SW"</span>],  </span><br><span class="line">			<span class="string">"cacheEnable"</span>	: <span class="literal">true</span>,</span><br><span class="line">			<span class="string">"prefetch"</span>      : <span class="literal">true</span>,</span><br><span class="line">			<span class="string">"priority"</span>	: <span class="number">0</span>,</span><br><span class="line">			<span class="string">"shared"</span>	: <span class="literal">true</span></span><br><span class="line">		&#125;,</span><br><span class="line">		&#123;</span><br><span class="line">			<span class="string">"name"</span>		: <span class="string">"DDR3-DATA"</span>,</span><br><span class="line">			<span class="string">"vaddr"</span>		:  <span class="string">"0x82000000"</span>,</span><br><span class="line">			<span class="string">"paddr"</span>		: [<span class="string">"0x802000000"</span>] ,</span><br><span class="line">			<span class="string">"size"</span>		: <span class="string">"0x1000000"</span>,</span><br><span class="line">			<span class="string">"secNamePat"</span>  	: [<span class="string">"WEBDATA"</span>],</span><br><span class="line">			<span class="string">"cores"</span>		: [<span class="number">0</span>],</span><br><span class="line">			<span class="string">"permissions"</span>	: [<span class="string">"UR"</span>, <span class="string">"UW"</span>, <span class="string">"SR"</span>,<span class="string">"SW"</span>],  </span><br><span class="line">			<span class="string">"cacheEnable"</span>	: <span class="literal">true</span>,</span><br><span class="line">			<span class="string">"prefetch"</span>      : <span class="literal">true</span>,</span><br><span class="line">			<span class="string">"priority"</span>	: <span class="number">0</span>,</span><br><span class="line">			<span class="string">"shared"</span>	: <span class="literal">true</span></span><br><span class="line">		&#125;,</span><br><span class="line">		&#123;</span><br><span class="line">			<span class="string">"name"</span>		: <span class="string">"MSMCSRAM_MASTER"</span>,</span><br><span class="line">			<span class="string">"vaddr"</span>		: <span class="string">"0xc000000"</span>,</span><br><span class="line">			<span class="string">"paddr"</span>		: [ <span class="string">"0xc000000"</span>],</span><br><span class="line">			<span class="string">"size"</span>		: <span class="string">"0x100000"</span>,</span><br><span class="line">			<span class="string">"secNamePat"</span>  	: [ <span class="string">"emacComm"</span>, <span class="string">"NDK_PACKETMEM"</span>, <span class="string">"NDK_OBJMEM"</span>],</span><br><span class="line">			<span class="string">"cores"</span>		: [<span class="number">0</span>],</span><br><span class="line">			<span class="string">"permissions"</span>	: [<span class="string">"UR"</span>, <span class="string">"UW"</span>, <span class="string">"UX"</span>, <span class="string">"SR"</span>, <span class="string">"SW"</span>, <span class="string">"SX"</span>],</span><br><span class="line">			<span class="string">"cacheEnable"</span>	: <span class="literal">true</span>,</span><br><span class="line">			<span class="string">"prefetch"</span>      : <span class="literal">true</span>,</span><br><span class="line">			<span class="string">"priority"</span>	: <span class="number">0</span>,</span><br><span class="line">			<span class="string">"shared"</span>	: <span class="literal">false</span></span><br><span class="line">		&#125;,</span><br><span class="line">		&#123;</span><br><span class="line">			<span class="string">"name"</span>		: <span class="string">"L2SRAM"</span>,</span><br><span class="line">			<span class="string">"vaddr"</span>		: <span class="string">"0x800000"</span>,</span><br><span class="line">			<span class="string">"paddr"</span>		: [ <span class="string">"0x800000"</span>, <span class="string">"0x800000"</span>, <span class="string">"0x800000"</span>, <span class="string">"0x800000"</span>, <span class="string">"0x800000"</span>, <span class="string">"0x800000"</span>, <span class="string">"0x800000"</span>, <span class="string">"0x800000"</span> ],</span><br><span class="line">			<span class="string">"size"</span>		: <span class="string">"0x80000"</span>,</span><br><span class="line">			<span class="string">"secNamePat"</span>  	: [ <span class="string">"resmgr"</span>, <span class="string">"cio"</span>, <span class="string">"args"</span>, <span class="string">"cppi"</span>, <span class="string">"qmss"</span>, <span class="string">"^\\.far\\."</span>, <span class="string">"bss"</span>, <span class="string">"neardata"</span>, <span class="string">"rodata"</span>, <span class="string">"fardata"</span>, <span class="string">"defaultStackSection"</span>, <span class="string">"stack"</span>, <span class="string">"plt"</span>, <span class="string">"platform_lib"</span>, <span class="string">"vecs"</span>, <span class="string">"switch"</span>,<span class="string">"nimu_eth_ll2"</span>],</span><br><span class="line">			<span class="string">"cores"</span>		: [<span class="number">0</span>,<span class="number">1</span>,<span class="number">2</span>,<span class="number">3</span>,<span class="number">4</span>,<span class="number">5</span>,<span class="number">6</span>,<span class="number">7</span>],</span><br><span class="line">			<span class="string">"permissions"</span>	: [<span class="string">"UR"</span>, <span class="string">"UW"</span>, <span class="string">"UX"</span>, <span class="string">"SR"</span>, <span class="string">"SW"</span>, <span class="string">"SX"</span>],</span><br><span class="line">			<span class="string">"cacheEnable"</span>	: <span class="literal">false</span>,</span><br><span class="line">			<span class="string">"prefetch"</span>      : <span class="literal">false</span>,</span><br><span class="line">			<span class="string">"priority"</span>	: <span class="number">0</span>,</span><br><span class="line">			<span class="string">"shared"</span>	: <span class="literal">false</span></span><br><span class="line">		&#125;</span><br><span class="line">    ],</span><br><span class="line">	</span><br><span class="line">	<span class="string">"applications"</span> : [</span><br><span class="line">		&#123;</span><br><span class="line">			<span class="string">"name"</span>		 : <span class="string">"master"</span>,</span><br><span class="line">			<span class="string">"fileName"</span>       : <span class="string">"../../../ipc/evmc6678l/master/Debug/image_processing_evmc6678l_master.out"</span>,</span><br><span class="line">			<span class="string">"libPath"</span>        : <span class="string">"../../../ipc/evmc6678l/master/Debug"</span>,</span><br><span class="line">			<span class="string">"allowedCores"</span>   : [<span class="number">0</span>]</span><br><span class="line">		&#125;,</span><br><span class="line">		&#123;</span><br><span class="line">			<span class="string">"name"</span>		 : <span class="string">"slave"</span>,</span><br><span class="line">			<span class="string">"fileName"</span>       : <span class="string">"../../../ipc/evmc6678l/slave/Debug/image_processing_evmc6678l_slave.out"</span>,</span><br><span class="line">			<span class="string">"libPath"</span>        : <span class="string">"../../../ipc/evmc6678l/slave/Debug"</span>,</span><br><span class="line">			<span class="string">"allowedCores"</span>   : [<span class="number">1</span>,<span class="number">2</span>,<span class="number">3</span>,<span class="number">4</span>,<span class="number">5</span>,<span class="number">6</span>,<span class="number">7</span>]</span><br><span class="line">		&#125;</span><br><span class="line">	],</span><br><span class="line">	</span><br><span class="line">	<span class="string">"appDeployment"</span> : [</span><br><span class="line">		<span class="string">"master"</span>,</span><br><span class="line">		<span class="string">"slave"</span>,</span><br><span class="line">		<span class="string">"slave"</span>,</span><br><span class="line">		<span class="string">"slave"</span>,</span><br><span class="line">		<span class="string">"slave"</span>,</span><br><span class="line">		<span class="string">"slave"</span>,</span><br><span class="line">		<span class="string">"slave"</span>,</span><br><span class="line">		<span class="string">"slave"</span></span><br><span class="line">	]</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+<p>修改好后，再msys中输入： </p>
+<blockquote>
+<p>cd /c/ti/mcsdk_2_01_02_06/demos/image_processing/utils/mad/evmc6678l/<br>./build_mad_image.bat  </p>
+</blockquote>
+<p>可以看到再images目录下生产了.bin文件。接下来需要将.bin文件烧写到nor flash中，由于我使用的是IBL NOR Flash启动方式，还需要对IBL进行一定的配置:</p>
+<blockquote>
+<p>startAddress = 0x9e000000<br>branchAddress = 0x9e001040</p>
+</blockquote>
+<p>按照之前配置IBL的方法将norflash中的上述部分修改成上面的地址。然后利用nor writer将.bin文件烧入nor flash。将网线连接到路由器，启动板子，可以看到上面的效果。</p>
+<h2 id="Led-play-例程"><a href="#Led-play-例程" class="headerlink" title="Led_play 例程"></a>Led_play 例程</h2><p>　　除了上面的例程外，我还从网上下载了Led灯闪烁例程，并且自己修改成两个核上运行程序，但是由于例程中的一些问题，使得程序一直无法正常运行，后来查找到问题，修改后正常工作。<br>　　首先是将Led_play例程改成循环点亮改成单灯闪烁。</p>
+<pre><code class="C"><span class="keyword">for</span> (i = <span class="number">0</span>; i &lt; length; i++) {
+    <span class="keyword">if</span> (platform_uart_write(message[i]) != Platform_EOK) {
+        <span class="keyword">return</span>;
+    }
+}
+
+<span class="keyword">for</span> (i=<span class="number">0</span>;i&lt;p_info.led[PLATFORM_USER_LED_CLASS].count;i++)
+{
+    platform_led(i, PLATFORM_LED_OFF, PLATFORM_USER_LED_CLASS);
+}
+<span class="keyword">while</span>(<span class="number">1</span>) {
+    platform_led(led_no, PLATFORM_LED_ON, PLATFORM_USER_LED_CLASS);
+    platform_delay(<span class="number">150000</span>);
+    platform_led(led_no, PLATFORM_LED_OFF, PLATFORM_USER_LED_CLASS);
+    platform_delay(<span class="number">150000</span>);
+    <span class="comment">//led_no = (led_no) % p_info.led[PLATFORM_USER_LED_CLASS].count;</span>
+}
+</code></pre>
+<p>　　接着，修改例程中导致程序无法在core0以外运行的错误:</p>
+<pre><code class="C"><span class="comment">//memset(&amp;init_flags, 0x01, sizeof(platform_init_flags));  错误</span>
+<span class="built_in">memset</span>(&amp;init_flags, <span class="number">0x00</span>, <span class="keyword">sizeof</span>(platform_init_flags));
+<span class="built_in">memset</span>(&amp;init_config, <span class="number">0</span>, <span class="keyword">sizeof</span>(platform_init_config));
+</code></pre>
+<p>　　原来的初始化代码会导致将程序在load到core0以外的core时，会abort，无法运行。（因此我利用MAP生成的.bin一直无法正常工作，我还以为时MAP工具配置的问题，查找了很久，最后才发现~……~，一开始在core0正常运行了，就想当然地认为能正常在其它core上跑，事实证明不能想当然~_~）。</p>
+<h2 id="补充"><a href="#补充" class="headerlink" title="补充"></a>补充</h2><h3 id="预览生成的-bin文件执行效果"><a href="#预览生成的-bin文件执行效果" class="headerlink" title="预览生成的.bin文件执行效果"></a>预览生成的.bin文件执行效果</h3><p>　　生成的.bin文件可以在CSS中先测试是否能够正常使用。步骤如下：</p>
+<blockquote>
+<ol>
+<li>连接core0，执行C6678L.gel初始化脚本。  </li>
+<li>在memory browser中输入0x9E000000,Load memory，将.bin文件烧写进去。  </li>
+<li>点击core0，在Register窗口中找到PC寄存器，将其值改为0x9E001040。  </li>
+<li>run &gt;resume  </li>
+</ol>
+</blockquote>
+<p>　　这样可以看到多核程序正常跑起来。</p>
+<h3 id="单镜像"><a href="#单镜像" class="headerlink" title="单镜像"></a>单镜像</h3><p>　　MAD方式可以将多个镜像连接成一个，并自动将数据加载到各个core指定的内存上，除了这个方法外，还可以将同一份代码同时加载到多个core的内存中，并通过代码判断当前的核心，从而执行不同的程序。但是具体还没实践过，留待实验。</p>
+<h3 id="MAD启动流程"><a href="#MAD启动流程" class="headerlink" title="MAD启动流程"></a>MAD启动流程</h3><p>　　<a href="https://e2e.ti.com/support/dsp/c6000_multi-core_dsps/f/639/t/346728?Does-program-always-start-from-core-0-for-C6678-" target="_blank" rel="noopener">参考一</a><br>　　<a href="https://e2e.ti.com/support/dsp/c6000_multi-core_dsps/f/639/t/233429?Some-questiones-about-bootloader-in-C6678" target="_blank" rel="noopener">参考二</a><br>　　Rom bootloader会在所有的core上运行，但是执行不同的功能。在core0,会执行真正的boot loader；在core1，会执行一条idle指令，等待core0将其唤醒。<br>　　IBL存储在EEPROM上，有RBL启动执行，但是IBL只在core0上执行。<br>　　启动时RBL启动IBL并执行，IBL将NOR FLASH上的MAD image下载到DDR上，同时由上面配置IBL的步骤可以知道，接下来IBL会跳转到一个执行程序入口地址，在该配置下，就是MAD Loader。<br>　　MAD Loader的责任就是解析ROMFS image，将各个数据段加载到它们的执行地址，并在各个指定的core上启动程序的执行。（MAD Loader帮我们完成了唤醒其它core执行的任务）</p>
+
+      
+
+      
+    </div>
+    <div class="article-info article-info-index">
+      
+      
 	<div class="article-tag tagcloud">
 		<i class="icon-price-tags icon"></i>
 		<ul class="article-tag-list">
@@ -183,209 +261,106 @@
 		</ul>
 	</div>
 
-          
+      
 
+      
+
+      
+        
+<div class="share-btn share-icons tooltip-left">
+  <div class="tooltip tooltip-east">
+    <span class="tooltip-item">
+      <a href="javascript:;" class="share-sns share-outer">
+        <i class="icon icon-share"></i>
+      </a>
+    </span>
+    <span class="tooltip-content">
+      <div class="share-wrap">
+        <div class="share-icons">
+          <a class="weibo share-sns" href="javascript:;" data-type="weibo">
+            <i class="icon icon-weibo"></i>
+          </a>
+          <a class="weixin share-sns wxFab" href="javascript:;" data-type="weixin">
+            <i class="icon icon-weixin"></i>
+          </a>
+          <a class="qq share-sns" href="javascript:;" data-type="qq">
+            <i class="icon icon-qq"></i>
+          </a>
+          <a class="douban share-sns" href="javascript:;" data-type="douban">
+            <i class="icon icon-douban"></i>
+          </a>
+          <a class="qzone share-sns" href="javascript:;" data-type="qzone">
+            <i class="icon icon-qzone"></i>
+          </a>
+          <a class="facebook share-sns" href="javascript:;" data-type="facebook">
+            <i class="icon icon-facebook"></i>
+          </a>
+          <a class="twitter share-sns" href="javascript:;" data-type="twitter">
+            <i class="icon icon-twitter"></i>
+          </a>
+          <a class="google share-sns" href="javascript:;" data-type="google">
+            <i class="icon icon-google"></i>
+          </a>
         </div>
-        <div class="clearfix"></div>
-    </header>
+      </div>
+    </span>
+  </div>
+</div>
+
+<div class="page-modal wx-share js-wx-box">
+    <a class="close js-modal-close" href="javascript:;"><i class="icon icon-close"></i></a>
+    <p>扫一扫，分享到微信</p>
+    <div class="wx-qrcode">
+      <img src="//pan.baidu.com/share/qrcode?url=http://yoursite.com/2018/07/09/boot-multicore/" alt="微信分享二维码">
+    </div>
+</div>
+
+<div class="mask js-mask"></div>
+      
+      <div class="clearfix"></div>
+    </div>
   </div>
 </article>
+
   
-    
-    
-    <article class="archive-article archive-type-post">
-  <div class="archive-article-inner">
-    <header class="archive-article-header">
-      	<div class="article-meta">
-	      	<a href="/2018/07/03/Boot-Singlecore/" class="archive-article-date">
-  	<time datetime="2018-07-03T14:51:09.000Z" itemprop="datePublished"><i class="icon-calendar icon"></i>2018-07-03</time>
-</a>
+<nav id="article-nav">
+  
+  
+    <a href="/2018/07/03/Boot-Singlecore/" id="article-nav-older" class="article-nav-link-wrap">
+      <div class="article-nav-title">Boot_Singlecore</div>
+      <i class="icon-circle-right"></i>
+    </a>
+  
+</nav>
+
+
+<aside class="wrap-side-operation">
+    <div class="mod-side-operation">
+        
+        <div class="jump-container" id="js-jump-container" style="display:none;">
+            <a href="javascript:void(0)" class="mod-side-operation__jump-to-top">
+                <i class="icon-font icon-back"></i>
+            </a>
+            <div id="js-jump-plan-container" class="jump-plan-container" style="top: -11px;">
+                <i class="icon-font icon-plane jump-plane"></i>
+            </div>
         </div>
-    	 
+        
+        
+    </div>
+</aside>
+
+
+
   
-    <h1 itemprop="name">
-      <a class="archive-article-title" href="/2018/07/03/Boot-Singlecore/">Boot_Singlecore</a>
-    </h1>
+  
   
 
-        <div class="article-info info-on-right">
-          
-	<div class="article-tag tagcloud">
-		<i class="icon-price-tags icon"></i>
-		<ul class="article-tag-list">
-			 
-        		<li class="article-tag-list-item">
-        			<a href="javascript:void(0)" class="js-tag article-tag-list-link color5">evmc6678l</a>
-        		</li>
-      		
-		</ul>
-	</div>
-
-          
-
-        </div>
-        <div class="clearfix"></div>
-    </header>
-  </div>
-</article>
-  
-    
-    
-    <article class="archive-article archive-type-post">
-  <div class="archive-article-inner">
-    <header class="archive-article-header">
-      	<div class="article-meta">
-	      	<a href="/2018/07/03/routerap/" class="archive-article-date">
-  	<time datetime="2018-07-02T16:12:39.000Z" itemprop="datePublished"><i class="icon-calendar icon"></i>2018-07-03</time>
-</a>
-        </div>
-    	 
-  
-    <h1 itemprop="name">
-      <a class="archive-article-title" href="/2018/07/03/routerap/">routerap</a>
-    </h1>
   
 
-        <div class="article-info info-on-right">
-          
-	<div class="article-tag tagcloud">
-		<i class="icon-price-tags icon"></i>
-		<ul class="article-tag-list">
-			 
-        		<li class="article-tag-list-item">
-        			<a href="javascript:void(0)" class="js-tag article-tag-list-link color1">计算机网络</a>
-        		</li>
-      		
-		</ul>
-	</div>
-
-          
-
-        </div>
-        <div class="clearfix"></div>
-    </header>
-  </div>
-</article>
-  
-    
-    
-    <article class="archive-article archive-type-post">
-  <div class="archive-article-inner">
-    <header class="archive-article-header">
-      	<div class="article-meta">
-	      	<a href="/2018/07/01/New-to-C6678-CSS/" class="archive-article-date">
-  	<time datetime="2018-07-01T10:35:02.000Z" itemprop="datePublished"><i class="icon-calendar icon"></i>2018-07-01</time>
-</a>
-        </div>
-    	 
-  
-    <h1 itemprop="name">
-      <a class="archive-article-title" href="/2018/07/01/New-to-C6678-CSS/">New to C6678 &amp; CSS</a>
-    </h1>
   
 
-        <div class="article-info info-on-right">
-          
-	<div class="article-tag tagcloud">
-		<i class="icon-price-tags icon"></i>
-		<ul class="article-tag-list">
-			 
-        		<li class="article-tag-list-item">
-        			<a href="javascript:void(0)" class="js-tag article-tag-list-link color5">evmc6678l</a>
-        		</li>
-      		
-		</ul>
-	</div>
-
-          
-
-        </div>
-        <div class="clearfix"></div>
-    </header>
-  </div>
-</article>
   
-    
-    
-    <article class="archive-article archive-type-post">
-  <div class="archive-article-inner">
-    <header class="archive-article-header">
-      	<div class="article-meta">
-	      	<a href="/2018/06/23/ethernet/" class="archive-article-date">
-  	<time datetime="2018-06-23T12:56:39.000Z" itemprop="datePublished"><i class="icon-calendar icon"></i>2018-06-23</time>
-</a>
-        </div>
-    	 
-  
-    <h1 itemprop="name">
-      <a class="archive-article-title" href="/2018/06/23/ethernet/">ethernet</a>
-    </h1>
-  
-
-        <div class="article-info info-on-right">
-          
-	<div class="article-tag tagcloud">
-		<i class="icon-price-tags icon"></i>
-		<ul class="article-tag-list">
-			 
-        		<li class="article-tag-list-item">
-        			<a href="javascript:void(0)" class="js-tag article-tag-list-link color1">计算机网络</a>
-        		</li>
-      		
-		</ul>
-	</div>
-
-          
-
-        </div>
-        <div class="clearfix"></div>
-    </header>
-  </div>
-</article>
-  
-    
-    
-    <article class="archive-article archive-type-post">
-  <div class="archive-article-inner">
-    <header class="archive-article-header">
-      	<div class="article-meta">
-	      	<a href="/2018/06/10/Github-Pages-hexo/" class="archive-article-date">
-  	<time datetime="2018-06-10T10:18:24.000Z" itemprop="datePublished"><i class="icon-calendar icon"></i>2018-06-10</time>
-</a>
-        </div>
-    	 
-  
-    <h1 itemprop="name">
-      <a class="archive-article-title" href="/2018/06/10/Github-Pages-hexo/">Github-Pages&amp;hexo</a>
-    </h1>
-  
-
-        <div class="article-info info-on-right">
-          
-	<div class="article-tag tagcloud">
-		<i class="icon-price-tags icon"></i>
-		<ul class="article-tag-list">
-			 
-        		<li class="article-tag-list-item">
-        			<a href="javascript:void(0)" class="js-tag article-tag-list-link color5">搭建博客</a>
-        		</li>
-      		
-		</ul>
-	</div>
-
-          
-
-        </div>
-        <div class="clearfix"></div>
-    </header>
-  </div>
-</article>
-  
-  
-    </div></section>
-  
-
-    
 
 
           </div>
@@ -406,8 +381,8 @@
 	var yiliaConfig = {
 		mathjax: false,
 		isHome: false,
-		isPost: false,
-		isArchive: true,
+		isPost: true,
+		isArchive: false,
 		isTag: false,
 		isCategory: false,
 		open_in_new: false,

@@ -18,7 +18,7 @@
 <meta property="og:locale" content="default">
 <meta property="og:image" content="http://yoursite.com/2018/07/03/Boot-Singlecore/post_result.png">
 <meta property="og:image" content="http://yoursite.com/2018/07/03/Boot-Singlecore/boot_table_format.png">
-<meta property="og:updated_time" content="2018-07-03T15:52:02.000Z">
+<meta property="og:updated_time" content="2018-07-04T04:44:09.000Z">
 <meta name="twitter:card" content="summary">
 <meta name="twitter:title" content="Boot_Singlecore">
 <meta name="twitter:description" content="1. EEPROM BOOT &amp;amp; POST(Power On Self Test)　　evmc6678评估板上有一块128KB的EEPROM，这块内存主要用于烧写IBL（Intermediate BootLoader）即二次引导的程序，或者烧写POST上电自检程序。其中在烧写程序时有两个总线地址，一个是0x50，一个是0x51，两个地址分别代表寻址128kB的其中64KB，前者默认用来烧写">
@@ -196,7 +196,7 @@
 <li>按照IBL NOR BOOT设置开关，重启，可以发现程序跑起来了~_~。  </li>
 </ol>
 </blockquote>
-<h2 id="3-SPI-NOR-FLASH-BOOT"><a href="#3-SPI-NOR-FLASH-BOOT" class="headerlink" title="3. SPI NOR FLASH BOOT"></a>3. SPI NOR FLASH BOOT</h2><p>　　evmc6678l也可直由RBL引导，从NOR FLASH处启动。RBL只能识别boot table format，而且只能使用大端模式。因此我们主要的工作是将生成的.out文件经过工具链进行处理，转换为能够被RBL识别的文件格式。此处的资料来源主要是<a href="https://e2e.ti.com/support/dsp/c6000_multi-core_dsps/f/639/t/447109?C6678-multicore-booting-from-SPI-Nor-flash" target="_blank" rel="noopener">TI论坛</a>。文档为<em>Booting from the SPI NOR on C6670/C6678 EVM</em>。  </p>
+<h2 id="3-SPI-NOR-FLASH-BOOT"><a href="#3-SPI-NOR-FLASH-BOOT" class="headerlink" title="3. SPI NOR FLASH BOOT"></a>3. SPI NOR FLASH BOOT</h2><p>　　evmc6678l也可直由RBL引导，从NOR FLASH处启动。RBL只能识别boot table format，而且只能使用大端模式。因此我们主要的工作是将生成的.out文件经过工具链进行处理，转换为能够被RBL识别的文件格式。此处的资料来源主要是<a href="https://e2e.ti.com/support/dsp/c6000_multi-core_dsps/f/639/t/447109?C6678-multicore-booting-from-SPI-Nor-flash" target="_blank" rel="noopener">TI论坛</a>。文档为<em>Booting from the SPI NOR on C6670/C6678 EVM</em>。<a href="https://www.google.com.hk/url?sa=t&amp;rct=j&amp;q=&amp;esrc=s&amp;source=web&amp;cd=7&amp;ved=0ahUKEwjLroyPy4TcAhVDa94KHWJ-BFkQFghNMAY&amp;url=%68%74%74%70%3a%2f%2f%77%77%77%2e%64%65%79%69%73%75%70%70%6f%72%74%2e%63%6f%6d%2f%63%66%73%2d%66%69%6c%65%2e%61%73%68%78%2f%5f%5f%6b%65%79%2f%63%6f%6d%6d%75%6e%69%74%79%73%65%72%76%65%72%2d%64%69%73%63%75%73%73%69%6f%6e%73%2d%63%6f%6d%70%6f%6e%65%6e%74%73%2d%66%69%6c%65%73%2f%35%33%2f%33%36%31%37%2e%4b%65%79%73%74%6f%6e%65%2d%31%2d%53%50%49%2d%4e%4f%52%2d%5f%32%46%35%34%41%38%35%32%36%35%36%42%41%34%39%41%45%35%34%45%43%41%35%33%45%38%36%43%30%46%36%31%38%42%34%45%37%39%39%38%5f%2e%70%64%66&amp;usg=AOvVaw1QyyLgyoSvds9ox4LGi3lZ" target="_blank" rel="noopener">更新资料</a>  </p>
 <h4 id="hex6x-exe"><a href="#hex6x-exe" class="headerlink" title="hex6x.exe"></a>hex6x.exe</h4><p>　　这个工具的主要作用是将.out转换为Boot table format,使得RBL能够读取到程序二进制文件的各个段。该工具的输入是一个.rmd文件。包括以下部分：</p>
 <blockquote>
 <p>C:\Users\DarkLing\Desktop\KeystoneI_bootloader_workshop\boot_image\SPI_Bootloader\led_play.out<br>-a<br>-boot<br>-e _c_int00  </p>
@@ -207,7 +207,7 @@
 <p>.\hex6x.exe .\led_play.rmd  </p>
 </blockquote>
 <p>　　生成了led_play.btbl文件。boot table format如下所示：</p>
-<div align="center"><img src="/2018/07/03/Boot-Singlecore/boot_table_format.png" height="400px" width="600px" alt="img"></div>
+<div align="center"><img src="/2018/07/03/Boot-Singlecore/boot_table_format.png" height="500px" width="450px" alt="img"></div>
 
 <h4 id="b2i2c-exe"><a href="#b2i2c-exe" class="headerlink" title="b2i2c.exe"></a>b2i2c.exe</h4><p>　　将.btbl文件以0x80字节分块，并附加长度和校验和信息，以符合RBL的需要。  </p>
 <blockquote>
@@ -320,9 +320,18 @@
   
 <nav id="article-nav">
   
+    <a href="/2018/07/09/boot-multicore/" id="article-nav-newer" class="article-nav-link-wrap">
+      <i class="icon-circle-left"></i>
+      <div class="article-nav-title">
+        
+          boot_multicore
+        
+      </div>
+    </a>
   
-    <a href="/2018/07/01/New-to-C6678-CSS/" id="article-nav-older" class="article-nav-link-wrap">
-      <div class="article-nav-title">New to C6678 &amp; CSS</div>
+  
+    <a href="/2018/07/03/routerap/" id="article-nav-older" class="article-nav-link-wrap">
+      <div class="article-nav-title">routerap</div>
       <i class="icon-circle-right"></i>
     </a>
   

@@ -40,7 +40,7 @@ tags: evmc6678l
 
 
 ## 3. SPI NOR FLASH BOOT
-　　evmc6678l也可直由RBL引导，从NOR FLASH处启动。RBL只能识别boot table format，而且只能使用大端模式。因此我们主要的工作是将生成的.out文件经过工具链进行处理，转换为能够被RBL识别的文件格式。此处的资料来源主要是[TI论坛](https://e2e.ti.com/support/dsp/c6000_multi-core_dsps/f/639/t/447109?C6678-multicore-booting-from-SPI-Nor-flash)。文档为*Booting from the SPI NOR on C6670/C6678 EVM*。  
+　　evmc6678l也可直由RBL引导，从NOR FLASH处启动。RBL只能识别boot table format，而且只能使用大端模式。因此我们主要的工作是将生成的.out文件经过工具链进行处理，转换为能够被RBL识别的文件格式。此处的资料来源主要是[TI论坛](https://e2e.ti.com/support/dsp/c6000_multi-core_dsps/f/639/t/447109?C6678-multicore-booting-from-SPI-Nor-flash)。文档为*Booting from the SPI NOR on C6670/C6678 EVM*。[更新资料](https://www.google.com.hk/url?sa=t&rct=j&q=&esrc=s&source=web&cd=7&ved=0ahUKEwjLroyPy4TcAhVDa94KHWJ-BFkQFghNMAY&url=%68%74%74%70%3a%2f%2f%77%77%77%2e%64%65%79%69%73%75%70%70%6f%72%74%2e%63%6f%6d%2f%63%66%73%2d%66%69%6c%65%2e%61%73%68%78%2f%5f%5f%6b%65%79%2f%63%6f%6d%6d%75%6e%69%74%79%73%65%72%76%65%72%2d%64%69%73%63%75%73%73%69%6f%6e%73%2d%63%6f%6d%70%6f%6e%65%6e%74%73%2d%66%69%6c%65%73%2f%35%33%2f%33%36%31%37%2e%4b%65%79%73%74%6f%6e%65%2d%31%2d%53%50%49%2d%4e%4f%52%2d%5f%32%46%35%34%41%38%35%32%36%35%36%42%41%34%39%41%45%35%34%45%43%41%35%33%45%38%36%43%30%46%36%31%38%42%34%45%37%39%39%38%5f%2e%70%64%66&usg=AOvVaw1QyyLgyoSvds9ox4LGi3lZ)  
 #### hex6x.exe
 　　这个工具的主要作用是将.out转换为Boot table format,使得RBL能够读取到程序二进制文件的各个段。该工具的输入是一个.rmd文件。包括以下部分：
 > C:\Users\DarkLing\Desktop\KeystoneI_bootloader_workshop\boot_image\SPI_Bootloader\led_play.out  
@@ -58,7 +58,7 @@ tags: evmc6678l
 > .\hex6x.exe .\led_play.rmd  
 
 　　生成了led_play.btbl文件。boot table format如下所示：
-<div align=center><img src="boot_table_format.png" height=400px width=600px alt="img"></div>
+<div align=center><img src="boot_table_format.png" height=500px width=450px alt="img"></div>
 
 #### b2i2c.exe
 　　将.btbl文件以0x80字节分块，并附加长度和校验和信息，以符合RBL的需要。  
