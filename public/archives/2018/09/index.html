@@ -6,25 +6,15 @@
   <meta name="renderer" content="webkit">
   <meta http-equiv="X-UA-Compatible" content="IE=edge" >
   <link rel="dns-prefetch" href="http://yoursite.com">
-  <title>New to C6678 &amp; CSS | MinBud的博客</title>
+  <title>Archives: 2018/9 | MinBud的博客</title>
   <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
-  <meta name="description" content="1. C6678开发板上手　　等了一个多月，开发板终于到了。板子型号是TMDSEVM6678LE，带有XDS560v2仿真板(Blackhawk XDS560v2-USB Mezzanine Emulator）。　　刚来的板子上已经烧写了一个Out-of-Box(OOB)例程–HUA（High-Performance DSP Utility Application）。按照默认的启动设置（SW3~S">
-<meta name="keywords" content="evmc6678l">
-<meta property="og:type" content="article">
-<meta property="og:title" content="New to C6678 &amp; CSS">
-<meta property="og:url" content="http://yoursite.com/2018/07/01/New-to-C6678-CSS/index.html">
+  <meta property="og:type" content="website">
+<meta property="og:title" content="MinBud的博客">
+<meta property="og:url" content="http://yoursite.com/archives/2018/09/index.html">
 <meta property="og:site_name" content="MinBud的博客">
-<meta property="og:description" content="1. C6678开发板上手　　等了一个多月，开发板终于到了。板子型号是TMDSEVM6678LE，带有XDS560v2仿真板(Blackhawk XDS560v2-USB Mezzanine Emulator）。　　刚来的板子上已经烧写了一个Out-of-Box(OOB)例程–HUA（High-Performance DSP Utility Application）。按照默认的启动设置（SW3~S">
 <meta property="og:locale" content="default">
-<meta property="og:image" content="http://yoursite.com/2018/07/01/New-to-C6678-CSS/hua_com4_config.png">
-<meta property="og:image" content="http://yoursite.com/2018/07/01/New-to-C6678-CSS/hua_ipconfig.png">
-<meta property="og:image" content="http://yoursite.com/2018/07/01/New-to-C6678-CSS/hua_com4.png">
-<meta property="og:image" content="http://yoursite.com/2018/07/01/New-to-C6678-CSS/hua_html_index.png">
-<meta property="og:updated_time" content="2018-09-26T13:51:03.990Z">
 <meta name="twitter:card" content="summary">
-<meta name="twitter:title" content="New to C6678 &amp; CSS">
-<meta name="twitter:description" content="1. C6678开发板上手　　等了一个多月，开发板终于到了。板子型号是TMDSEVM6678LE，带有XDS560v2仿真板(Blackhawk XDS560v2-USB Mezzanine Emulator）。　　刚来的板子上已经烧写了一个Out-of-Box(OOB)例程–HUA（High-Performance DSP Utility Application）。按照默认的启动设置（SW3~S">
-<meta name="twitter:image" content="http://yoursite.com/2018/07/01/New-to-C6678-CSS/hua_com4_config.png">
+<meta name="twitter:title" content="MinBud的博客">
   
     <link rel="alternative" href="/atom.xml" title="MinBud的博客" type="application/atom+xml">
   
@@ -152,172 +142,49 @@
             <canvas data-colors="#eaeaea" data-sectionHeight="100" data-contentId="js-content" id="myCanvas1" class="anm-canvas"></canvas>
           </div>
           <div id="js-content" class="content-ll">
-            <article id="post-New-to-C6678-CSS" class="article article-type-post " itemscope itemprop="blogPost">
-  <div class="article-inner">
-    
-      <header class="article-header">
-        
+            
   
-    <h1 class="article-title" itemprop="name">
-      New to C6678 &amp; CSS
+  
+    
+    
+      
+      
+      <section class="archives-wrap">
+        <div class="archive-year-wrap">
+          <a href="/archives/2018" class="archive-year">2018</a>
+        </div>
+        <div class="archives">
+    
+    <article class="archive-article archive-type-post">
+  <div class="archive-article-inner">
+    <header class="archive-article-header">
+      	<div class="article-meta">
+	      	<a href="/2018/09/26/ccs-linux/" class="archive-article-date">
+  	<time datetime="2018-09-26T14:05:51.000Z" itemprop="datePublished"><i class="icon-calendar icon"></i>2018-09-26</time>
+</a>
+        </div>
+    	 
+  
+    <h1 itemprop="name">
+      <a class="archive-article-title" href="/2018/09/26/ccs-linux/">ccs_linux</a>
     </h1>
   
 
-        
-        <a href="/2018/07/01/New-to-C6678-CSS/" class="archive-article-date">
-  	<time datetime="2018-07-01T10:35:02.000Z" itemprop="datePublished"><i class="icon-calendar icon"></i>2018-07-01</time>
-</a>
-        
-      </header>
-    
-    <div class="article-entry" itemprop="articleBody">
-      
-        <h2 id="1-C6678开发板上手"><a href="#1-C6678开发板上手" class="headerlink" title="1. C6678开发板上手"></a>1. C6678开发板上手</h2><p>　　等了一个多月，开发板终于到了。板子型号是TMDSEVM6678LE，带有XDS560v2仿真板(Blackhawk XDS560v2-USB Mezzanine Emulator）。<br>　　刚来的板子上已经烧写了一个Out-of-Box(OOB)例程–<a href="http://processors.wiki.ti.com/index.php/MCSDK_HUA_Demonstration_Guide" target="_blank" rel="noopener">HUA（High-Performance DSP Utility Application）</a>。按照默认的启动设置（SW3~SW6、SW9），即0010-1111-1110-0000，SW9：11。SW9的第二个开关是设置HUA例程是使用静态IP还是DHCP方式工作。<br>　　由于刚拿到板子，不了解情况，我直接在板子上烧写了其它的程序。自带的HUA工程文件可以在MCSDK安装目录的demo目录中找到。<br>　　下面介绍一下让HUA例程跑起来的过程（我使用的是静态IP方式，DHCP方式还需要下载配置DHCP Server）。<br>　　前置准备：<br><a id="more"></a></p>
-<blockquote>
-<ol>
-<li><p>windows: <a href="https://www.hilgraeve.com/hyperterminal-trial/" target="_blank" rel="noopener">hyperterminal</a>　　　　linux: minicom   　　<em>用于接收从串口发出的数据</em><br>安装完运行，PC连接上开发板，新建连接可以看到有COM4选项，设置如下：<br><div align="center"> <img src="/2018/07/01/New-to-C6678-CSS/hua_com4_config.png" width="300" height="400"></div><br>tips:<br>TMDSEVM6678LE带有XDS560v2仿真板，这个扩展板的USB-mini口没有和UART口连接，因此不能通过该口接收串口数据。需要自己将这个口（RS-232）连接到PC，或者将560v2拆下，使用板子自带的XDS100v1，自带的仿真器虽然速度慢一些，但是串口是连到USB-mini口的。  </p>
-</li>
-<li><p>同时需要设置PC的ip信息：  </p>
-<div align="center"><img src="/2018/07/01/New-to-C6678-CSS/hua_ipconfig.png" width="300" height="400"></div>
-</li>
-</ol>
-</blockquote>
-<p>　　正式运行：<br>　　准备工作完成后，按下板子的FULL_REST开关（靠近网口那个）,可以看到Hyperterminal输出如下：<br>　　<img src="/2018/07/01/New-to-C6678-CSS/hua_com4.png" alt="img"><br>　　在浏览器中输入192.168.2.100：<br>　　<img src="/2018/07/01/New-to-C6678-CSS/hua_html_index.png" alt="img">  </p>
-<h2 id="2-CCS-安装-amp-使用"><a href="#2-CCS-安装-amp-使用" class="headerlink" title="2. CCS 安装&amp;使用"></a>2. CCS 安装&amp;使用</h2><p>　　附带在评估板中的还有一个光盘，光盘中有CCSv5和BIOS_MCSK的安装包。但是CCSv5已经比较老了，许多工程文件都是使用比较新的编译器编译的，因此我在官网下了<a href="http://processors.wiki.ti.com/index.php/Download_CCS#Download_the_latest_CCS" target="_blank" rel="noopener">CCSv8</a>，同时也下了<a href="http://software-dl.ti.com/sdoemb/sdoemb_public_sw/bios_mcsdk/latest/index_FDS.html" target="_blank" rel="noopener">bios_mcsdk_02_01_02_06</a>。<br>　　CCS中有几个使用较为频繁的操作：  </p>
-<ol>
-<li>project &gt; import project<br>　　将已有的工程文件导入，导入后可以在 <em>view &gt; project explorer</em>操作打开的窗口中看到导入的工程。  </li>
-<li>view &gt; target configurations<br>　　打开目标连接文件窗口，可以看到各个工程文件中的连接文件。在窗口中的ccxml文件中右击鼠标，选择lauch selected configutaion可以用改配置文件连接并启动目标板。启动前最好先双击该文件，在打开的窗口中test configuration看看有无错误。  </li>
-<li>下载并执行程序流程：<br>　　1) Debug窗口中右击某个core,conect target<br>　　2) tool &gt; gel files 。 memory map窗口中，gel files &gt; 右击 &gt;load gel。　　<em>gel文件是初始化脚本</em><br>　　3) scripts &gt; evmc6678l init function &gt; global_default_setup<br>　　4) run &gt; load &gt; load program &gt; 选择.out文件<br>　　5) run &gt; resume 程序开始运行。  </li>
-<li>安装新的组件:<br>　　window &gt; preference &gt;Code Compose Studio &gt; products &gt; rediscover &gt; install<br>　　window &gt; preference &gt;Code Compose Studio &gt; build &gt; compliers &gt; refresh &gt; install</li>
-</ol>
+        <div class="article-info info-on-right">
+          
+          
 
-      
-
-      
-    </div>
-    <div class="article-info article-info-index">
-      
-      
-	<div class="article-tag tagcloud">
-		<i class="icon-price-tags icon"></i>
-		<ul class="article-tag-list">
-			 
-        		<li class="article-tag-list-item">
-        			<a href="javascript:void(0)" class="js-tag article-tag-list-link color5">evmc6678l</a>
-        		</li>
-      		
-		</ul>
-	</div>
-
-      
-
-      
-
-      
-        
-<div class="share-btn share-icons tooltip-left">
-  <div class="tooltip tooltip-east">
-    <span class="tooltip-item">
-      <a href="javascript:;" class="share-sns share-outer">
-        <i class="icon icon-share"></i>
-      </a>
-    </span>
-    <span class="tooltip-content">
-      <div class="share-wrap">
-        <div class="share-icons">
-          <a class="weibo share-sns" href="javascript:;" data-type="weibo">
-            <i class="icon icon-weibo"></i>
-          </a>
-          <a class="weixin share-sns wxFab" href="javascript:;" data-type="weixin">
-            <i class="icon icon-weixin"></i>
-          </a>
-          <a class="qq share-sns" href="javascript:;" data-type="qq">
-            <i class="icon icon-qq"></i>
-          </a>
-          <a class="douban share-sns" href="javascript:;" data-type="douban">
-            <i class="icon icon-douban"></i>
-          </a>
-          <a class="qzone share-sns" href="javascript:;" data-type="qzone">
-            <i class="icon icon-qzone"></i>
-          </a>
-          <a class="facebook share-sns" href="javascript:;" data-type="facebook">
-            <i class="icon icon-facebook"></i>
-          </a>
-          <a class="twitter share-sns" href="javascript:;" data-type="twitter">
-            <i class="icon icon-twitter"></i>
-          </a>
-          <a class="google share-sns" href="javascript:;" data-type="google">
-            <i class="icon icon-google"></i>
-          </a>
         </div>
-      </div>
-    </span>
-  </div>
-</div>
-
-<div class="page-modal wx-share js-wx-box">
-    <a class="close js-modal-close" href="javascript:;"><i class="icon icon-close"></i></a>
-    <p>扫一扫，分享到微信</p>
-    <div class="wx-qrcode">
-      <img src="//pan.baidu.com/share/qrcode?url=http://yoursite.com/2018/07/01/New-to-C6678-CSS/" alt="微信分享二维码">
-    </div>
-</div>
-
-<div class="mask js-mask"></div>
-      
-      <div class="clearfix"></div>
-    </div>
+        <div class="clearfix"></div>
+    </header>
   </div>
 </article>
-
-  
-<nav id="article-nav">
-  
-    <a href="/2018/07/03/routerap/" id="article-nav-newer" class="article-nav-link-wrap">
-      <i class="icon-circle-left"></i>
-      <div class="article-nav-title">
-        
-          routerap
-        
-      </div>
-    </a>
   
   
-    <a href="/2018/06/23/ethernet/" id="article-nav-older" class="article-nav-link-wrap">
-      <div class="article-nav-title">ethernet</div>
-      <i class="icon-circle-right"></i>
-    </a>
-  
-</nav>
-
-
-<aside class="wrap-side-operation">
-    <div class="mod-side-operation">
-        
-        <div class="jump-container" id="js-jump-container" style="display:none;">
-            <a href="javascript:void(0)" class="mod-side-operation__jump-to-top">
-                <i class="icon-font icon-back"></i>
-            </a>
-            <div id="js-jump-plan-container" class="jump-plan-container" style="top: -11px;">
-                <i class="icon-font icon-plane jump-plane"></i>
-            </div>
-        </div>
-        
-        
-    </div>
-</aside>
-
-
-
-  
-  
+    </div></section>
   
 
-  
-
-  
-
-  
+    
 
 
           </div>
@@ -338,8 +205,8 @@
 	var yiliaConfig = {
 		mathjax: false,
 		isHome: false,
-		isPost: true,
-		isArchive: false,
+		isPost: false,
+		isArchive: true,
 		isTag: false,
 		isCategory: false,
 		open_in_new: false,

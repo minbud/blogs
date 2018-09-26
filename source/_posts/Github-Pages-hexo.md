@@ -99,7 +99,28 @@ tags: 搭建博客
 
 　  成功后，在github网页上切换到hexo分支，可以看到文件夹下的文件都被传上来了，以后需要备份的时候使用git命令就可以了
 　  
-## 5. 在博客中添加图片
+## 5. 备份恢复
+　　备份的作用就是要用作将来的恢复，这里说一下在新的PC中利用hexo分支恢复备份的过程。
+　　新建一个文件夹（假设新PC上已经安装上面的步骤装了git和hexo），在该文件目录下执行以下命令：
+```
+git init
+git config –global user.mail yourmail —-如果没配置过，则是必须的步骤，不然会报错,/home/.gitconfig中可以看到相关配置
+git config –global user.name “yourname”
+git remote add origin https://github.com/minbud/minbud.github.io.git
+git fetch origin hexo　　　　　　—-拉取远程分支hexo到本地
+git checkout hexo
+git pull origin hexo　　　　　—-拉取远程分支并和本地分支merge
+```
+　　通过上面的步骤就已经将hexo分支的文件拉去到本地了，可以用ls查看，但是此时如果发现目录下有.deploy_git目录，则还不能直接在该文件目录下进行工作，继续以下步骤：
+```
+rm -rf .deploy_git/
+npm install
+npm install hexo-deploy-git –save
+```
+　　至此，就可以在恢复的文件上执行和以前一样的操作了orz。 　　
+
+
+## 6. 在博客中添加图片
 
 　  编辑_config.yml文件，确认 *post_asset_folder:true*
 　  在根目录下安装
@@ -114,3 +135,12 @@ tags: 搭建博客
 　  
 　  可能遇到需要设置图片大小和居中的情况，此时需要使用html代码：  
 　  &lt; div align=center &gt; &lt; img src="./p/p.png" /&gt; &lt;/div &gt;
+　  
+## 7. 补充
+　　国内使用git速度比较慢，有时只有十几kb，博客内容多了之后，发布或拉取工程的速度就难以忍受了，修改hosts文件可以在一定程度上缓解问题，可以达到200~300kb。
+
+```
+151.101.72.249 http://global-ssl.fastly.net
+192.30.253.112 http://github.com
+```
+　　修改/etc/hosts文件，加入上面的内容即可。
