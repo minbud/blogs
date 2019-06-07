@@ -19,7 +19,7 @@
 <meta property="og:image" content="http://yoursite.com/2018/06/10/Github-Pages-hexo/1.png">
 <meta property="og:image" content="http://yoursite.com/2018/06/10/Github-Pages-hexo/2.png">
 <meta property="og:image" content="http://yoursite.com/2018/06/10/Github-Pages-hexo/3.png">
-<meta property="og:updated_time" content="2018-09-26T16:37:48.027Z">
+<meta property="og:updated_time" content="2019-04-29T12:21:09.412Z">
 <meta name="twitter:card" content="summary">
 <meta name="twitter:title" content="Github-Pages&amp;hexo">
 <meta name="twitter:description" content="使用 github-pages+ hexo 搭建个人博客-Mac环境–搭建&amp;amp;主题更换&amp;amp;博客备份1. 准备工作-github仓库　　首先到github的官网注册账号（…）。然后，新建仓库，在仓库Setting页面：">
@@ -55,7 +55,7 @@
 			<img src="/img/minbud.png" class="js-avatar">
 		</a>
 		<hgroup>
-		  <h1 class="header-author"><a href="/">Minbud</a></h1>
+		  <h1 class="header-author"><a href="/">幺猪</a></h1>
 		</hgroup>
 		
 		<p class="header-subtitle">Walk Slow &amp; Think Deep</p>
@@ -86,7 +86,7 @@
 				
 					<a class="github" target="_blank" href="https://github.com/minbud" title="github"><i class="icon-github"></i></a>
 		        
-					<a class="weibo" target="_blank" href="http://weibo.com/minbud" title="weibo"><i class="icon-weibo"></i></a>
+					<a class="mail" target="_blank" href="mailto:chhuajie@gmail.com" title="mail"><i class="icon-mail"></i></a>
 		        
 			</div>
 		</nav>
@@ -107,7 +107,7 @@
 				<img src="/img/minbud.png" class="js-avatar">
 			</div>
 			<hgroup>
-			  <h1 class="header-author js-header-author">Minbud</h1>
+			  <h1 class="header-author js-header-author">幺猪</h1>
 			</hgroup>
 			
 			<p class="header-subtitle"><i class="icon icon-quo-left"></i>Walk Slow &amp; Think Deep<i class="icon icon-quo-right"></i></p>
@@ -125,7 +125,7 @@
 					
 						<a class="github" target="_blank" href="https://github.com/minbud" title="github"><i class="icon-github"></i></a>
 			        
-						<a class="weibo" target="_blank" href="http://weibo.com/minbud" title="weibo"><i class="icon-weibo"></i></a>
+						<a class="mail" target="_blank" href="mailto:chhuajie@gmail.com" title="mail"><i class="icon-mail"></i></a>
 			        
 				</div>
 			</nav>
@@ -223,7 +223,7 @@
 <p>　  成功后，在github网页上切换到hexo分支，可以看到文件夹下的文件都被传上来了，以后需要备份的时候使用git命令就可以了
 　  </p>
 <h2 id="5-备份恢复"><a href="#5-备份恢复" class="headerlink" title="5. 备份恢复"></a>5. 备份恢复</h2><p>　　备份的作用就是要用作将来的恢复，这里说一下在新的PC中利用hexo分支恢复备份的过程。<br>　　新建一个文件夹（假设新PC上已经安装上面的步骤装了git和hexo），在该文件目录下执行以下命令：<br><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br></pre></td><td class="code"><pre><span class="line">git init</span><br><span class="line">git config –global user.mail yourmail —-如果没配置过，则是必须的步骤，不然会报错,/home/.gitconfig中可以看到相关配置</span><br><span class="line">git config –global user.name “yourname”</span><br><span class="line">git remote add origin https://github.com/minbud/minbud.github.io.git</span><br><span class="line">git fetch origin hexo　　　　　　—-拉取远程分支hexo到本地</span><br><span class="line">git checkout hexo</span><br><span class="line">git pull origin hexo　　　　　—-拉取远程分支并和本地分支merge</span><br></pre></td></tr></table></figure></p>
-<p>　　通过上面的步骤就已经将hexo分支的文件拉去到本地了，可以用ls查看，但是此时如果发现目录下有.deploy_git目录，则还不能直接在该文件目录下进行工作，继续以下步骤：<br><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line">rm -rf .deploy_git/</span><br><span class="line">npm install</span><br><span class="line">npm install hexo-deploy-git –save</span><br></pre></td></tr></table></figure></p>
+<p>　　通过上面的步骤就已经将hexo分支的文件拉去到本地了，可以用ls查看，但是此时如果发现目录下有.deploy_git目录，则还不能直接在该文件目录下进行工作，继续以下步骤：<br><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line">rm -rf .deploy_git/</span><br><span class="line">npm install</span><br><span class="line">npm install hexo-deployer-git –save</span><br></pre></td></tr></table></figure></p>
 <p>　　至此，就可以在恢复的文件上执行和以前一样的操作了orz。 　　</p>
 <h2 id="6-在博客中添加图片"><a href="#6-在博客中添加图片" class="headerlink" title="6. 在博客中添加图片"></a>6. 在博客中添加图片</h2><p>　  编辑_config.yml文件，确认 <em>post_asset_folder:true</em><br>　  在根目录下安装</p>
 <blockquote>
@@ -238,7 +238,7 @@
 　  </p>
 <h2 id="7-补充"><a href="#7-补充" class="headerlink" title="7. 补充"></a>7. 补充</h2><p>　　国内使用git速度比较慢，有时只有十几kb，博客内容多了之后，发布或拉取工程的速度就难以忍受了，修改hosts文件可以在一定程度上缓解问题，可以达到200~300kb。</p>
 <figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">151.101.72.249 http://global-ssl.fastly.net</span><br><span class="line">192.30.253.112 http://github.com</span><br></pre></td></tr></table></figure>
-<p>　　修改/etc/hosts文件，加入上面的内容即可。</p>
+<p>　　修改/etc/hosts文件，加入上面的内容即可。<br>　　<br>　　向仓库中的master分支添加README.md文件的方法：<br><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">1. 在 /source/ 目录下添加README.md文件</span><br><span class="line">2. 在_config.yml文件添加: skip_render:README.md</span><br></pre></td></tr></table></figure></p>
 
       
 
@@ -371,7 +371,7 @@
   <div class="outer">
     <div id="footer-info">
     	<div class="footer-left">
-    		&copy; 2018 Minbud
+    		&copy; 2019 幺猪
     	</div>
     </div>
   </div>
@@ -444,15 +444,27 @@ return o(i(t),arguments.length<2?void 0:u(arguments[1]))}})},function(t,n,r){var
           <ul class="article-tag-list" q-show="showTags">
              
               <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color5">evmc6678l</a>
-              </li>
-             
-              <li class="article-tag-list-item">
                 <a href="javascript:void(0)" class="js-tag color5">搭建博客</a>
               </li>
              
               <li class="article-tag-list-item">
+                <a href="javascript:void(0)" class="js-tag color5">evmc6678l</a>
+              </li>
+             
+              <li class="article-tag-list-item">
+                <a href="javascript:void(0)" class="js-tag color4">c++</a>
+              </li>
+             
+              <li class="article-tag-list-item">
+                <a href="javascript:void(0)" class="js-tag color2">docker_container</a>
+              </li>
+             
+              <li class="article-tag-list-item">
                 <a href="javascript:void(0)" class="js-tag color1">计算机网络</a>
+              </li>
+             
+              <li class="article-tag-list-item">
+                <a href="javascript:void(0)" class="js-tag color1">linux</a>
               </li>
             
             <div class="clearfix"></div>

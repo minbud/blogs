@@ -115,7 +115,7 @@ git pull origin hexo　　　　　—-拉取远程分支并和本地分支merge
 ```
 rm -rf .deploy_git/
 npm install
-npm install hexo-deploy-git –save
+npm install hexo-deployer-git –save
 ```
 　　至此，就可以在恢复的文件上执行和以前一样的操作了orz。 　　
 
@@ -144,3 +144,9 @@ npm install hexo-deploy-git –save
 192.30.253.112 http://github.com
 ```
 　　修改/etc/hosts文件，加入上面的内容即可。
+　　
+　　向仓库中的master分支添加README.md文件的方法：
+```
+1. 在 /source/ 目录下添加README.md文件
+2. 在_config.yml文件添加: skip_render:README.md
+```

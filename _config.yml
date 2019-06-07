@@ -7,7 +7,7 @@ title: MinBud的博客
 subtitle: Walk Slow & Think Deep 
 description:
 keywords:
-author: Minbud
+author: 幺猪
 language:
 timezone:
 
@@ -26,7 +26,7 @@ archive_dir: archives
 category_dir: categories
 code_dir: downloads/code
 i18n_dir: :lang
-skip_render:
+skip_render: README.md
 
 # Writing
 new_post_name: :title.md # File name of new posts

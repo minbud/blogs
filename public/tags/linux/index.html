@@ -6,20 +6,15 @@
   <meta name="renderer" content="webkit">
   <meta http-equiv="X-UA-Compatible" content="IE=edge" >
   <link rel="dns-prefetch" href="http://yoursite.com">
-  <title>routerap | MinBud的博客</title>
+  <title>Tag: linux | MinBud的博客</title>
   <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
-  <meta name="description" content="路由器WAN LAN口 &amp;amp;AP模式　　实验室的无线网总是间歇性的断，有些让人心烦。今天罢工了好长一段时间，于是我和同学折腾了一下。之前没怎么设置过路由器，都不怎么了解。才发现自己连路由器的LAN、WAN口的作用都不知道，汗~_~!。">
-<meta name="keywords" content="计算机网络">
-<meta property="og:type" content="article">
-<meta property="og:title" content="routerap">
-<meta property="og:url" content="http://yoursite.com/2018/07/03/routerap/index.html">
+  <meta property="og:type" content="website">
+<meta property="og:title" content="MinBud的博客">
+<meta property="og:url" content="http://yoursite.com/tags/linux/index.html">
 <meta property="og:site_name" content="MinBud的博客">
-<meta property="og:description" content="路由器WAN LAN口 &amp;amp;AP模式　　实验室的无线网总是间歇性的断，有些让人心烦。今天罢工了好长一段时间，于是我和同学折腾了一下。之前没怎么设置过路由器，都不怎么了解。才发现自己连路由器的LAN、WAN口的作用都不知道，汗~_~!。">
 <meta property="og:locale" content="default">
-<meta property="og:updated_time" content="2018-09-26T13:51:03.996Z">
 <meta name="twitter:card" content="summary">
-<meta name="twitter:title" content="routerap">
-<meta name="twitter:description" content="路由器WAN LAN口 &amp;amp;AP模式　　实验室的无线网总是间歇性的断，有些让人心烦。今天罢工了好长一段时间，于是我和同学折腾了一下。之前没怎么设置过路由器，都不怎么了解。才发现自己连路由器的LAN、WAN口的作用都不知道，汗~_~!。">
+<meta name="twitter:title" content="MinBud的博客">
   
     <link rel="alternative" href="/atom.xml" title="MinBud的博客" type="application/atom+xml">
   
@@ -147,158 +142,60 @@
             <canvas data-colors="#eaeaea" data-sectionHeight="100" data-contentId="js-content" id="myCanvas1" class="anm-canvas"></canvas>
           </div>
           <div id="js-content" class="content-ll">
-            <article id="post-routerap" class="article article-type-post " itemscope itemprop="blogPost">
-  <div class="article-inner">
-    
-      <header class="article-header">
-        
+            
   
-    <h1 class="article-title" itemprop="name">
-      routerap
+  
+    
+    
+      
+      
+      <section class="archives-wrap">
+        <div class="archive-year-wrap">
+          <a href="/archives/2019" class="archive-year">2019</a>
+        </div>
+        <div class="archives">
+    
+    <article class="archive-article archive-type-post">
+  <div class="archive-article-inner">
+    <header class="archive-article-header">
+      	<div class="article-meta">
+	      	<a href="/2019/04/11/linux-pipe-fifo-read/" class="archive-article-date">
+  	<time datetime="2019-04-11T07:59:18.000Z" itemprop="datePublished"><i class="icon-calendar icon"></i>2019-04-11</time>
+</a>
+        </div>
+    	 
+  
+    <h1 itemprop="name">
+      <a class="archive-article-title" href="/2019/04/11/linux-pipe-fifo-read/">linux-pipe-fifo-read</a>
     </h1>
   
 
-        
-        <a href="/2018/07/03/routerap/" class="archive-article-date">
-  	<time datetime="2018-07-02T16:12:39.000Z" itemprop="datePublished"><i class="icon-calendar icon"></i>2018-07-03</time>
-</a>
-        
-      </header>
-    
-    <div class="article-entry" itemprop="articleBody">
-      
-        <h2 id="路由器WAN-LAN口-amp-AP模式"><a href="#路由器WAN-LAN口-amp-AP模式" class="headerlink" title="路由器WAN LAN口 &amp;AP模式"></a>路由器WAN LAN口 &amp;AP模式</h2><p>　　实验室的无线网总是间歇性的断，有些让人心烦。今天罢工了好长一段时间，于是我和同学折腾了一下。之前没怎么设置过路由器，都不怎么了解。才发现自己连路由器的LAN、WAN口的作用都不知道，汗~_~!。</p>
-<a id="more"></a>
-<p>　　WAN口用于连接外网，LAN口用于连接内网。运营商来过来的网线连接到WAN口，自己的设备则连接到LAN口。这是通常的路由器模式。<br>　　有时会有一些特殊的需求，比如场地比较大，要实现wifi的覆盖，需要有多个无线路由器。这时候这些用来扩展的路由器需要使用AP模式，即作为无线交换机。  </p>
-<h4 id="重点"><a href="#重点" class="headerlink" title="重点"></a>重点</h4><p>　　然后就是此文的重点了。设置无线交换机，需要将从主路由器LAN口那里接过来的网线连到作为无线交换机的路由器的LAN口，然后对路由器进行一些设置。<br>　　设置的时候先不要连接主路由器的网线，同时将次级路由器的LAN口和电脑用网线相连，在浏览器中访问路由器的设置页面，关闭路由器的DHCP功能。原因是由于主路由器已经有了DHCP功能，如果次路由器也开启的话，会造成IP分配的冲突，使得路由器出现问题，并造成间歇性断网的现象！！！<br>　　OK,设置好的路由器就很稳定了^_^。</p>
-
-      
-
-      
-    </div>
-    <div class="article-info article-info-index">
-      
-      
+        <div class="article-info info-on-right">
+          
 	<div class="article-tag tagcloud">
 		<i class="icon-price-tags icon"></i>
 		<ul class="article-tag-list">
 			 
         		<li class="article-tag-list-item">
-        			<a href="javascript:void(0)" class="js-tag article-tag-list-link color1">计算机网络</a>
+        			<a href="javascript:void(0)" class="js-tag article-tag-list-link color1">linux</a>
         		</li>
       		
 		</ul>
 	</div>
 
-      
+          
 
-      
-
-      
-        
-<div class="share-btn share-icons tooltip-left">
-  <div class="tooltip tooltip-east">
-    <span class="tooltip-item">
-      <a href="javascript:;" class="share-sns share-outer">
-        <i class="icon icon-share"></i>
-      </a>
-    </span>
-    <span class="tooltip-content">
-      <div class="share-wrap">
-        <div class="share-icons">
-          <a class="weibo share-sns" href="javascript:;" data-type="weibo">
-            <i class="icon icon-weibo"></i>
-          </a>
-          <a class="weixin share-sns wxFab" href="javascript:;" data-type="weixin">
-            <i class="icon icon-weixin"></i>
-          </a>
-          <a class="qq share-sns" href="javascript:;" data-type="qq">
-            <i class="icon icon-qq"></i>
-          </a>
-          <a class="douban share-sns" href="javascript:;" data-type="douban">
-            <i class="icon icon-douban"></i>
-          </a>
-          <a class="qzone share-sns" href="javascript:;" data-type="qzone">
-            <i class="icon icon-qzone"></i>
-          </a>
-          <a class="facebook share-sns" href="javascript:;" data-type="facebook">
-            <i class="icon icon-facebook"></i>
-          </a>
-          <a class="twitter share-sns" href="javascript:;" data-type="twitter">
-            <i class="icon icon-twitter"></i>
-          </a>
-          <a class="google share-sns" href="javascript:;" data-type="google">
-            <i class="icon icon-google"></i>
-          </a>
         </div>
-      </div>
-    </span>
-  </div>
-</div>
-
-<div class="page-modal wx-share js-wx-box">
-    <a class="close js-modal-close" href="javascript:;"><i class="icon icon-close"></i></a>
-    <p>扫一扫，分享到微信</p>
-    <div class="wx-qrcode">
-      <img src="//pan.baidu.com/share/qrcode?url=http://yoursite.com/2018/07/03/routerap/" alt="微信分享二维码">
-    </div>
-</div>
-
-<div class="mask js-mask"></div>
-      
-      <div class="clearfix"></div>
-    </div>
+        <div class="clearfix"></div>
+    </header>
   </div>
 </article>
-
-  
-<nav id="article-nav">
-  
-    <a href="/2018/07/03/Boot-Singlecore/" id="article-nav-newer" class="article-nav-link-wrap">
-      <i class="icon-circle-left"></i>
-      <div class="article-nav-title">
-        
-          Boot_Singlecore
-        
-      </div>
-    </a>
   
   
-    <a href="/2018/07/01/New-to-C6678-CSS/" id="article-nav-older" class="article-nav-link-wrap">
-      <div class="article-nav-title">New to C6678 &amp; CSS</div>
-      <i class="icon-circle-right"></i>
-    </a>
-  
-</nav>
-
-
-<aside class="wrap-side-operation">
-    <div class="mod-side-operation">
-        
-        <div class="jump-container" id="js-jump-container" style="display:none;">
-            <a href="javascript:void(0)" class="mod-side-operation__jump-to-top">
-                <i class="icon-font icon-back"></i>
-            </a>
-            <div id="js-jump-plan-container" class="jump-plan-container" style="top: -11px;">
-                <i class="icon-font icon-plane jump-plane"></i>
-            </div>
-        </div>
-        
-        
-    </div>
-</aside>
-
-
-
-  
-  
+    </div></section>
   
 
-  
-
-  
-
-  
+    
 
 
           </div>
@@ -319,9 +216,9 @@
 	var yiliaConfig = {
 		mathjax: false,
 		isHome: false,
-		isPost: true,
+		isPost: false,
 		isArchive: false,
-		isTag: false,
+		isTag: true,
 		isCategory: false,
 		open_in_new: false,
 		toc_hide_index: false,
