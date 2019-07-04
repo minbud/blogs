@@ -3,17 +3,17 @@
 ## Source: https://github.com/hexojs/hexo/
 
 # Site
-title: MinBud的博客
+title: 水化木后花园
 subtitle: Walk Slow & Think Deep 
 description:
 keywords:
-author: 幺猪
+author: 幺弟呀
 language:
 timezone:
 
 # URL
 ## If your site is put in a subdirectory, set url as 'http://yoursite.com/child' and root as '/child/'
-url: http://yoursite.com
+url: https://minbud.github.io
 root: /
 permalink: :year/:month/:day/:title/
 permalink_defaults:
@@ -73,7 +73,7 @@ pagination_dir: page
 # Extensions
 ## Plugins: https://hexo.io/plugins/
 ## Themes: https://hexo.io/themes/
-theme: yilia
+theme: next 
 
 # Deployment
 ## Docs: https://hexo.io/docs/deployment.html
@@ -100,3 +100,6 @@ jsonContent:
       excerpt: false
       categories: false
       tags: true
+
+sitemap:
+path: sitemap.xml
