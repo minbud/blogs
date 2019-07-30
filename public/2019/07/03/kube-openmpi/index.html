@@ -62,13 +62,13 @@
 <link href="/css/main.css?v=5.1.4" rel="stylesheet" type="text/css">
 
 
-  <link rel="apple-touch-icon" sizes="180x180" href="/images/minbud.png?v=5.1.4">
+  <link rel="apple-touch-icon" sizes="180x180" href="/img/favicon.png?v=5.1.4">
 
 
-  <link rel="icon" type="image/png" sizes="32x32" href="/images/minbud.png?v=5.1.4">
+  <link rel="icon" type="image/png" sizes="32x32" href="/img/favicon.png?v=5.1.4">
 
 
-  <link rel="icon" type="image/png" sizes="16x16" href="/images/minbud.png?v=5.1.4">
+  <link rel="icon" type="image/png" sizes="16x16" href="/img/favicon.png?v=5.1.4">
 
 
   <link rel="mask-icon" href="/images/logo.svg?v=5.1.4" color="#222">
@@ -96,7 +96,7 @@
 <meta property="og:site_name" content="水化木后花园">
 <meta property="og:description" content="FromAuthor Structrue　　通过helm（k8s包管理）将mpijob以mpi-master、mpi-worker方式发布到k8s上以长期运行任务方式运行。　　运行mpijob时，通过kubectl exec在mpi-master所在的docker上运行mpiexec，并指定需要运行的任务数量，从而使得mpi-worker也一起工作。　　由于mpijob之间需要通信，主要工作是需要">
 <meta property="og:locale" content="default">
-<meta property="og:updated_time" content="2019-07-04T02:39:36.529Z">
+<meta property="og:updated_time" content="2019-07-15T10:28:21.228Z">
 <meta name="twitter:card" content="summary">
 <meta name="twitter:title" content="kube-openmpi">
 <meta name="twitter:description" content="FromAuthor Structrue　　通过helm（k8s包管理）将mpijob以mpi-master、mpi-worker方式发布到k8s上以长期运行任务方式运行。　　运行mpijob时，通过kubectl exec在mpi-master所在的docker上运行mpiexec，并指定需要运行的任务数量，从而使得mpi-worker也一起工作。　　由于mpijob之间需要通信，主要工作是需要">
@@ -257,7 +257,7 @@
     <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
       <meta itemprop="name" content="幺弟呀">
       <meta itemprop="description" content>
-      <meta itemprop="image" content="/images/avatar.gif">
+      <meta itemprop="image" content="/img/minbud.png">
     </span>
 
     <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
@@ -325,7 +325,7 @@
 <h2 id="Helm"><a href="#Helm" class="headerlink" title="Helm"></a>Helm</h2><p><a href="https://zhaohuabing.com/2018/04/16/using-helm-to-deploy-to-kubernetes/" target="_blank" rel="noopener">参考</a><br>　　相当于linux中的包管理工具，可以打包应用，管理包依赖等。<br>　　工具结构主要包括helm、tiller，helm是client-cli，tiller是server端，负责与k8s交互。<br>　　包主要是<em>Chart</em>，就是一个目录，底下有<br><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br></pre></td><td class="code"><pre><span class="line">chart/</span><br><span class="line">├── Chart.yaml					pkg总体信息</span><br><span class="line">├── templates					k8s manifest模板文件目录</span><br><span class="line">│   ├── configmap.yaml</span><br><span class="line">│   ├── _helpers.tpl</span><br><span class="line">│   ├── mpi-cluster.yaml</span><br><span class="line">│   ├── network-policy.yaml</span><br><span class="line">│   ├── secrets.yaml</span><br><span class="line">│   └── service.yaml</span><br><span class="line">└── values.yaml					被templates中各个文件使用到的一些变量值</span><br></pre></td></tr></table></figure></p>
 <h2 id="Procedure"><a href="#Procedure" class="headerlink" title="Procedure"></a>Procedure</h2><h3 id="generate-ssh-key"><a href="#generate-ssh-key" class="headerlink" title="generate ssh key"></a>generate ssh key</h3><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">$ ./gen-ssh-key.sh			生成id_rsa, id_rsa.pub, 并将两个的值导入到./ssh-key.yaml中</span><br></pre></td></tr></table></figure>
 <h3 id="deploy"><a href="#deploy" class="headerlink" title="deploy"></a>deploy</h3><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line">$ MPI_CLUSTER_NAME=__CHANGE_ME__</span><br><span class="line">$ KUBE_NAMESPACE=__CHANGE_ME_</span><br><span class="line">$ helm template chart --namespace $KUBE_NAMESPACE --name $MPI_CLUSTER_NAME -f values.yaml -f ssh-key.yaml | kubectl -n $KUBE_NAMESPACE create -f -</span><br></pre></td></tr></table></figure>
-<p>helm template :        Render chart templates locally and display the output<br>　　也就是将包<em>chart</em>生成k8s的配置文件输出，并以<em>values.yaml</em>,<em>ssh-key.yaml</em>为值。同时把输出作为<em>kubectl create -f</em>的输入，也就是部署应用。<br>　　这样mpi-master可能会启动失败，需要新<a href="https://github.com/everpeace/kube-openmpi/issues/24" target="_blank" rel="noopener">创建账户</a></p>
+<p>helm template :        Render chart templates locally and display the output<br>　　也就是将包<em>chart</em>生成k8s的配置文件输出，并以<em>values.yaml</em>,<em>ssh-key.yaml</em>为值。同时把输出作为<em>kubectl create -f</em>的输入，也就是部署应用。<br>　　这样mpi-master可能会启动失败，需要新<a href="https://github.com/everpeace/kube-openmpi/issues/24" target="_blank" rel="noopener">创建账户</a>。<br>　　需要新建账户的原因是，mpi-master启动过程需要执行<em>hostfile-initializer</em>脚本，生成hostfile，生成过程中需要使用<em>kubectl</em>来与k8s的<em>API-SERVER</em>交互。要实现这个过程需要使用到<em>Service Account</em>,因为<em>API-SERVER</em>只在HTTPS安全端口443上提供服务，因而pod内的进程需要利用<em>Service Account</em>进行身份认证。</p>
 <h3 id="run"><a href="#run" class="headerlink" title="run"></a>run</h3><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line">kubectl -n $KUBE_NAMESPACE exec -it $MPI_CLUSTER_NAME-master -- mpiexec --allow-run-as-root \</span><br><span class="line">  --hostfile /kube-openmpi/generated/hostfile \</span><br><span class="line">  --display-map -n 4 -npernode 1 \</span><br><span class="line">  sh -c &apos;echo $(hostname):hello&apos;</span><br></pre></td></tr></table></figure>
 <p>　　通过<em>kubectl exec</em>连接到mpi-master所在docker执行<em>mpiexec</em>命令，从而在master和worker上执行mpijob。  </p>
 <h3 id="others"><a href="#others" class="headerlink" title="others"></a>others</h3><p>　　在本地生成的<em>id_rsa</em>, <em>id_rsa.pub</em>，<em>authorized_keys</em>在k8s中生成相应的键值对，并以文件的形式挂载在master和worker的docker中,在启动的时候执行<em>/init.sh</em>将其拷贝到<em>/.sshd/user_key/$user</em>中，并对sshd启动进行相应的配置。</p>
@@ -436,6 +436,8 @@
       <section class="site-overview-wrap sidebar-panel">
         <div class="site-overview">
           <div class="site-author motion-element" itemprop="author" itemscope itemtype="http://schema.org/Person">
+            
+              <img class="site-author-image" itemprop="image" src="/img/minbud.png" alt="幺弟呀">
             
               <p class="site-author-name" itemprop="name">幺弟呀</p>
               <p class="site-description motion-element" itemprop="description"></p>

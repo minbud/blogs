@@ -2,16 +2,16 @@
 <urlset xmlns="http://www.sitemaps.org/schemas/sitemap/0.9">
   
   <url>
-    <loc>https://minbud.github.io/tag/index.html</loc>
+    <loc>https://minbud.github.io/2019/07/03/kube-openmpi/</loc>
     
-    <lastmod>2019-07-04T03:29:51.405Z</lastmod>
+    <lastmod>2019-07-15T10:28:21.228Z</lastmod>
     
   </url>
   
   <url>
-    <loc>https://minbud.github.io/2019/07/03/kube-openmpi/</loc>
+    <loc>https://minbud.github.io/tag/index.html</loc>
     
-    <lastmod>2019-07-04T02:39:36.529Z</lastmod>
+    <lastmod>2019-07-04T03:29:51.405Z</lastmod>
     
   </url>
   
@@ -37,13 +37,6 @@
   </url>
   
   <url>
-    <loc>https://minbud.github.io/2019/04/11/linux-pipe-fifo-read/</loc>
-    
-    <lastmod>2019-06-27T09:54:48.484Z</lastmod>
-    
-  </url>
-  
-  <url>
     <loc>https://minbud.github.io/2018/07/03/routerap/</loc>
     
     <lastmod>2019-06-27T09:54:48.484Z</lastmod>
@@ -51,7 +44,14 @@
   </url>
   
   <url>
-    <loc>https://minbud.github.io/2018/09/26/ccs-linux/</loc>
+    <loc>https://minbud.github.io/2019/04/11/linux-pipe-fifo-read/</loc>
+    
+    <lastmod>2019-06-27T09:54:48.484Z</lastmod>
+    
+  </url>
+  
+  <url>
+    <loc>https://minbud.github.io/2019/05/12/docker-example/</loc>
     
     <lastmod>2019-06-27T09:54:48.480Z</lastmod>
     
@@ -65,7 +65,7 @@
   </url>
   
   <url>
-    <loc>https://minbud.github.io/2019/05/12/docker-example/</loc>
+    <loc>https://minbud.github.io/2018/09/26/ccs-linux/</loc>
     
     <lastmod>2019-06-27T09:54:48.480Z</lastmod>
     

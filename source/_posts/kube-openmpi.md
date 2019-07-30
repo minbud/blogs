@@ -44,7 +44,8 @@ $ helm template chart --namespace $KUBE_NAMESPACE --name $MPI_CLUSTER_NAME -f va
 ```
 helm template :		Render chart templates locally and display the output  
 　　也就是将包*chart*生成k8s的配置文件输出，并以*values.yaml*,*ssh-key.yaml*为值。同时把输出作为*kubectl create -f*的输入，也就是部署应用。  
-　　这样mpi-master可能会启动失败，需要新[创建账户](https://github.com/everpeace/kube-openmpi/issues/24)
+　　这样mpi-master可能会启动失败，需要新[创建账户](https://github.com/everpeace/kube-openmpi/issues/24)。  
+　　需要新建账户的原因是，mpi-master启动过程需要执行*hostfile-initializer*脚本，生成hostfile，生成过程中需要使用*kubectl*来与k8s的*API-SERVER*交互。要实现这个过程需要使用到*Service Account*,因为*API-SERVER*只在HTTPS安全端口443上提供服务，因而pod内的进程需要利用*Service Account*进行身份认证。
   
 ### run
 ```
