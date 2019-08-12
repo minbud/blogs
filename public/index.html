@@ -248,10 +248,505 @@
   
   
   <div class="post-block">
+    <link itemprop="mainEntityOfPage" href="https://minbud.github.io/2019/08/10/regular-expression-ipv4/">
+
+    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
+      <meta itemprop="name" content="细弟呀">
+      <meta itemprop="description" content>
+      <meta itemprop="image" content="/img/minbud.png">
+    </span>
+
+    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
+      <meta itemprop="name" content="水化木后花园">
+    </span>
+
+    
+      <header class="post-header">
+
+        
+        
+          <h1 class="post-title" itemprop="name headline">
+                
+                <a class="post-title-link" href="/2019/08/10/regular-expression-ipv4/" itemprop="url">regular_expression_ipv4</a></h1>
+        
+
+        <div class="post-meta">
+          <span class="post-time">
+            
+              <span class="post-meta-item-icon">
+                <i class="fa fa-calendar-o"></i>
+              </span>
+              
+                <span class="post-meta-item-text">Posted on</span>
+              
+              <time title="Post created" itemprop="dateCreated datePublished" datetime="2019-08-10T14:16:32+08:00">
+                2019-08-10
+              </time>
+            
+
+            
+
+            
+          </span>
+
+          
+
+          
+            
+          
+
+          
+          
+
+          
+
+          
+
+          
+
+        </div>
+      </header>
+    
+
+    
+    
+    
+    <div class="post-body" itemprop="articleBody">
+
+      
+      
+
+      
+        
+          
+            <h2 id="正则表达式匹配ipv4地址"><a href="#正则表达式匹配ipv4地址" class="headerlink" title="正则表达式匹配ipv4地址"></a>正则表达式匹配ipv4地址</h2><p>　　最近面试的时候被问到了这个问题，正则表达式接触得不多，只看得懂简单的，没写得出来，后来查了一下：<a href="https://stackoverflow.com/questions/5284147/validating-ipv4-addresses-with-regexp" target="_blank" rel="noopener">参考</a>  </p>
+<figure class="highlight shell"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">grep -E '\b((25[0-5]|2[0-4][0-9]|[01]?[0-9][0-9]?)(\.|$))&#123;4&#125;\b' &lt;&lt;&lt; 192.168.1.1</span><br></pre></td></tr></table></figure>
+<p>　　不过这个表达式会匹配‘192.168.1.1.1’，但是这个应该也是正常的。</p>
+<h2 id="grep-E-‘-b-b’-word-boundary"><a href="#grep-E-‘-b-b’-word-boundary" class="headerlink" title="grep -E ‘\b\b’ word boundary"></a>grep -E ‘\b\b’ word boundary</h2><p>　　<a href="https://unix.stackexchange.com/questions/71537/confused-about-word-boundary" target="_blank" rel="noopener">参考</a><br>　　上面的参考链接已经说得比较清楚，我大概翻译一下意思。<br>　　‘grep -E’就是使用扩展的正则表达式。<br>　　‘\bfoo\b’则表示匹配的行中的 <em>foo</em> 的前一个邻接字符和后一个邻接字符不能是[a-zA-Z_],也就是不能是大小写字母和下划线，所以 <em>word boundary</em> 也就是字符的前后边界，指的是。比如 ‘afoo’、’fooa’、’foo_’这种都是不匹配的，但是’foo’、’foo*’、’%foo’这种就是匹配的。试一下很容易就能明白了。  </p>
+
+          
+        
+      
+    </div>
+    
+    
+    
+
+    
+
+    
+
+    
+
+    <footer class="post-footer">
+      
+
+      
+
+      
+
+      
+      
+        <div class="post-eof"></div>
+      
+    </footer>
+  </div>
+  
+  
+  
+  </article>
+
+
+    
+      
+
+  
+
+  
+  
+  
+
+  <article class="post post-type-normal" itemscope itemtype="http://schema.org/Article">
+  
+  
+  
+  <div class="post-block">
+    <link itemprop="mainEntityOfPage" href="https://minbud.github.io/2019/07/31/linux-crontab/">
+
+    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
+      <meta itemprop="name" content="细弟呀">
+      <meta itemprop="description" content>
+      <meta itemprop="image" content="/img/minbud.png">
+    </span>
+
+    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
+      <meta itemprop="name" content="水化木后花园">
+    </span>
+
+    
+      <header class="post-header">
+
+        
+        
+          <h1 class="post-title" itemprop="name headline">
+                
+                <a class="post-title-link" href="/2019/07/31/linux-crontab/" itemprop="url">linux_crontab</a></h1>
+        
+
+        <div class="post-meta">
+          <span class="post-time">
+            
+              <span class="post-meta-item-icon">
+                <i class="fa fa-calendar-o"></i>
+              </span>
+              
+                <span class="post-meta-item-text">Posted on</span>
+              
+              <time title="Post created" itemprop="dateCreated datePublished" datetime="2019-07-31T14:33:24+08:00">
+                2019-07-31
+              </time>
+            
+
+            
+
+            
+          </span>
+
+          
+
+          
+            
+          
+
+          
+          
+
+          
+
+          
+
+          
+
+        </div>
+      </header>
+    
+
+    
+    
+    
+    <div class="post-body" itemprop="articleBody">
+
+      
+      
+
+      
+        
+          <h2 id="创建crontab任务"><a href="#创建crontab任务" class="headerlink" title="创建crontab任务"></a>创建crontab任务</h2><p>　　利用 <em>crontab -e</em> 可以调用vi以交互的方式直接创建提交crontab任务，这里由于需求，主要记录一下使用脚本直接创建crontab任务的方法，参考了<a href="https://www.jianshu.com/p/5ffb0fbe5fe9" target="_blank" rel="noopener">blog</a>、<a href="https://unix.stackexchange.com/questions/64736/combine-output-from-two-commands-in-bash" target="_blank" rel="noopener">输出重定向</a>。<br></p>
+          <!--noindex-->
+          <div class="post-button text-center">
+            <a class="btn" href="/2019/07/31/linux-crontab/#more" rel="contents">
+              Read more &raquo;
+            </a>
+          </div>
+          <!--/noindex-->
+        
+      
+    </div>
+    
+    
+    
+
+    
+
+    
+
+    
+
+    <footer class="post-footer">
+      
+
+      
+
+      
+
+      
+      
+        <div class="post-eof"></div>
+      
+    </footer>
+  </div>
+  
+  
+  
+  </article>
+
+
+    
+      
+
+  
+
+  
+  
+  
+
+  <article class="post post-type-normal" itemscope itemtype="http://schema.org/Article">
+  
+  
+  
+  <div class="post-block">
+    <link itemprop="mainEntityOfPage" href="https://minbud.github.io/2019/07/31/mySql-python-executemany/">
+
+    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
+      <meta itemprop="name" content="细弟呀">
+      <meta itemprop="description" content>
+      <meta itemprop="image" content="/img/minbud.png">
+    </span>
+
+    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
+      <meta itemprop="name" content="水化木后花园">
+    </span>
+
+    
+      <header class="post-header">
+
+        
+        
+          <h1 class="post-title" itemprop="name headline">
+                
+                <a class="post-title-link" href="/2019/07/31/mySql-python-executemany/" itemprop="url">mySql_python_executemany</a></h1>
+        
+
+        <div class="post-meta">
+          <span class="post-time">
+            
+              <span class="post-meta-item-icon">
+                <i class="fa fa-calendar-o"></i>
+              </span>
+              
+                <span class="post-meta-item-text">Posted on</span>
+              
+              <time title="Post created" itemprop="dateCreated datePublished" datetime="2019-07-31T12:22:26+08:00">
+                2019-07-31
+              </time>
+            
+
+            
+
+            
+          </span>
+
+          
+
+          
+            
+          
+
+          
+          
+
+          
+
+          
+
+          
+
+        </div>
+      </header>
+    
+
+    
+    
+    
+    <div class="post-body" itemprop="articleBody">
+
+      
+      
+
+      
+        
+          <h2 id="使用"><a href="#使用" class="headerlink" title="使用"></a>使用</h2><p>　　使用executemany()可以完成批量执行sql语句，比自己写循环执行语句效率高很多。不过它对输入数据有格式要求，需要是一个tuple的list或者一个tuple的tuple。</p>
+          <!--noindex-->
+          <div class="post-button text-center">
+            <a class="btn" href="/2019/07/31/mySql-python-executemany/#more" rel="contents">
+              Read more &raquo;
+            </a>
+          </div>
+          <!--/noindex-->
+        
+      
+    </div>
+    
+    
+    
+
+    
+
+    
+
+    
+
+    <footer class="post-footer">
+      
+
+      
+
+      
+
+      
+      
+        <div class="post-eof"></div>
+      
+    </footer>
+  </div>
+  
+  
+  
+  </article>
+
+
+    
+      
+
+  
+
+  
+  
+  
+
+  <article class="post post-type-normal" itemscope itemtype="http://schema.org/Article">
+  
+  
+  
+  <div class="post-block">
+    <link itemprop="mainEntityOfPage" href="https://minbud.github.io/2019/07/31/python-groupby/">
+
+    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
+      <meta itemprop="name" content="细弟呀">
+      <meta itemprop="description" content>
+      <meta itemprop="image" content="/img/minbud.png">
+    </span>
+
+    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
+      <meta itemprop="name" content="水化木后花园">
+    </span>
+
+    
+      <header class="post-header">
+
+        
+        
+          <h1 class="post-title" itemprop="name headline">
+                
+                <a class="post-title-link" href="/2019/07/31/python-groupby/" itemprop="url">python_groupby</a></h1>
+        
+
+        <div class="post-meta">
+          <span class="post-time">
+            
+              <span class="post-meta-item-icon">
+                <i class="fa fa-calendar-o"></i>
+              </span>
+              
+                <span class="post-meta-item-text">Posted on</span>
+              
+              <time title="Post created" itemprop="dateCreated datePublished" datetime="2019-07-31T11:07:31+08:00">
+                2019-07-31
+              </time>
+            
+
+            
+
+            
+          </span>
+
+          
+
+          
+            
+          
+
+          
+          
+
+          
+
+          
+
+          
+
+        </div>
+      </header>
+    
+
+    
+    
+    
+    <div class="post-body" itemprop="articleBody">
+
+      
+      
+
+      
+        
+          <h2 id="itertools"><a href="#itertools" class="headerlink" title="itertools"></a>itertools</h2><p>　　itertools提供groupby()函数，可以将输入按键值分成组，并返回一个迭代器，利用这个函数可以实现类似于SQL查询中的 <em>groupby</em> 功能。<br>　　<a href="https://docs.python.org/zh-cn/3/library/itertools.html" target="_blank" rel="noopener">参考</a><br></p>
+          <!--noindex-->
+          <div class="post-button text-center">
+            <a class="btn" href="/2019/07/31/python-groupby/#more" rel="contents">
+              Read more &raquo;
+            </a>
+          </div>
+          <!--/noindex-->
+        
+      
+    </div>
+    
+    
+    
+
+    
+
+    
+
+    
+
+    <footer class="post-footer">
+      
+
+      
+
+      
+
+      
+      
+        <div class="post-eof"></div>
+      
+    </footer>
+  </div>
+  
+  
+  
+  </article>
+
+
+    
+      
+
+  
+
+  
+  
+  
+
+  <article class="post post-type-normal" itemscope itemtype="http://schema.org/Article">
+  
+  
+  
+  <div class="post-block">
     <link itemprop="mainEntityOfPage" href="https://minbud.github.io/2019/07/03/kube-openmpi/">
 
     <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
-      <meta itemprop="name" content="幺弟呀">
+      <meta itemprop="name" content="细弟呀">
       <meta itemprop="description" content>
       <meta itemprop="image" content="/img/minbud.png">
     </span>
@@ -376,7 +871,7 @@
     <link itemprop="mainEntityOfPage" href="https://minbud.github.io/2019/06/27/minikube-mpi/">
 
     <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
-      <meta itemprop="name" content="幺弟呀">
+      <meta itemprop="name" content="细弟呀">
       <meta itemprop="description" content>
       <meta itemprop="image" content="/img/minbud.png">
     </span>
@@ -500,7 +995,7 @@
     <link itemprop="mainEntityOfPage" href="https://minbud.github.io/2019/05/12/docker-example/">
 
     <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
-      <meta itemprop="name" content="幺弟呀">
+      <meta itemprop="name" content="细弟呀">
       <meta itemprop="description" content>
       <meta itemprop="image" content="/img/minbud.png">
     </span>
@@ -624,7 +1119,7 @@
     <link itemprop="mainEntityOfPage" href="https://minbud.github.io/2019/04/26/c-priority-queue-lambda/">
 
     <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
-      <meta itemprop="name" content="幺弟呀">
+      <meta itemprop="name" content="细弟呀">
       <meta itemprop="description" content>
       <meta itemprop="image" content="/img/minbud.png">
     </span>
@@ -749,7 +1244,7 @@
     <link itemprop="mainEntityOfPage" href="https://minbud.github.io/2019/04/11/linux-pipe-fifo-read/">
 
     <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
-      <meta itemprop="name" content="幺弟呀">
+      <meta itemprop="name" content="细弟呀">
       <meta itemprop="description" content>
       <meta itemprop="image" content="/img/minbud.png">
     </span>
@@ -873,7 +1368,7 @@
     <link itemprop="mainEntityOfPage" href="https://minbud.github.io/2018/09/26/ccs-linux/">
 
     <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
-      <meta itemprop="name" content="幺弟呀">
+      <meta itemprop="name" content="细弟呀">
       <meta itemprop="description" content>
       <meta itemprop="image" content="/img/minbud.png">
     </span>
@@ -981,502 +1476,6 @@
 
 
     
-      
-
-  
-
-  
-  
-  
-
-  <article class="post post-type-normal" itemscope itemtype="http://schema.org/Article">
-  
-  
-  
-  <div class="post-block">
-    <link itemprop="mainEntityOfPage" href="https://minbud.github.io/2018/07/09/boot-multicore/">
-
-    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
-      <meta itemprop="name" content="幺弟呀">
-      <meta itemprop="description" content>
-      <meta itemprop="image" content="/img/minbud.png">
-    </span>
-
-    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
-      <meta itemprop="name" content="水化木后花园">
-    </span>
-
-    
-      <header class="post-header">
-
-        
-        
-          <h1 class="post-title" itemprop="name headline">
-                
-                <a class="post-title-link" href="/2018/07/09/boot-multicore/" itemprop="url">boot_multicore</a></h1>
-        
-
-        <div class="post-meta">
-          <span class="post-time">
-            
-              <span class="post-meta-item-icon">
-                <i class="fa fa-calendar-o"></i>
-              </span>
-              
-                <span class="post-meta-item-text">Posted on</span>
-              
-              <time title="Post created" itemprop="dateCreated datePublished" datetime="2018-07-09T00:15:40+08:00">
-                2018-07-09
-              </time>
-            
-
-            
-
-            
-          </span>
-
-          
-
-          
-            
-          
-
-          
-          
-
-          
-
-          
-
-          
-
-        </div>
-      </header>
-    
-
-    
-    
-    
-    <div class="post-body" itemprop="articleBody">
-
-      
-      
-
-      
-        
-          <h2 id="利用MAD工具实现多核启动"><a href="#利用MAD工具实现多核启动" class="headerlink" title="利用MAD工具实现多核启动"></a>利用MAD工具实现多核启动</h2><p>　　先总体地说一下MAD工具的作用：对于多个DSP核心，可能我们有对应的多个project，生成了多个.out文件，我们想把不同的projecct放在不同的core上运行。调试的时候我们可以通过仿真器手动把代码文件load到对应core上让它运行，但是怎么让板子在启动的时候自动加载代码到各个core上，这就是MAD工具解决的问题。除此之外，这个工具还能通过共享一部分代码文件达到节约内存的目的。<br></p>
-          <!--noindex-->
-          <div class="post-button text-center">
-            <a class="btn" href="/2018/07/09/boot-multicore/#more" rel="contents">
-              Read more &raquo;
-            </a>
-          </div>
-          <!--/noindex-->
-        
-      
-    </div>
-    
-    
-    
-
-    
-
-    
-
-    
-
-    <footer class="post-footer">
-      
-
-      
-
-      
-
-      
-      
-        <div class="post-eof"></div>
-      
-    </footer>
-  </div>
-  
-  
-  
-  </article>
-
-
-    
-      
-
-  
-
-  
-  
-  
-
-  <article class="post post-type-normal" itemscope itemtype="http://schema.org/Article">
-  
-  
-  
-  <div class="post-block">
-    <link itemprop="mainEntityOfPage" href="https://minbud.github.io/2018/07/03/Boot-Singlecore/">
-
-    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
-      <meta itemprop="name" content="幺弟呀">
-      <meta itemprop="description" content>
-      <meta itemprop="image" content="/img/minbud.png">
-    </span>
-
-    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
-      <meta itemprop="name" content="水化木后花园">
-    </span>
-
-    
-      <header class="post-header">
-
-        
-        
-          <h1 class="post-title" itemprop="name headline">
-                
-                <a class="post-title-link" href="/2018/07/03/Boot-Singlecore/" itemprop="url">Boot_Singlecore</a></h1>
-        
-
-        <div class="post-meta">
-          <span class="post-time">
-            
-              <span class="post-meta-item-icon">
-                <i class="fa fa-calendar-o"></i>
-              </span>
-              
-                <span class="post-meta-item-text">Posted on</span>
-              
-              <time title="Post created" itemprop="dateCreated datePublished" datetime="2018-07-03T22:51:09+08:00">
-                2018-07-03
-              </time>
-            
-
-            
-
-            
-          </span>
-
-          
-
-          
-            
-          
-
-          
-          
-
-          
-
-          
-
-          
-
-        </div>
-      </header>
-    
-
-    
-    
-    
-    <div class="post-body" itemprop="articleBody">
-
-      
-      
-
-      
-        
-          <h2 id="1-EEPROM-BOOT-amp-POST-Power-On-Self-Test"><a href="#1-EEPROM-BOOT-amp-POST-Power-On-Self-Test" class="headerlink" title="1. EEPROM BOOT &amp; POST(Power On Self Test)"></a>1. EEPROM BOOT &amp; POST(Power On Self Test)</h2><p>　　evmc6678评估板上有一块128KB的EEPROM，这块内存主要用于烧写IBL（Intermediate BootLoader）即二次引导的程序，或者烧写POST上电自检程序。其中在烧写程序时有两个总线地址，一个是0x50，一个是0x51，两个地址分别代表寻址128kB的其中64KB，前者默认用来烧写POST程序，后者一般用来烧写IBL。两种方式通过SW5的PIN4来区分（on：0x50，off：0x51），可以同时存在，不互相影响，启动时根据开关设置从相应位置读取程序。</p>
-          <!--noindex-->
-          <div class="post-button text-center">
-            <a class="btn" href="/2018/07/03/Boot-Singlecore/#more" rel="contents">
-              Read more &raquo;
-            </a>
-          </div>
-          <!--/noindex-->
-        
-      
-    </div>
-    
-    
-    
-
-    
-
-    
-
-    
-
-    <footer class="post-footer">
-      
-
-      
-
-      
-
-      
-      
-        <div class="post-eof"></div>
-      
-    </footer>
-  </div>
-  
-  
-  
-  </article>
-
-
-    
-      
-
-  
-
-  
-  
-  
-
-  <article class="post post-type-normal" itemscope itemtype="http://schema.org/Article">
-  
-  
-  
-  <div class="post-block">
-    <link itemprop="mainEntityOfPage" href="https://minbud.github.io/2018/07/03/routerap/">
-
-    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
-      <meta itemprop="name" content="幺弟呀">
-      <meta itemprop="description" content>
-      <meta itemprop="image" content="/img/minbud.png">
-    </span>
-
-    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
-      <meta itemprop="name" content="水化木后花园">
-    </span>
-
-    
-      <header class="post-header">
-
-        
-        
-          <h1 class="post-title" itemprop="name headline">
-                
-                <a class="post-title-link" href="/2018/07/03/routerap/" itemprop="url">routerap</a></h1>
-        
-
-        <div class="post-meta">
-          <span class="post-time">
-            
-              <span class="post-meta-item-icon">
-                <i class="fa fa-calendar-o"></i>
-              </span>
-              
-                <span class="post-meta-item-text">Posted on</span>
-              
-              <time title="Post created" itemprop="dateCreated datePublished" datetime="2018-07-03T00:12:39+08:00">
-                2018-07-03
-              </time>
-            
-
-            
-
-            
-          </span>
-
-          
-
-          
-            
-          
-
-          
-          
-
-          
-
-          
-
-          
-
-        </div>
-      </header>
-    
-
-    
-    
-    
-    <div class="post-body" itemprop="articleBody">
-
-      
-      
-
-      
-        
-          <h2 id="路由器WAN-LAN口-amp-AP模式"><a href="#路由器WAN-LAN口-amp-AP模式" class="headerlink" title="路由器WAN LAN口 &amp;AP模式"></a>路由器WAN LAN口 &amp;AP模式</h2><p>　　实验室的无线网总是间歇性的断，有些让人心烦。今天罢工了好长一段时间，于是我和同学折腾了一下。之前没怎么设置过路由器，都不怎么了解。才发现自己连路由器的LAN、WAN口的作用都不知道，汗~_~!。</p>
-          <!--noindex-->
-          <div class="post-button text-center">
-            <a class="btn" href="/2018/07/03/routerap/#more" rel="contents">
-              Read more &raquo;
-            </a>
-          </div>
-          <!--/noindex-->
-        
-      
-    </div>
-    
-    
-    
-
-    
-
-    
-
-    
-
-    <footer class="post-footer">
-      
-
-      
-
-      
-
-      
-      
-        <div class="post-eof"></div>
-      
-    </footer>
-  </div>
-  
-  
-  
-  </article>
-
-
-    
-      
-
-  
-
-  
-  
-  
-
-  <article class="post post-type-normal" itemscope itemtype="http://schema.org/Article">
-  
-  
-  
-  <div class="post-block">
-    <link itemprop="mainEntityOfPage" href="https://minbud.github.io/2018/07/01/New-to-C6678-CSS/">
-
-    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
-      <meta itemprop="name" content="幺弟呀">
-      <meta itemprop="description" content>
-      <meta itemprop="image" content="/img/minbud.png">
-    </span>
-
-    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
-      <meta itemprop="name" content="水化木后花园">
-    </span>
-
-    
-      <header class="post-header">
-
-        
-        
-          <h1 class="post-title" itemprop="name headline">
-                
-                <a class="post-title-link" href="/2018/07/01/New-to-C6678-CSS/" itemprop="url">New to C6678 & CSS</a></h1>
-        
-
-        <div class="post-meta">
-          <span class="post-time">
-            
-              <span class="post-meta-item-icon">
-                <i class="fa fa-calendar-o"></i>
-              </span>
-              
-                <span class="post-meta-item-text">Posted on</span>
-              
-              <time title="Post created" itemprop="dateCreated datePublished" datetime="2018-07-01T18:35:02+08:00">
-                2018-07-01
-              </time>
-            
-
-            
-
-            
-          </span>
-
-          
-
-          
-            
-          
-
-          
-          
-
-          
-
-          
-
-          
-
-        </div>
-      </header>
-    
-
-    
-    
-    
-    <div class="post-body" itemprop="articleBody">
-
-      
-      
-
-      
-        
-          <h2 id="1-C6678开发板上手"><a href="#1-C6678开发板上手" class="headerlink" title="1. C6678开发板上手"></a>1. C6678开发板上手</h2><p>　　等了一个多月，开发板终于到了。板子型号是TMDSEVM6678LE，带有XDS560v2仿真板(Blackhawk XDS560v2-USB Mezzanine Emulator）。<br>　　刚来的板子上已经烧写了一个Out-of-Box(OOB)例程–<a href="http://processors.wiki.ti.com/index.php/MCSDK_HUA_Demonstration_Guide" target="_blank" rel="noopener">HUA（High-Performance DSP Utility Application）</a>。按照默认的启动设置（SW3~SW6、SW9），即0010-1111-1110-0000，SW9：11。SW9的第二个开关是设置HUA例程是使用静态IP还是DHCP方式工作。<br>　　由于刚拿到板子，不了解情况，我直接在板子上烧写了其它的程序。自带的HUA工程文件可以在MCSDK安装目录的demo目录中找到。<br>　　下面介绍一下让HUA例程跑起来的过程（我使用的是静态IP方式，DHCP方式还需要下载配置DHCP Server）。<br>　　前置准备：<br></p>
-          <!--noindex-->
-          <div class="post-button text-center">
-            <a class="btn" href="/2018/07/01/New-to-C6678-CSS/#more" rel="contents">
-              Read more &raquo;
-            </a>
-          </div>
-          <!--/noindex-->
-        
-      
-    </div>
-    
-    
-    
-
-    
-
-    
-
-    
-
-    <footer class="post-footer">
-      
-
-      
-
-      
-
-      
-      
-        <div class="post-eof"></div>
-      
-    </footer>
-  </div>
-  
-  
-  
-  </article>
-
-
-    
   </section>
 
   
@@ -1516,9 +1515,9 @@
         <div class="site-overview">
           <div class="site-author motion-element" itemprop="author" itemscope itemtype="http://schema.org/Person">
             
-              <img class="site-author-image" itemprop="image" src="/img/minbud.png" alt="幺弟呀">
+              <img class="site-author-image" itemprop="image" src="/img/minbud.png" alt="细弟呀">
             
-              <p class="site-author-name" itemprop="name">幺弟呀</p>
+              <p class="site-author-name" itemprop="name">细弟呀</p>
               <p class="site-description motion-element" itemprop="description"></p>
           </div>
 
@@ -1529,7 +1528,7 @@
               
                 <a href="/archives/">
               
-                  <span class="site-state-item-count">12</span>
+                  <span class="site-state-item-count">16</span>
                   <span class="site-state-item-name">posts</span>
                 </a>
               </div>
@@ -1542,7 +1541,7 @@
               
               <div class="site-state-item site-state-tags">
                 <a href="/tag/index.html">
-                  <span class="site-state-item-count">10</span>
+                  <span class="site-state-item-count">17</span>
                   <span class="site-state-item-name">tags</span>
                 </a>
               </div>
@@ -1599,7 +1598,7 @@
   <span class="with-love">
     <i class="fa fa-user"></i>
   </span>
-  <span class="author" itemprop="copyrightHolder">幺弟呀</span>
+  <span class="author" itemprop="copyrightHolder">细弟呀</span>
 
   
 </div>
