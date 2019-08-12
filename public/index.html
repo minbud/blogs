@@ -145,6 +145,42 @@
 <body itemscope itemtype="http://schema.org/WebPage" lang="default">
 
   
+
+
+  
+
+
+
+
+	
+
+
+
+
+
+  
+
+
+
+
+
+  
+
+
+
+
+
+
+
+
+
+
+
+
+  <script type="text/javascript" src="/js/src/clicklove.js"></script>
+  <script type="text/javascript" src="/js/src/clicksocialvalue.js"></script>
+
+  
   
     
   
@@ -318,13 +354,14 @@
 
       
         
-          
-            <h2 id="正则表达式匹配ipv4地址"><a href="#正则表达式匹配ipv4地址" class="headerlink" title="正则表达式匹配ipv4地址"></a>正则表达式匹配ipv4地址</h2><p>　　最近面试的时候被问到了这个问题，正则表达式接触得不多，只看得懂简单的，没写得出来，后来查了一下：<a href="https://stackoverflow.com/questions/5284147/validating-ipv4-addresses-with-regexp" target="_blank" rel="noopener">参考</a>  </p>
-<figure class="highlight shell"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">grep -E '\b((25[0-5]|2[0-4][0-9]|[01]?[0-9][0-9]?)(\.|$))&#123;4&#125;\b' &lt;&lt;&lt; 192.168.1.1</span><br></pre></td></tr></table></figure>
-<p>　　不过这个表达式会匹配‘192.168.1.1.1’，但是这个应该也是正常的。</p>
-<h2 id="grep-E-‘-b-b’-word-boundary"><a href="#grep-E-‘-b-b’-word-boundary" class="headerlink" title="grep -E ‘\b\b’ word boundary"></a>grep -E ‘\b\b’ word boundary</h2><p>　　<a href="https://unix.stackexchange.com/questions/71537/confused-about-word-boundary" target="_blank" rel="noopener">参考</a><br>　　上面的参考链接已经说得比较清楚，我大概翻译一下意思。<br>　　‘grep -E’就是使用扩展的正则表达式。<br>　　‘\bfoo\b’则表示匹配的行中的 <em>foo</em> 的前一个邻接字符和后一个邻接字符不能是[a-zA-Z_],也就是不能是大小写字母和下划线，所以 <em>word boundary</em> 也就是字符的前后边界，指的是。比如 ‘afoo’、’fooa’、’foo_’这种都是不匹配的，但是’foo’、’foo*’、’%foo’这种就是匹配的。试一下很容易就能明白了。  </p>
-
-          
+          <h2 id="正则表达式匹配ipv4地址"><a href="#正则表达式匹配ipv4地址" class="headerlink" title="正则表达式匹配ipv4地址"></a>正则表达式匹配ipv4地址</h2><p>　　最近面试的时候被问到了这个问题，正则表达式接触得不多，只看得懂简单的，没写得出来，后来查了一下：<a href="https://stackoverflow.com/questions/5284147/validating-ipv4-addresses-with-regexp" target="_blank" rel="noopener">参考</a>  </p>
+          <!--noindex-->
+          <div class="post-button text-center">
+            <a class="btn" href="/2019/08/10/regular-expression-ipv4/#more" rel="contents">
+              Read more &raquo;
+            </a>
+          </div>
+          <!--/noindex-->
         
       
     </div>
@@ -1784,5 +1821,5 @@
 
   
 
-</body>
+<script src="/live2dw/lib/L2Dwidget.min.js?094cbace49a39548bed64abff5988b05"></script><script>L2Dwidget.init({"pluginRootPath":"live2dw/","pluginJsPath":"lib/","pluginModelPath":"assets/","tagMode":false,"debug":false,"model":{"jsonPath":"/live2dw/assets/miku.model.json"},"display":{"position":"left","width":200,"height":400},"mobile":{"show":true},"react":{"opacity":0.7},"log":false});</script></body>
 </html>

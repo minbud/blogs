@@ -6,10 +6,12 @@ tags: [regExp, ipv4]
 ## 正则表达式匹配ipv4地址
 　　最近面试的时候被问到了这个问题，正则表达式接触得不多，只看得懂简单的，没写得出来，后来查了一下：[参考](https://stackoverflow.com/questions/5284147/validating-ipv4-addresses-with-regexp)  
 
+<!--more-->
+
 ```shell
 grep -E '\b((25[0-5]|2[0-4][0-9]|[01]?[0-9][0-9]?)(\.|$)){4}\b' <<< 192.168.1.1
 ```
-　　不过这个表达式会匹配‘192.168.1.1.1’，但是这个应该也是正常的。
+　　不过这个表达式会匹配‘192.168.1.1.1’，但是这个应该也是正常的。  
 
 ## grep -E '\b\b' word boundary
 　　[参考](https://unix.stackexchange.com/questions/71537/confused-about-word-boundary)  
