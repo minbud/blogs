@@ -1,0 +1,765 @@
+<!DOCTYPE html>
+
+
+
+  
+
+
+<html class="theme-next gemini use-motion" lang>
+<head><meta name="generator" content="Hexo 3.9.0">
+  <meta charset="UTF-8">
+<meta http-equiv="X-UA-Compatible" content="IE=edge">
+<meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
+<meta name="theme-color" content="#222">
+
+
+
+  
+  
+    
+    
+  <script src="/lib/pace/pace.min.js?v=1.0.2"></script>
+  <link href="/lib/pace/pace-theme-minimal.min.css?v=1.0.2" rel="stylesheet">
+
+
+
+
+
+
+
+<meta http-equiv="Cache-Control" content="no-transform">
+<meta http-equiv="Cache-Control" content="no-siteapp">
+
+
+
+  <meta name="google-site-verification" content="L_NDNTDnp1Nv2pBCyc0vyb--uZB8VCE71OkM7F-47K8">
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+  
+  
+  <link href="/lib/fancybox/source/jquery.fancybox.css?v=2.1.5" rel="stylesheet" type="text/css">
+
+
+
+
+
+
+
+<link href="/lib/font-awesome/css/font-awesome.min.css?v=4.6.2" rel="stylesheet" type="text/css">
+
+<link href="/css/main.css?v=5.1.4" rel="stylesheet" type="text/css">
+
+
+  <link rel="apple-touch-icon" sizes="180x180" href="/img/favicon.png?v=5.1.4">
+
+
+  <link rel="icon" type="image/png" sizes="32x32" href="/img/favicon.png?v=5.1.4">
+
+
+  <link rel="icon" type="image/png" sizes="16x16" href="/img/favicon.png?v=5.1.4">
+
+
+  <link rel="mask-icon" href="/images/logo.svg?v=5.1.4" color="#222">
+
+
+
+
+
+  <meta name="keywords" content="计算机网络,">
+
+
+
+
+
+
+
+
+
+
+<meta name="description" content="1. 以太网最小帧长　　以太网中的最小帧长为64字节（包括以太网帧的前后部分：14+4字节）。亦即数据段为46字节。　　64字节的计算过程涉及以太网的载波监听冲突检测机制。基本原理是一个发送端需要在发送完数据前能够监听到在此信道上在它之前已经开始发送数据的发送冲突。在最极端的情况下，两个发送端距离最远，第一个发送端A在开始发送数据后，数据在经过t时间后会到达发送端B，在到达之前B监听不到数据因此也">
+<meta name="keywords" content="计算机网络">
+<meta property="og:type" content="article">
+<meta property="og:title" content="ethernet">
+<meta property="og:url" content="https://minbud.github.io/2018/06/23/ethernet/index.html">
+<meta property="og:site_name" content="水化木后花园">
+<meta property="og:description" content="1. 以太网最小帧长　　以太网中的最小帧长为64字节（包括以太网帧的前后部分：14+4字节）。亦即数据段为46字节。　　64字节的计算过程涉及以太网的载波监听冲突检测机制。基本原理是一个发送端需要在发送完数据前能够监听到在此信道上在它之前已经开始发送数据的发送冲突。在最极端的情况下，两个发送端距离最远，第一个发送端A在开始发送数据后，数据在经过t时间后会到达发送端B，在到达之前B监听不到数据因此也">
+<meta property="og:locale" content="default">
+<meta property="og:updated_time" content="2019-09-09T03:36:13.151Z">
+<meta name="twitter:card" content="summary">
+<meta name="twitter:title" content="ethernet">
+<meta name="twitter:description" content="1. 以太网最小帧长　　以太网中的最小帧长为64字节（包括以太网帧的前后部分：14+4字节）。亦即数据段为46字节。　　64字节的计算过程涉及以太网的载波监听冲突检测机制。基本原理是一个发送端需要在发送完数据前能够监听到在此信道上在它之前已经开始发送数据的发送冲突。在最极端的情况下，两个发送端距离最远，第一个发送端A在开始发送数据后，数据在经过t时间后会到达发送端B，在到达之前B监听不到数据因此也">
+
+
+
+<script type="text/javascript" id="hexo.configurations">
+  var NexT = window.NexT || {};
+  var CONFIG = {
+    root: '/',
+    scheme: 'Gemini',
+    version: '5.1.4',
+    sidebar: {"position":"left","display":"always","offset":12,"b2t":false,"scrollpercent":true,"onmobile":false},
+    fancybox: true,
+    tabs: true,
+    motion: {"enable":true,"async":false,"transition":{"post_block":"fadeIn","post_header":"slideDownIn","post_body":"slideDownIn","coll_header":"slideLeftIn","sidebar":"slideUpIn"}},
+    duoshuo: {
+      userId: '0',
+      author: 'Author'
+    },
+    algolia: {
+      applicationID: '',
+      apiKey: '',
+      indexName: '',
+      hits: {"per_page":10},
+      labels: {"input_placeholder":"Search for Posts","hits_empty":"We didn't find any results for the search: ${query}","hits_stats":"${hits} results found in ${time} ms"}
+    }
+  };
+</script>
+
+
+
+  <link rel="canonical" href="https://minbud.github.io/2018/06/23/ethernet/">
+
+
+
+
+
+  <title>ethernet | 水化木后花园</title>
+  
+
+
+
+
+
+
+
+
+</head>
+
+<body itemscope itemtype="http://schema.org/WebPage" lang="default">
+
+  
+
+
+  
+
+
+
+
+	
+
+
+
+
+
+  
+
+
+
+
+
+  
+
+
+
+
+
+
+
+
+
+
+
+
+  <script type="text/javascript" src="/js/src/clicklove.js"></script>
+  <script type="text/javascript" src="/js/src/clicksocialvalue.js"></script>
+
+  
+  
+    
+  
+
+  <div class="container sidebar-position-left page-post-detail">
+    <div class="headband"></div>
+
+    <header id="header" class="header" itemscope itemtype="http://schema.org/WPHeader">
+      <div class="header-inner"><div class="site-brand-wrapper">
+  <div class="site-meta ">
+    
+
+    <div class="custom-logo-site-title">
+      <a href="/" class="brand" rel="start">
+        <span class="logo-line-before"><i></i></span>
+        <span class="site-title">水化木后花园</span>
+        <span class="logo-line-after"><i></i></span>
+      </a>
+    </div>
+      
+        <p class="site-subtitle">Walk Slow & Think Deep</p>
+      
+  </div>
+
+  <div class="site-nav-toggle">
+    <button>
+      <span class="btn-bar"></span>
+      <span class="btn-bar"></span>
+      <span class="btn-bar"></span>
+    </button>
+  </div>
+</div>
+
+<nav class="site-nav">
+  
+
+  
+    <ul id="menu" class="menu">
+      
+        
+        <li class="menu-item menu-item-home">
+          <a href="/" rel="section">
+            
+              <i class="menu-item-icon fa fa-fw fa-home"></i> <br>
+            
+            Home
+          </a>
+        </li>
+      
+        
+        <li class="menu-item menu-item-tags">
+          <a href="/tag/" rel="section">
+            
+              <i class="menu-item-icon fa fa-fw fa-tags"></i> <br>
+            
+            Tags
+          </a>
+        </li>
+      
+        
+        <li class="menu-item menu-item-archives">
+          <a href="/archives/" rel="section">
+            
+              <i class="menu-item-icon fa fa-fw fa-archive"></i> <br>
+            
+            Archives
+          </a>
+        </li>
+      
+
+      
+    </ul>
+  
+
+  
+</nav>
+
+
+
+ </div>
+    </header>
+
+    <main id="main" class="main">
+      <div class="main-inner">
+        <div class="content-wrap">
+          <div id="content" class="content">
+            
+
+  <div id="posts" class="posts-expand">
+    
+
+  
+
+  
+  
+  
+
+  <article class="post post-type-normal" itemscope itemtype="http://schema.org/Article">
+  
+  
+  
+  <div class="post-block">
+    <link itemprop="mainEntityOfPage" href="https://minbud.github.io/2018/06/23/ethernet/">
+
+    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
+      <meta itemprop="name" content="细弟呀">
+      <meta itemprop="description" content>
+      <meta itemprop="image" content="/img/minbud.png">
+    </span>
+
+    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
+      <meta itemprop="name" content="水化木后花园">
+    </span>
+
+    
+      <header class="post-header">
+
+        
+        
+          <h1 class="post-title" itemprop="name headline">ethernet</h1>
+        
+
+        <div class="post-meta">
+          <span class="post-time">
+            
+              <span class="post-meta-item-icon">
+                <i class="fa fa-calendar-o"></i>
+              </span>
+              
+                <span class="post-meta-item-text">Posted on</span>
+              
+              <time title="Post created" itemprop="dateCreated datePublished" datetime="2018-06-23T20:56:39+08:00">
+                2018-06-23
+              </time>
+            
+
+            
+
+            
+          </span>
+
+          
+
+          
+            
+          
+
+          
+          
+
+          
+
+          
+
+          
+
+        </div>
+      </header>
+    
+
+    
+    
+    
+    <div class="post-body" itemprop="articleBody">
+
+      
+      
+
+      
+        <h2 id="1-以太网最小帧长"><a href="#1-以太网最小帧长" class="headerlink" title="1. 以太网最小帧长"></a>1. 以太网最小帧长</h2><p>　　以太网中的最小帧长为64字节（包括以太网帧的前后部分：14+4字节）。亦即数据段为46字节。<br>　　64字节的计算过程涉及以太网的载波监听冲突检测机制。基本原理是一个发送端需要在发送完数据前能够监听到在此信道上在它之前已经开始发送数据的发送冲突。在最极端的情况下，两个发送端距离最远，第一个发送端A在开始发送数据后，数据在经过t时间后会到达发送端B，在到达之前B监听不到数据因此也开始发送数据，B开始发送后随机监听到A的数据，因此发出阻塞信号。经过时间t后阻塞信号到达A，要求此时A数据还没有发送完毕，才能检测到数据发送出错。也就是发送数据的时间要大于2t。<br>　　标准规定，10Mbps以太网采用中继器时，连接最大长度为2500米，最多经过4个中继器，信号在介质中传输速度小于光速c，一般范围为0.6~0.8c，取0.7c，则最大传输时延为（2500*4）/0.7c,因此规定对于10Mbps以太网规定一帧的最小发送时间必须为51.2μs。<br>　　51.2 μs为512bit即64字节数据在10Mbps以太网下的发送时间。  </p>
+<a id="more"></a>
+<p>　　</p>
+<h2 id="2-MAC地址-amp-IP地址"><a href="#2-MAC地址-amp-IP地址" class="headerlink" title="2. MAC地址 &amp; IP地址"></a>2. MAC地址 &amp; IP地址</h2><p>　　MAC地址和IP地址都可以用来标识主机，为什么不只用其中的一个？  </p>
+<h3 id="1-如果只用IP地址"><a href="#1-如果只用IP地址" class="headerlink" title="1. 如果只用IP地址"></a>1. 如果只用IP地址</h3><p>　　如果不用mac地址，所有设备都只有IP地址，那么有两种情况：IP地址是出厂分配的；IP地址是由路由器动态分配的；<br>　　第一种情况下，IP地址会不够用；另外，由于是出厂分配的，那么设备在接入不同的网络时，便无法利用IP地址的网络号、子网号等来进行路由，会导致路由表需要不断的更新，且路由表会很大。<br>　　第二种情况下，在设备还没有分配到IP地址前，由于设备没有标识，便无法与路由器通信，进而也不可能被分配到IP地址。</p>
+<h3 id="2-如果只用MAC地址"><a href="#2-如果只用MAC地址" class="headerlink" title="2. 如果只用MAC地址"></a>2. 如果只用MAC地址</h3><p>　　设备只有MAC地址，也会遇到只用IP地址时所遇到的情况，分析过程一样。</p>
+<h3 id="3-其他"><a href="#3-其他" class="headerlink" title="3. 其他"></a>3. 其他</h3><p>　　数据包中的IP地址是终点地址，而mac地址则是下一跳地址，经过路由器时IP地址不会改变而mac则会变化。
+　　</p>
+<h2 id="3-集线器（hub）-amp-交换机（网桥）-amp-路由器"><a href="#3-集线器（hub）-amp-交换机（网桥）-amp-路由器" class="headerlink" title="3. 集线器（hub） &amp; 交换机（网桥） &amp; 路由器"></a>3. 集线器（hub） &amp; 交换机（网桥） &amp; 路由器</h2><p>　　集线器工作在物理层，交换机工作在数据链路层，路由器工作在网络层。<br>　　集线器的数据传输方式是广播，只对物理信号进行放大中继，所有端口属于一个冲突域；而交换机则基于MAC地址，能够完成数据包到合适端口的转发，每个端口是一个独立的冲突域。路由器转发基于IP地址，能够隔绝广播域。<br>　　集线器所有端口共享集线器的总带宽；交换机每个端口都有自己的带宽，因而多个端口队之间可以同时传输数据。<br>　　交换机具有全双工的工作模式，也就是可以同时发送和接受数据，而集线器只有半双工模式。<br>　　交换机用于组建局域网，路由器将组好的局域网连接起来。 </p>
+
+      
+    </div>
+    
+    
+    
+
+    
+
+    
+
+    
+
+    <footer class="post-footer">
+      
+        <div class="post-tags">
+          
+            <a href="/tags/计算机网络/" rel="tag"># 计算机网络</a>
+          
+        </div>
+      
+
+      
+      
+      
+
+      
+        <div class="post-nav">
+          <div class="post-nav-next post-nav-item">
+            
+              <a href="/2018/06/10/Github-Pages-hexo/" rel="next" title="Github-Pages&hexo">
+                <i class="fa fa-chevron-left"></i> Github-Pages&hexo
+              </a>
+            
+          </div>
+
+          <span class="post-nav-divider"></span>
+
+          <div class="post-nav-prev post-nav-item">
+            
+              <a href="/2018/07/01/New-to-C6678-CSS/" rel="prev" title="New to C6678 & CSS">
+                New to C6678 & CSS <i class="fa fa-chevron-right"></i>
+              </a>
+            
+          </div>
+        </div>
+      
+
+      
+      
+    </footer>
+  </div>
+  
+  
+  
+  </article>
+
+
+
+    <div class="post-spread">
+      
+    </div>
+  </div>
+
+
+          </div>
+          
+
+
+          
+
+  
+
+
+
+        </div>
+        
+          
+  
+  <div class="sidebar-toggle">
+    <div class="sidebar-toggle-line-wrap">
+      <span class="sidebar-toggle-line sidebar-toggle-line-first"></span>
+      <span class="sidebar-toggle-line sidebar-toggle-line-middle"></span>
+      <span class="sidebar-toggle-line sidebar-toggle-line-last"></span>
+    </div>
+  </div>
+
+  <aside id="sidebar" class="sidebar">
+    
+    <div class="sidebar-inner">
+
+      
+
+      
+        <ul class="sidebar-nav motion-element">
+          <li class="sidebar-nav-toc sidebar-nav-active" data-target="post-toc-wrap">
+            Table of Contents
+          </li>
+          <li class="sidebar-nav-overview" data-target="site-overview-wrap">
+            Overview
+          </li>
+        </ul>
+      
+
+      <section class="site-overview-wrap sidebar-panel">
+        <div class="site-overview">
+          <div class="site-author motion-element" itemprop="author" itemscope itemtype="http://schema.org/Person">
+            
+              <img class="site-author-image" itemprop="image" src="/img/minbud.png" alt="细弟呀">
+            
+              <p class="site-author-name" itemprop="name">细弟呀</p>
+              <p class="site-description motion-element" itemprop="description"></p>
+          </div>
+
+          <nav class="site-state motion-element">
+
+            
+              <div class="site-state-item site-state-posts">
+              
+                <a href="/archives/">
+              
+                  <span class="site-state-item-count">17</span>
+                  <span class="site-state-item-name">posts</span>
+                </a>
+              </div>
+            
+
+            
+
+            
+              
+              
+              <div class="site-state-item site-state-tags">
+                <a href="/tag/index.html">
+                  <span class="site-state-item-count">20</span>
+                  <span class="site-state-item-name">tags</span>
+                </a>
+              </div>
+            
+
+          </nav>
+
+          
+
+          
+            <div class="links-of-author motion-element">
+                
+                  <span class="links-of-author-item">
+                    <a href="https://github.com/minbud" target="_blank" title="GitHub">
+                      
+                        <i class="fa fa-fw fa-github"></i>GitHub</a>
+                  </span>
+                
+                  <span class="links-of-author-item">
+                    <a href="mailto:chhuajie@gmail.com" target="_blank" title="E-Mail">
+                      
+                        <i class="fa fa-fw fa-envelope"></i>E-Mail</a>
+                  </span>
+                
+            </div>
+          
+
+          
+          
+
+          
+          
+
+          
+
+        </div>
+      </section>
+
+      
+      <!--noindex-->
+        <section class="post-toc-wrap motion-element sidebar-panel sidebar-panel-active">
+          <div class="post-toc">
+
+            
+              
+            
+
+            
+              <div class="post-toc-content"><ol class="nav"><li class="nav-item nav-level-2"><a class="nav-link" href="#1-以太网最小帧长"><span class="nav-number">1.</span> <span class="nav-text">1. 以太网最小帧长</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#2-MAC地址-amp-IP地址"><span class="nav-number">2.</span> <span class="nav-text">2. MAC地址 &amp; IP地址</span></a><ol class="nav-child"><li class="nav-item nav-level-3"><a class="nav-link" href="#1-如果只用IP地址"><span class="nav-number">2.1.</span> <span class="nav-text">1. 如果只用IP地址</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#2-如果只用MAC地址"><span class="nav-number">2.2.</span> <span class="nav-text">2. 如果只用MAC地址</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#3-其他"><span class="nav-number">2.3.</span> <span class="nav-text">3. 其他</span></a></li></ol></li><li class="nav-item nav-level-2"><a class="nav-link" href="#3-集线器（hub）-amp-交换机（网桥）-amp-路由器"><span class="nav-number">3.</span> <span class="nav-text">3. 集线器（hub） &amp; 交换机（网桥） &amp; 路由器</span></a></li></ol></div>
+            
+
+          </div>
+        </section>
+      <!--/noindex-->
+      
+
+      
+
+    </div>
+  </aside>
+
+
+        
+      </div>
+    </main>
+
+    <footer id="footer" class="footer">
+      <div class="footer-inner">
+        <div class="copyright">&copy; <span itemprop="copyrightYear">2019</span>
+  <span class="with-love">
+    <i class="fa fa-user"></i>
+  </span>
+  <span class="author" itemprop="copyrightHolder">细弟呀</span>
+
+  
+</div>
+
+
+  <div class="powered-by">Powered by <a class="theme-link" target="_blank" href="https://hexo.io">Hexo</a></div>
+
+
+
+  <span class="post-meta-divider">|</span>
+
+
+
+  <div class="theme-info">Theme &mdash; <a class="theme-link" target="_blank" href="https://github.com/iissnan/hexo-theme-next">NexT.Gemini</a> v5.1.4</div>
+
+
+
+
+        
+
+
+
+
+
+
+
+        
+      </div>
+    </footer>
+
+    
+      <div class="back-to-top">
+        <i class="fa fa-arrow-up"></i>
+        
+          <span id="scrollpercent"><span>0</span>%</span>
+        
+      </div>
+    
+
+    
+
+  </div>
+
+  
+
+<script type="text/javascript">
+  if (Object.prototype.toString.call(window.Promise) !== '[object Function]') {
+    window.Promise = null;
+  }
+</script>
+
+
+
+
+
+
+
+
+
+  
+
+
+
+
+
+
+
+
+
+
+
+
+  
+  
+    <script type="text/javascript" src="/lib/jquery/index.js?v=2.1.3"></script>
+  
+
+  
+  
+    <script type="text/javascript" src="/lib/fastclick/lib/fastclick.min.js?v=1.0.6"></script>
+  
+
+  
+  
+    <script type="text/javascript" src="/lib/jquery_lazyload/jquery.lazyload.js?v=1.9.7"></script>
+  
+
+  
+  
+    <script type="text/javascript" src="/lib/velocity/velocity.min.js?v=1.2.1"></script>
+  
+
+  
+  
+    <script type="text/javascript" src="/lib/velocity/velocity.ui.min.js?v=1.2.1"></script>
+  
+
+  
+  
+    <script type="text/javascript" src="/lib/fancybox/source/jquery.fancybox.pack.js?v=2.1.5"></script>
+  
+
+
+  
+
+
+  <script type="text/javascript" src="/js/src/utils.js?v=5.1.4"></script>
+
+  <script type="text/javascript" src="/js/src/motion.js?v=5.1.4"></script>
+
+
+
+  
+  
+
+
+  <script type="text/javascript" src="/js/src/affix.js?v=5.1.4"></script>
+
+  <script type="text/javascript" src="/js/src/schemes/pisces.js?v=5.1.4"></script>
+
+
+
+  
+  <script type="text/javascript" src="/js/src/scrollspy.js?v=5.1.4"></script>
+<script type="text/javascript" src="/js/src/post-details.js?v=5.1.4"></script>
+
+
+
+  
+
+
+  <script type="text/javascript" src="/js/src/bootstrap.js?v=5.1.4"></script>
+
+
+
+  
+
+
+  
+
+
+
+
+	
+
+
+
+
+
+  
+
+
+
+
+
+  
+
+
+
+
+
+
+
+
+
+
+
+
+  
+
+
+
+
+
+  
+
+  
+
+  
+
+  
+  
+
+  
+
+  
+
+  
+
+<script src="/live2dw/lib/L2Dwidget.min.js?094cbace49a39548bed64abff5988b05"></script><script>L2Dwidget.init({"pluginRootPath":"live2dw/","pluginJsPath":"lib/","pluginModelPath":"assets/","tagMode":false,"debug":false,"model":{"jsonPath":"/live2dw/assets/miku.model.json"},"display":{"position":"left","width":200,"height":400},"mobile":{"show":true},"react":{"opacity":0.7},"log":false});</script></body>
+</html>

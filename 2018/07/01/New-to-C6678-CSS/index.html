@@ -1,0 +1,779 @@
+<!DOCTYPE html>
+
+
+
+  
+
+
+<html class="theme-next gemini use-motion" lang>
+<head><meta name="generator" content="Hexo 3.9.0">
+  <meta charset="UTF-8">
+<meta http-equiv="X-UA-Compatible" content="IE=edge">
+<meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
+<meta name="theme-color" content="#222">
+
+
+
+  
+  
+    
+    
+  <script src="/lib/pace/pace.min.js?v=1.0.2"></script>
+  <link href="/lib/pace/pace-theme-minimal.min.css?v=1.0.2" rel="stylesheet">
+
+
+
+
+
+
+
+<meta http-equiv="Cache-Control" content="no-transform">
+<meta http-equiv="Cache-Control" content="no-siteapp">
+
+
+
+  <meta name="google-site-verification" content="L_NDNTDnp1Nv2pBCyc0vyb--uZB8VCE71OkM7F-47K8">
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+  
+  
+  <link href="/lib/fancybox/source/jquery.fancybox.css?v=2.1.5" rel="stylesheet" type="text/css">
+
+
+
+
+
+
+
+<link href="/lib/font-awesome/css/font-awesome.min.css?v=4.6.2" rel="stylesheet" type="text/css">
+
+<link href="/css/main.css?v=5.1.4" rel="stylesheet" type="text/css">
+
+
+  <link rel="apple-touch-icon" sizes="180x180" href="/img/favicon.png?v=5.1.4">
+
+
+  <link rel="icon" type="image/png" sizes="32x32" href="/img/favicon.png?v=5.1.4">
+
+
+  <link rel="icon" type="image/png" sizes="16x16" href="/img/favicon.png?v=5.1.4">
+
+
+  <link rel="mask-icon" href="/images/logo.svg?v=5.1.4" color="#222">
+
+
+
+
+
+  <meta name="keywords" content="evmc6678l,">
+
+
+
+
+
+
+
+
+
+
+<meta name="description" content="1. C6678开发板上手　　等了一个多月，开发板终于到了。板子型号是TMDSEVM6678LE，带有XDS560v2仿真板(Blackhawk XDS560v2-USB Mezzanine Emulator）。　　刚来的板子上已经烧写了一个Out-of-Box(OOB)例程–HUA（High-Performance DSP Utility Application）。按照默认的启动设置（SW3~S">
+<meta name="keywords" content="evmc6678l">
+<meta property="og:type" content="article">
+<meta property="og:title" content="New to C6678 &amp; CSS">
+<meta property="og:url" content="https://minbud.github.io/2018/07/01/New-to-C6678-CSS/index.html">
+<meta property="og:site_name" content="水化木后花园">
+<meta property="og:description" content="1. C6678开发板上手　　等了一个多月，开发板终于到了。板子型号是TMDSEVM6678LE，带有XDS560v2仿真板(Blackhawk XDS560v2-USB Mezzanine Emulator）。　　刚来的板子上已经烧写了一个Out-of-Box(OOB)例程–HUA（High-Performance DSP Utility Application）。按照默认的启动设置（SW3~S">
+<meta property="og:locale" content="default">
+<meta property="og:image" content="https://minbud.github.io/2018/07/01/New-to-C6678-CSS/hua_com4_config.png">
+<meta property="og:image" content="https://minbud.github.io/2018/07/01/New-to-C6678-CSS/hua_ipconfig.png">
+<meta property="og:image" content="https://minbud.github.io/2018/07/01/New-to-C6678-CSS/hua_com4.png">
+<meta property="og:image" content="https://minbud.github.io/2018/07/01/New-to-C6678-CSS/hua_html_index.png">
+<meta property="og:updated_time" content="2019-09-09T03:36:13.139Z">
+<meta name="twitter:card" content="summary">
+<meta name="twitter:title" content="New to C6678 &amp; CSS">
+<meta name="twitter:description" content="1. C6678开发板上手　　等了一个多月，开发板终于到了。板子型号是TMDSEVM6678LE，带有XDS560v2仿真板(Blackhawk XDS560v2-USB Mezzanine Emulator）。　　刚来的板子上已经烧写了一个Out-of-Box(OOB)例程–HUA（High-Performance DSP Utility Application）。按照默认的启动设置（SW3~S">
+<meta name="twitter:image" content="https://minbud.github.io/2018/07/01/New-to-C6678-CSS/hua_com4_config.png">
+
+
+
+<script type="text/javascript" id="hexo.configurations">
+  var NexT = window.NexT || {};
+  var CONFIG = {
+    root: '/',
+    scheme: 'Gemini',
+    version: '5.1.4',
+    sidebar: {"position":"left","display":"always","offset":12,"b2t":false,"scrollpercent":true,"onmobile":false},
+    fancybox: true,
+    tabs: true,
+    motion: {"enable":true,"async":false,"transition":{"post_block":"fadeIn","post_header":"slideDownIn","post_body":"slideDownIn","coll_header":"slideLeftIn","sidebar":"slideUpIn"}},
+    duoshuo: {
+      userId: '0',
+      author: 'Author'
+    },
+    algolia: {
+      applicationID: '',
+      apiKey: '',
+      indexName: '',
+      hits: {"per_page":10},
+      labels: {"input_placeholder":"Search for Posts","hits_empty":"We didn't find any results for the search: ${query}","hits_stats":"${hits} results found in ${time} ms"}
+    }
+  };
+</script>
+
+
+
+  <link rel="canonical" href="https://minbud.github.io/2018/07/01/New-to-C6678-CSS/">
+
+
+
+
+
+  <title>New to C6678 & CSS | 水化木后花园</title>
+  
+
+
+
+
+
+
+
+
+</head>
+
+<body itemscope itemtype="http://schema.org/WebPage" lang="default">
+
+  
+
+
+  
+
+
+
+
+	
+
+
+
+
+
+  
+
+
+
+
+
+  
+
+
+
+
+
+
+
+
+
+
+
+
+  <script type="text/javascript" src="/js/src/clicklove.js"></script>
+  <script type="text/javascript" src="/js/src/clicksocialvalue.js"></script>
+
+  
+  
+    
+  
+
+  <div class="container sidebar-position-left page-post-detail">
+    <div class="headband"></div>
+
+    <header id="header" class="header" itemscope itemtype="http://schema.org/WPHeader">
+      <div class="header-inner"><div class="site-brand-wrapper">
+  <div class="site-meta ">
+    
+
+    <div class="custom-logo-site-title">
+      <a href="/" class="brand" rel="start">
+        <span class="logo-line-before"><i></i></span>
+        <span class="site-title">水化木后花园</span>
+        <span class="logo-line-after"><i></i></span>
+      </a>
+    </div>
+      
+        <p class="site-subtitle">Walk Slow & Think Deep</p>
+      
+  </div>
+
+  <div class="site-nav-toggle">
+    <button>
+      <span class="btn-bar"></span>
+      <span class="btn-bar"></span>
+      <span class="btn-bar"></span>
+    </button>
+  </div>
+</div>
+
+<nav class="site-nav">
+  
+
+  
+    <ul id="menu" class="menu">
+      
+        
+        <li class="menu-item menu-item-home">
+          <a href="/" rel="section">
+            
+              <i class="menu-item-icon fa fa-fw fa-home"></i> <br>
+            
+            Home
+          </a>
+        </li>
+      
+        
+        <li class="menu-item menu-item-tags">
+          <a href="/tag/" rel="section">
+            
+              <i class="menu-item-icon fa fa-fw fa-tags"></i> <br>
+            
+            Tags
+          </a>
+        </li>
+      
+        
+        <li class="menu-item menu-item-archives">
+          <a href="/archives/" rel="section">
+            
+              <i class="menu-item-icon fa fa-fw fa-archive"></i> <br>
+            
+            Archives
+          </a>
+        </li>
+      
+
+      
+    </ul>
+  
+
+  
+</nav>
+
+
+
+ </div>
+    </header>
+
+    <main id="main" class="main">
+      <div class="main-inner">
+        <div class="content-wrap">
+          <div id="content" class="content">
+            
+
+  <div id="posts" class="posts-expand">
+    
+
+  
+
+  
+  
+  
+
+  <article class="post post-type-normal" itemscope itemtype="http://schema.org/Article">
+  
+  
+  
+  <div class="post-block">
+    <link itemprop="mainEntityOfPage" href="https://minbud.github.io/2018/07/01/New-to-C6678-CSS/">
+
+    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
+      <meta itemprop="name" content="细弟呀">
+      <meta itemprop="description" content>
+      <meta itemprop="image" content="/img/minbud.png">
+    </span>
+
+    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
+      <meta itemprop="name" content="水化木后花园">
+    </span>
+
+    
+      <header class="post-header">
+
+        
+        
+          <h1 class="post-title" itemprop="name headline">New to C6678 & CSS</h1>
+        
+
+        <div class="post-meta">
+          <span class="post-time">
+            
+              <span class="post-meta-item-icon">
+                <i class="fa fa-calendar-o"></i>
+              </span>
+              
+                <span class="post-meta-item-text">Posted on</span>
+              
+              <time title="Post created" itemprop="dateCreated datePublished" datetime="2018-07-01T18:35:02+08:00">
+                2018-07-01
+              </time>
+            
+
+            
+
+            
+          </span>
+
+          
+
+          
+            
+          
+
+          
+          
+
+          
+
+          
+
+          
+
+        </div>
+      </header>
+    
+
+    
+    
+    
+    <div class="post-body" itemprop="articleBody">
+
+      
+      
+
+      
+        <h2 id="1-C6678开发板上手"><a href="#1-C6678开发板上手" class="headerlink" title="1. C6678开发板上手"></a>1. C6678开发板上手</h2><p>　　等了一个多月，开发板终于到了。板子型号是TMDSEVM6678LE，带有XDS560v2仿真板(Blackhawk XDS560v2-USB Mezzanine Emulator）。<br>　　刚来的板子上已经烧写了一个Out-of-Box(OOB)例程–<a href="http://processors.wiki.ti.com/index.php/MCSDK_HUA_Demonstration_Guide" target="_blank" rel="noopener">HUA（High-Performance DSP Utility Application）</a>。按照默认的启动设置（SW3~SW6、SW9），即0010-1111-1110-0000，SW9：11。SW9的第二个开关是设置HUA例程是使用静态IP还是DHCP方式工作。<br>　　由于刚拿到板子，不了解情况，我直接在板子上烧写了其它的程序。自带的HUA工程文件可以在MCSDK安装目录的demo目录中找到。<br>　　下面介绍一下让HUA例程跑起来的过程（我使用的是静态IP方式，DHCP方式还需要下载配置DHCP Server）。<br>　　前置准备：<br><a id="more"></a></p>
+<blockquote>
+<ol>
+<li><p>windows: <a href="https://www.hilgraeve.com/hyperterminal-trial/" target="_blank" rel="noopener">hyperterminal</a>　　　　linux: minicom   　　<em>用于接收从串口发出的数据</em><br>安装完运行，PC连接上开发板，新建连接可以看到有COM4选项，设置如下：<br><div align="center"> <img src="/2018/07/01/New-to-C6678-CSS/hua_com4_config.png" width="300" height="400"></div><br>tips:<br>TMDSEVM6678LE带有XDS560v2仿真板，这个扩展板的USB-mini口没有和UART口连接，因此不能通过该口接收串口数据。需要自己将这个口（RS-232）连接到PC，或者将560v2拆下，使用板子自带的XDS100v1，自带的仿真器虽然速度慢一些，但是串口是连到USB-mini口的。  </p>
+</li>
+<li><p>同时需要设置PC的ip信息：  </p>
+<div align="center"><img src="/2018/07/01/New-to-C6678-CSS/hua_ipconfig.png" width="300" height="400"></div>
+</li>
+</ol>
+</blockquote>
+<p>　　正式运行：<br>　　准备工作完成后，按下板子的FULL_REST开关（靠近网口那个）,可以看到Hyperterminal输出如下：<br>　　<img src="/2018/07/01/New-to-C6678-CSS/hua_com4.png" alt="img"><br>　　在浏览器中输入192.168.2.100：<br>　　<img src="/2018/07/01/New-to-C6678-CSS/hua_html_index.png" alt="img">  </p>
+<h2 id="2-CCS-安装-amp-使用"><a href="#2-CCS-安装-amp-使用" class="headerlink" title="2. CCS 安装&amp;使用"></a>2. CCS 安装&amp;使用</h2><p>　　附带在评估板中的还有一个光盘，光盘中有CCSv5和BIOS_MCSK的安装包。但是CCSv5已经比较老了，许多工程文件都是使用比较新的编译器编译的，因此我在官网下了<a href="http://processors.wiki.ti.com/index.php/Download_CCS#Download_the_latest_CCS" target="_blank" rel="noopener">CCSv8</a>，同时也下了<a href="http://software-dl.ti.com/sdoemb/sdoemb_public_sw/bios_mcsdk/latest/index_FDS.html" target="_blank" rel="noopener">bios_mcsdk_02_01_02_06</a>。<br>　　CCS中有几个使用较为频繁的操作：  </p>
+<ol>
+<li>project &gt; import project<br>　　将已有的工程文件导入，导入后可以在 <em>view &gt; project explorer</em>操作打开的窗口中看到导入的工程。  </li>
+<li>view &gt; target configurations<br>　　打开目标连接文件窗口，可以看到各个工程文件中的连接文件。在窗口中的ccxml文件中右击鼠标，选择lauch selected configutaion可以用改配置文件连接并启动目标板。启动前最好先双击该文件，在打开的窗口中test configuration看看有无错误。  </li>
+<li>下载并执行程序流程：<br>　　1) Debug窗口中右击某个core,conect target<br>　　2) tool &gt; gel files 。 memory map窗口中，gel files &gt; 右击 &gt;load gel。　　<em>gel文件是初始化脚本</em><br>　　3) scripts &gt; evmc6678l init function &gt; global_default_setup<br>　　4) run &gt; load &gt; load program &gt; 选择.out文件<br>　　5) run &gt; resume 程序开始运行。  </li>
+<li>安装新的组件:<br>　　window &gt; preference &gt;Code Compose Studio &gt; products &gt; rediscover &gt; install<br>　　window &gt; preference &gt;Code Compose Studio &gt; build &gt; compliers &gt; refresh &gt; install</li>
+</ol>
+
+      
+    </div>
+    
+    
+    
+
+    
+
+    
+
+    
+
+    <footer class="post-footer">
+      
+        <div class="post-tags">
+          
+            <a href="/tags/evmc6678l/" rel="tag"># evmc6678l</a>
+          
+        </div>
+      
+
+      
+      
+      
+
+      
+        <div class="post-nav">
+          <div class="post-nav-next post-nav-item">
+            
+              <a href="/2018/06/23/ethernet/" rel="next" title="ethernet">
+                <i class="fa fa-chevron-left"></i> ethernet
+              </a>
+            
+          </div>
+
+          <span class="post-nav-divider"></span>
+
+          <div class="post-nav-prev post-nav-item">
+            
+              <a href="/2018/07/03/routerap/" rel="prev" title="routerap">
+                routerap <i class="fa fa-chevron-right"></i>
+              </a>
+            
+          </div>
+        </div>
+      
+
+      
+      
+    </footer>
+  </div>
+  
+  
+  
+  </article>
+
+
+
+    <div class="post-spread">
+      
+    </div>
+  </div>
+
+
+          </div>
+          
+
+
+          
+
+  
+
+
+
+        </div>
+        
+          
+  
+  <div class="sidebar-toggle">
+    <div class="sidebar-toggle-line-wrap">
+      <span class="sidebar-toggle-line sidebar-toggle-line-first"></span>
+      <span class="sidebar-toggle-line sidebar-toggle-line-middle"></span>
+      <span class="sidebar-toggle-line sidebar-toggle-line-last"></span>
+    </div>
+  </div>
+
+  <aside id="sidebar" class="sidebar">
+    
+    <div class="sidebar-inner">
+
+      
+
+      
+        <ul class="sidebar-nav motion-element">
+          <li class="sidebar-nav-toc sidebar-nav-active" data-target="post-toc-wrap">
+            Table of Contents
+          </li>
+          <li class="sidebar-nav-overview" data-target="site-overview-wrap">
+            Overview
+          </li>
+        </ul>
+      
+
+      <section class="site-overview-wrap sidebar-panel">
+        <div class="site-overview">
+          <div class="site-author motion-element" itemprop="author" itemscope itemtype="http://schema.org/Person">
+            
+              <img class="site-author-image" itemprop="image" src="/img/minbud.png" alt="细弟呀">
+            
+              <p class="site-author-name" itemprop="name">细弟呀</p>
+              <p class="site-description motion-element" itemprop="description"></p>
+          </div>
+
+          <nav class="site-state motion-element">
+
+            
+              <div class="site-state-item site-state-posts">
+              
+                <a href="/archives/">
+              
+                  <span class="site-state-item-count">17</span>
+                  <span class="site-state-item-name">posts</span>
+                </a>
+              </div>
+            
+
+            
+
+            
+              
+              
+              <div class="site-state-item site-state-tags">
+                <a href="/tag/index.html">
+                  <span class="site-state-item-count">20</span>
+                  <span class="site-state-item-name">tags</span>
+                </a>
+              </div>
+            
+
+          </nav>
+
+          
+
+          
+            <div class="links-of-author motion-element">
+                
+                  <span class="links-of-author-item">
+                    <a href="https://github.com/minbud" target="_blank" title="GitHub">
+                      
+                        <i class="fa fa-fw fa-github"></i>GitHub</a>
+                  </span>
+                
+                  <span class="links-of-author-item">
+                    <a href="mailto:chhuajie@gmail.com" target="_blank" title="E-Mail">
+                      
+                        <i class="fa fa-fw fa-envelope"></i>E-Mail</a>
+                  </span>
+                
+            </div>
+          
+
+          
+          
+
+          
+          
+
+          
+
+        </div>
+      </section>
+
+      
+      <!--noindex-->
+        <section class="post-toc-wrap motion-element sidebar-panel sidebar-panel-active">
+          <div class="post-toc">
+
+            
+              
+            
+
+            
+              <div class="post-toc-content"><ol class="nav"><li class="nav-item nav-level-2"><a class="nav-link" href="#1-C6678开发板上手"><span class="nav-number">1.</span> <span class="nav-text">1. C6678开发板上手</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#2-CCS-安装-amp-使用"><span class="nav-number">2.</span> <span class="nav-text">2. CCS 安装&amp;使用</span></a></li></ol></div>
+            
+
+          </div>
+        </section>
+      <!--/noindex-->
+      
+
+      
+
+    </div>
+  </aside>
+
+
+        
+      </div>
+    </main>
+
+    <footer id="footer" class="footer">
+      <div class="footer-inner">
+        <div class="copyright">&copy; <span itemprop="copyrightYear">2019</span>
+  <span class="with-love">
+    <i class="fa fa-user"></i>
+  </span>
+  <span class="author" itemprop="copyrightHolder">细弟呀</span>
+
+  
+</div>
+
+
+  <div class="powered-by">Powered by <a class="theme-link" target="_blank" href="https://hexo.io">Hexo</a></div>
+
+
+
+  <span class="post-meta-divider">|</span>
+
+
+
+  <div class="theme-info">Theme &mdash; <a class="theme-link" target="_blank" href="https://github.com/iissnan/hexo-theme-next">NexT.Gemini</a> v5.1.4</div>
+
+
+
+
+        
+
+
+
+
+
+
+
+        
+      </div>
+    </footer>
+
+    
+      <div class="back-to-top">
+        <i class="fa fa-arrow-up"></i>
+        
+          <span id="scrollpercent"><span>0</span>%</span>
+        
+      </div>
+    
+
+    
+
+  </div>
+
+  
+
+<script type="text/javascript">
+  if (Object.prototype.toString.call(window.Promise) !== '[object Function]') {
+    window.Promise = null;
+  }
+</script>
+
+
+
+
+
+
+
+
+
+  
+
+
+
+
+
+
+
+
+
+
+
+
+  
+  
+    <script type="text/javascript" src="/lib/jquery/index.js?v=2.1.3"></script>
+  
+
+  
+  
+    <script type="text/javascript" src="/lib/fastclick/lib/fastclick.min.js?v=1.0.6"></script>
+  
+
+  
+  
+    <script type="text/javascript" src="/lib/jquery_lazyload/jquery.lazyload.js?v=1.9.7"></script>
+  
+
+  
+  
+    <script type="text/javascript" src="/lib/velocity/velocity.min.js?v=1.2.1"></script>
+  
+
+  
+  
+    <script type="text/javascript" src="/lib/velocity/velocity.ui.min.js?v=1.2.1"></script>
+  
+
+  
+  
+    <script type="text/javascript" src="/lib/fancybox/source/jquery.fancybox.pack.js?v=2.1.5"></script>
+  
+
+
+  
+
+
+  <script type="text/javascript" src="/js/src/utils.js?v=5.1.4"></script>
+
+  <script type="text/javascript" src="/js/src/motion.js?v=5.1.4"></script>
+
+
+
+  
+  
+
+
+  <script type="text/javascript" src="/js/src/affix.js?v=5.1.4"></script>
+
+  <script type="text/javascript" src="/js/src/schemes/pisces.js?v=5.1.4"></script>
+
+
+
+  
+  <script type="text/javascript" src="/js/src/scrollspy.js?v=5.1.4"></script>
+<script type="text/javascript" src="/js/src/post-details.js?v=5.1.4"></script>
+
+
+
+  
+
+
+  <script type="text/javascript" src="/js/src/bootstrap.js?v=5.1.4"></script>
+
+
+
+  
+
+
+  
+
+
+
+
+	
+
+
+
+
+
+  
+
+
+
+
+
+  
+
+
+
+
+
+
+
+
+
+
+
+
+  
+
+
+
+
+
+  
+
+  
+
+  
+
+  
+  
+
+  
+
+  
+
+  
+
+<script src="/live2dw/lib/L2Dwidget.min.js?094cbace49a39548bed64abff5988b05"></script><script>L2Dwidget.init({"pluginRootPath":"live2dw/","pluginJsPath":"lib/","pluginModelPath":"assets/","tagMode":false,"debug":false,"model":{"jsonPath":"/live2dw/assets/miku.model.json"},"display":{"position":"left","width":200,"height":400},"mobile":{"show":true},"react":{"opacity":0.7},"log":false});</script></body>
+</html>
