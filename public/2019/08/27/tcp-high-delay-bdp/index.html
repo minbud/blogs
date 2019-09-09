@@ -77,7 +77,7 @@
 
 
 
-  <meta name="keywords" content="Hexo, NexT">
+  <meta name="keywords" content="tcp,interview,high delay,">
 
 
 
@@ -88,13 +88,20 @@
 
 
 
-<meta property="og:type" content="website">
-<meta property="og:title" content="水化木后花园">
-<meta property="og:url" content="https://minbud.github.io/archives/2019/05/index.html">
+<meta name="description" content="tcp在高延时网络下的传输速度　　在高延时且没有出现丢包的情况下，由于滑动窗口机制，如果tcp接收方的流量窗口过小，由于滑动窗口窗口张开原理，会导致单次发送报文耗时基本取决于延迟，传输速度较低。">
+<meta name="keywords" content="tcp,interview,high delay">
+<meta property="og:type" content="article">
+<meta property="og:title" content="tcp_bdp_high_delay">
+<meta property="og:url" content="https://minbud.github.io/2019/08/27/tcp-high-delay-bdp/index.html">
 <meta property="og:site_name" content="水化木后花园">
+<meta property="og:description" content="tcp在高延时网络下的传输速度　　在高延时且没有出现丢包的情况下，由于滑动窗口机制，如果tcp接收方的流量窗口过小，由于滑动窗口窗口张开原理，会导致单次发送报文耗时基本取决于延迟，传输速度较低。">
 <meta property="og:locale" content="default">
+<meta property="og:image" content="https://minbud.github.io/2019/08/27/tcp-high-delay-bdp/1.png">
+<meta property="og:updated_time" content="2019-09-09T03:52:48.136Z">
 <meta name="twitter:card" content="summary">
-<meta name="twitter:title" content="水化木后花园">
+<meta name="twitter:title" content="tcp_bdp_high_delay">
+<meta name="twitter:description" content="tcp在高延时网络下的传输速度　　在高延时且没有出现丢包的情况下，由于滑动窗口机制，如果tcp接收方的流量窗口过小，由于滑动窗口窗口张开原理，会导致单次发送报文耗时基本取决于延迟，传输速度较低。">
+<meta name="twitter:image" content="https://minbud.github.io/2019/08/27/tcp-high-delay-bdp/1.png">
 
 
 
@@ -124,13 +131,13 @@
 
 
 
-  <link rel="canonical" href="https://minbud.github.io/archives/2019/05/">
+  <link rel="canonical" href="https://minbud.github.io/2019/08/27/tcp-high-delay-bdp/">
 
 
 
 
 
-  <title>Archive | 水化木后花园</title>
+  <title>tcp_bdp_high_delay | 水化木后花园</title>
   
 
 
@@ -185,7 +192,7 @@
     
   
 
-  <div class="container sidebar-position-left page-archive">
+  <div class="container sidebar-position-left page-post-detail">
     <div class="headband"></div>
 
     <header id="header" class="header" itemscope itemtype="http://schema.org/WPHeader">
@@ -269,72 +276,155 @@
           <div id="content" class="content">
             
 
+  <div id="posts" class="posts-expand">
+    
+
+  
+
   
   
   
-  <div class="post-block archive">
-    <div id="posts" class="posts-collapse">
-      <span class="archive-move-on"></span>
-
-      <span class="archive-page-counter">
-        
-        
-        
-          
-        
-        Um..! 17 posts in total. Keep on posting.
-      </span>
-
-      
-
-        
-        
-        
-
-        
-          
-          <div class="collection-title">
-            <h1 class="archive-year" id="archive-year-2019">2019</h1>
-          </div>
-        
-        
-
-        
 
   <article class="post post-type-normal" itemscope itemtype="http://schema.org/Article">
-    <header class="post-header">
+  
+  
+  
+  <div class="post-block">
+    <link itemprop="mainEntityOfPage" href="https://minbud.github.io/2019/08/27/tcp-high-delay-bdp/">
 
-      <h2 class="post-title">
+    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
+      <meta itemprop="name" content="细弟呀">
+      <meta itemprop="description" content>
+      <meta itemprop="image" content="/img/minbud.png">
+    </span>
+
+    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
+      <meta itemprop="name" content="水化木后花园">
+    </span>
+
+    
+      <header class="post-header">
+
         
-            <a class="post-title-link" href="/2019/05/12/docker-example/" itemprop="url">
-              
-                <span itemprop="name">docker_example</span>
-              
-            </a>
         
-      </h2>
+          <h1 class="post-title" itemprop="name headline">tcp_bdp_high_delay</h1>
+        
 
-      <div class="post-meta">
-        <time class="post-time" itemprop="dateCreated" datetime="2019-05-12T15:10:34+08:00" content="2019-05-12">
-          05-12
-        </time>
-      </div>
+        <div class="post-meta">
+          <span class="post-time">
+            
+              <span class="post-meta-item-icon">
+                <i class="fa fa-calendar-o"></i>
+              </span>
+              
+                <span class="post-meta-item-text">Posted on</span>
+              
+              <time title="Post created" itemprop="dateCreated datePublished" datetime="2019-08-27T15:22:45+08:00">
+                2019-08-27
+              </time>
+            
 
-    </header>
-  </article>
+            
 
+            
+          </span>
 
+          
+
+          
+            
+          
+
+          
+          
+
+          
+
+          
+
+          
+
+        </div>
+      </header>
+    
+
+    
+    
+    
+    <div class="post-body" itemprop="articleBody">
 
       
+      
 
+      
+        <h3 id="tcp在高延时网络下的传输速度"><a href="#tcp在高延时网络下的传输速度" class="headerlink" title="tcp在高延时网络下的传输速度"></a>tcp在高延时网络下的传输速度</h3><p>　　在高延时且没有出现丢包的情况下，由于滑动窗口机制，如果tcp接收方的流量窗口过小，由于滑动窗口窗口张开原理，会导致单次发送报文耗时基本取决于延迟，传输速度较低。<br><a id="more"></a><br>　　想象报文的发送过程，发送方的发送窗口在接收到接收方的ACK报文后才会向右移动即张开，但是由于传输延时高，发送窗口中的报文发送完毕后，接收方还没有接收到报文，而且在接收到报文后发送的ACK也需要很长的时间，因而发送<br>方花费了很长时间在等待报文的ACK。<br>　　如果发送窗口足够大，发送窗口中的报文刚发送完，就接收到了接收方发送过来的ACK报文，窗口张开向右滑动，这就是理想的状况，即流量控制窗口大小等于时延带宽积，rwnd==bdp（brandwidth-delay product）。<br>　　这种传输环境也被叫做长肥管道。<br>下图是TCP/IP详解中的，可以看出窗口动态滑动的过程：<br><img src="/2019/08/27/tcp-high-delay-bdp/1.png" alt="img"></p>
+<h3 id="可能带来的问题"><a href="#可能带来的问题" class="headerlink" title="可能带来的问题"></a>可能带来的问题</h3><ul>
+<li>窗口大小限制<br>TCP首部中窗口大小为16bit，所以窗口大小最大为65535字节，因此窗口大小可能无法增大到满足时延带宽积的要求。</li>
+<li>序列号重叠<br>TCP使用32bit来标志传输数据，由于高时延和高传输速度，可能导致有相同序列号的数据同时出现在网络当中</li>
+</ul>
+
+      
     </div>
+    
+    
+    
+
+    
+
+    
+
+    
+
+    <footer class="post-footer">
+      
+        <div class="post-tags">
+          
+            <a href="/tags/tcp/" rel="tag"># tcp</a>
+          
+            <a href="/tags/interview/" rel="tag"># interview</a>
+          
+            <a href="/tags/high-delay/" rel="tag"># high delay</a>
+          
+        </div>
+      
+
+      
+      
+      
+
+      
+        <div class="post-nav">
+          <div class="post-nav-next post-nav-item">
+            
+              <a href="/2019/08/10/regular-expression-ipv4/" rel="next" title="regular_expression_ipv4">
+                <i class="fa fa-chevron-left"></i> regular_expression_ipv4
+              </a>
+            
+          </div>
+
+          <span class="post-nav-divider"></span>
+
+          <div class="post-nav-prev post-nav-item">
+            
+          </div>
+        </div>
+      
+
+      
+      
+    </footer>
   </div>
   
   
   
+  </article>
 
-  
 
+
+    <div class="post-spread">
+      
+    </div>
+  </div>
 
 
           </div>
@@ -342,6 +432,10 @@
 
 
           
+
+  
+
+
 
         </div>
         
@@ -362,8 +456,17 @@
       
 
       
+        <ul class="sidebar-nav motion-element">
+          <li class="sidebar-nav-toc sidebar-nav-active" data-target="post-toc-wrap">
+            Table of Contents
+          </li>
+          <li class="sidebar-nav-overview" data-target="site-overview-wrap">
+            Overview
+          </li>
+        </ul>
+      
 
-      <section class="site-overview-wrap sidebar-panel sidebar-panel-active">
+      <section class="site-overview-wrap sidebar-panel">
         <div class="site-overview">
           <div class="site-author motion-element" itemprop="author" itemscope itemtype="http://schema.org/Person">
             
@@ -432,6 +535,22 @@
         </div>
       </section>
 
+      
+      <!--noindex-->
+        <section class="post-toc-wrap motion-element sidebar-panel sidebar-panel-active">
+          <div class="post-toc">
+
+            
+              
+            
+
+            
+              <div class="post-toc-content"><ol class="nav"><li class="nav-item nav-level-3"><a class="nav-link" href="#tcp在高延时网络下的传输速度"><span class="nav-number">1.</span> <span class="nav-text">tcp在高延时网络下的传输速度</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#可能带来的问题"><span class="nav-number">2.</span> <span class="nav-text">可能带来的问题</span></a></li></ol></div>
+            
+
+          </div>
+        </section>
+      <!--/noindex-->
       
 
       
@@ -574,6 +693,10 @@
 
 
   
+  <script type="text/javascript" src="/js/src/scrollspy.js?v=5.1.4"></script>
+<script type="text/javascript" src="/js/src/post-details.js?v=5.1.4"></script>
+
+
 
   
 
